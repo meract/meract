@@ -6,7 +6,7 @@ require __DIR__ . '/meract/core/RecursiveLoad.php';
 
 /* // Загрузка основных компонентов */
 /* requireFilesRecursively(__DIR__ . '/meract/core'); */
-/* requireFilesRecursively(__DIR__ . '/app/core'); */
+
 
 use Meract\Core\{
     Database,
@@ -40,6 +40,8 @@ try {
     echo $e->getMessage() . "\n";
     exit(1);
 }
+
+requireFilesRecursively(__DIR__ . '/app/core');
 
 
 // Загрузка пользовательских компонентов
