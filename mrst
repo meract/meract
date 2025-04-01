@@ -1,0 +1,56 @@
+<?php
+
+// Инициализация
+require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/meract/core/RecursiveLoad.php';
+
+// Подключаем основные классы
+requireFilesRecursively(__DIR__ . '/meract/core');
+
+use Meract\Core\Database;
+
+// Загрузка конфигурации
+$config = require __DIR__ . '/config.php';
+
+// Инициализация базы данных
+try {
+    $database = Database::getInstance($config['database']);
+    $pdo = $database->getPdo();
+} catch (Exception $e) {
+    throw new Exception("Ошибка базы данных. Проверьте config.php: " . $e->getMessage());
+}
+
+// Проверка CLI-режима
+if (php_sapi_name() !== 'cli') {
+    die("Этот скрипт можно запускать только из командной строки.\n");
+}
+
+// Константа с путем проекта
+define("PROJECT_DIR", __DIR__);
+
+// Проверка аргументов
+if ($argc < 2) {
+    die("Использование: php console.php <команда> [аргументы]\n");
+}
+
+// Получаем команду
+$commandName = $argv[1];
+$commandFile = __DIR__ . "/meract/commands/{$commandName}.php";
+
+// Проверка существования команды
+if (!file_exists($commandFile)) {
+    die("Ошибка: Команда '{$commandName}' не найдена.\n");
+}
+
+// Подготовка аргументов
+$args = array_slice($argv, 2);
+$argsCount = count($args);
+
+// Запуск команды
+try {
+    $command = require $commandFile;
+    $command->run($args, $argsCount);
+} catch (Exception $e) {
+    echo "Ошибка: " . $e->getMessage() . "\n";
+    exit(1);
+}

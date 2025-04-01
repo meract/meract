@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Tests\\Unit\\Core\\DatabaseTest::testTableCreation":4},"times":{"Tests\\Unit\\Core\\DatabaseTest::testConnection":0.016,"Tests\\Unit\\Core\\DatabaseTest::testQueryExecution":0.002,"Tests\\Unit\\Core\\DatabaseTest::testTableCreation":0.004}}
