@@ -3,7 +3,6 @@
   <paths>
     <output>docs</output>
     <!--Optional:-->
-    <cache>string</cache>
   </paths>
   <!--Zero or more repetitions:-->
   <version number="3.0">
@@ -44,7 +43,6 @@
     <!--Zero or more repetitions:-->
   </version>
   <!--Zero or more repetitions:-->
-  <setting name="string" value="string"/>
   <!--Zero or more repetitions:-->
 </phpdocumentor>
 
