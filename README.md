@@ -486,3 +486,115 @@ php mrst make model Test
 php mrst tests
 ```
 Проводит unit тесты из папки `tests` с помощью `phpUnit`
+
+### make.chain
+Создаёт цепочку жизненного цикла запроса. В моём понимании цепочка жизненного цикла запроса это: route->controller<-model->view
+Т.е. сначала роут реагирует на запрос, после отдаёт его в контроллер, он обрабатывает этот запрос берёт или устанавливает какие-либо данные через модель. А после рендерит всё это через view. И вот команда `make.chain` одним вызовом способна создать такую цепочку жизненного цикла.
+Пример:
+```
+php mrst make.chain rcmv product --table=products -rest '{"title" : "string", "price" : "float", "count" : "integer"}';
+php mrst migrate;
+```
+Итог:
+`app/migration/products.php`:
+```
+<?php
+
+use Meract\Core\Migration;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        $this->schema->create('products', function ($table) {
+            $table->id();
+            $table->string('title');
+            $table->float('price');
+            $table->integer('count');
+
+        });
+    }
+
+    public function down(): void
+    {
+        $this->schema->drop('products');
+    }
+};
+```
+`app/models/ProductModel.php`:
+```
+<?php
+namespace App\Models;
+
+use Meract\Core\Model;
+
+class ProductModel extends Model 
+{
+    protected static $table = 'products';
+    protected $fillable = [
+		'id',
+		'title',
+		'price',
+		'count',
+    ];
+}
+```
+`app/controllers/ProductController.php`:
+```
+<?php
+namespace App\Controllers;
+
+use Meract\Core\Controller;
+use App\Models\ProductModel;
+
+class ProductController extends Controller
+{
+    public static function index($request)
+    {
+
+    }
+
+    public static function show($request, $data)
+    {
+
+    }
+
+    public static function store($request)
+    {
+
+    }
+
+    public static function update($request, $data)
+    {
+
+    }
+
+    public static function destroy($request, $data)
+    {
+
+    }
+}
+```
+`app/views/product.php`:
+```
+<!-- View for Product -->
+```
+`app/routes/web.php`:
+```
+//your routes here...
+
+// REST API routes for Product
+Route::get('/product', [ProductController::class, 'index']);
+Route::get('/product/{id}', [ProductController::class, 'show']);
+Route::post('/product', [ProductController::class, 'store']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);
+```
+
+Вы получили, модель, миграцию, контроллер, и роуты для круд операций. Со структорой указанной в json
+Буквы `rcmv`:
+- r - route
+- c - controller
+- m - model and migration
+- v - view
+
+Указывайте только те компоненты которые вам нужны. Параметр `--table=products` необязательный, указывает имя таблицы если оно отличается от основного имени. `-rest` Необязательный параметр, создающий не один роут, а несколько для круд операций в формате RESTApi Так же соответствующие методы в контроллере. Ну и структура таблицы в формате json необязательный параметр, который определяет структуру таблицы.(powershell игнорирует)

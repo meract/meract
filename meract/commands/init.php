@@ -27,7 +27,7 @@ return new class
 			PROJECT_DIR.'/app/views',
 			PROJECT_DIR.'/app/workers',
 			PROJECT_DIR.'/app/migrations',
-			PROJECT_DIR.'/static',
+			PROJECT_DIR.'/app/static',
 			PROJECT_DIR.'/tests',
 			PROJECT_DIR.'/app/middleware'
 		];
