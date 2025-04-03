@@ -18,18 +18,243 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Astring\u0028\u0029",
             "name": "string",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u0441\u0442\u0440\u043E\u043A\u043E\u0432\u0443\u044E\u0020\u043A\u043E\u043B\u043E\u043D\u043A\u0443\u0020\u0028VARCHAR\u0029.",
+            "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_string"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Achar\u0028\u0029",
+            "name": "char",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_char"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atext\u0028\u0029",
+            "name": "text",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_text"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumText\u0028\u0029",
+            "name": "mediumText",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_mediumText"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlongText\u0028\u0029",
+            "name": "longText",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_longText"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Abinary\u0028\u0029",
+            "name": "binary",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_binary"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ablob\u0028\u0029",
+            "name": "blob",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_blob"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumBlob\u0028\u0029",
+            "name": "mediumBlob",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_mediumBlob"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlongBlob\u0028\u0029",
+            "name": "longBlob",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_longBlob"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aenum\u0028\u0029",
+            "name": "enum",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_enum"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_set"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ainteger\u0028\u0029",
+            "name": "integer",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_integer"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AtinyInteger\u0028\u0029",
+            "name": "tinyInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_tinyInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AsmallInteger\u0028\u0029",
+            "name": "smallInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_smallInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumInteger\u0028\u0029",
+            "name": "mediumInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_mediumInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AbigInteger\u0028\u0029",
+            "name": "bigInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_bigInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AunsignedInteger\u0028\u0029",
+            "name": "unsignedInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_unsignedInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Afloat\u0028\u0029",
+            "name": "float",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_float"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adouble\u0028\u0029",
+            "name": "double",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_double"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adecimal\u0028\u0029",
+            "name": "decimal",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_decimal"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aboolean\u0028\u0029",
+            "name": "boolean",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_boolean"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adate\u0028\u0029",
+            "name": "date",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_date"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atime\u0028\u0029",
+            "name": "time",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_time"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AdateTime\u0028\u0029",
+            "name": "dateTime",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_dateTime"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atimestamp\u0028\u0029",
+            "name": "timestamp",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_timestamp"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ayear\u0028\u0029",
+            "name": "year",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_year"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ajson\u0028\u0029",
+            "name": "json",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_json"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ageometry\u0028\u0029",
+            "name": "geometry",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_geometry"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Apoint\u0028\u0029",
+            "name": "point",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_point"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlineString\u0028\u0029",
+            "name": "lineString",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_lineString"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Apolygon\u0028\u0029",
+            "name": "polygon",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_polygon"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiPoint\u0028\u0029",
+            "name": "multiPoint",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_multiPoint"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiLineString\u0028\u0029",
+            "name": "multiLineString",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_multiLineString"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiPolygon\u0028\u0029",
+            "name": "multiPolygon",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_multiPolygon"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AgeometryCollection\u0028\u0029",
+            "name": "geometryCollection",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_geometryCollection"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Anullable\u0028\u0029",
+            "name": "nullable",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_nullable"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adefault\u0028\u0029",
+            "name": "default",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_default"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aunsigned\u0028\u0029",
+            "name": "unsigned",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_unsigned"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AautoIncrement\u0028\u0029",
+            "name": "autoIncrement",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_autoIncrement"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Acomment\u0028\u0029",
+            "name": "comment",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_comment"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aunique\u0028\u0029",
             "name": "unique",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0435\u0020UNIQUE\u0020\u043A\u0020\u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0439\u0020\u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043D\u043E\u0439\u0020\u043A\u043E\u043B\u043E\u043D\u043A\u0435.",
+            "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_unique"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aprimary\u0028\u0029",
+            "name": "primary",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_primary"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_index"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aafter\u0028\u0029",
+            "name": "after",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_after"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Afirst\u0028\u0029",
+            "name": "first",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_first"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atimestamps\u0028\u0029",
             "name": "timestamps",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0435\u0020\u043C\u0435\u0442\u043A\u0438\u0020\u0028created_at\u0020\u0438\u0020updated_at\u0029.",
+            "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_timestamps"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AsoftDeletes\u0028\u0029",
+            "name": "softDeletes",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_softDeletes"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003ArememberToken\u0028\u0029",
+            "name": "rememberToken",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#method_rememberToken"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AcompileCreate\u0028\u0029",
             "name": "compileCreate",
@@ -291,6 +516,11 @@ Search.appendIndex(
             "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u043F\u043E\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u044F\u0020\u0438\u0020\u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432.",
             "url": "classes/Meract-Core-Qryli.html"
         },                {
+            "fqsen": "\\Meract\\Core\\Qryli\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Meract-Core-Qryli.html#method___construct"
+        },                {
             "fqsen": "\\Meract\\Core\\Qryli\u003A\u003AsetPdo\u0028\u0029",
             "name": "setPdo",
             "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435\u0020PDO.",
@@ -371,6 +601,71 @@ Search.appendIndex(
             "summary": "\u0420\u0435\u043A\u0443\u0440\u0441\u0438\u0432\u043D\u043E\u0020\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0020\u0432\u0441\u0435\u0020PHP\u002D\u0444\u0430\u0439\u043B\u044B\u0020\u0438\u0437\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u043E\u0439\u0020\u0434\u0438\u0440\u0435\u043A\u0442\u043E\u0440\u0438\u0438.",
             "url": "namespaces/default.html#function_requireFilesRecursively"
         },                {
+            "fqsen": "\\Meract\\Core\\Request",
+            "name": "Request",
+            "summary": "\u041E\u0431\u044A\u0435\u043A\u0442\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430\u0020\u043E\u0442\u0020\u043A\u043B\u0438\u0435\u043D\u0442\u0430",
+            "url": "classes/Meract-Core-Request.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003AfromGlobals\u0028\u0029",
+            "name": "fromGlobals",
+            "summary": "\u0421\u043E\u0437\u0434\u0430\u0451\u0442\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0020Request\u0020\u0438\u0437\u0020\u0433\u043B\u043E\u0431\u0430\u0432\u043B\u044C\u043D\u043E\u0439\u0020\u043F\u0435\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0439\u0020\u0024_SERVER",
+            "url": "classes/Meract-Core-Request.html#method_fromGlobals"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003AwithHeaderString\u0028\u0029",
+            "name": "withHeaderString",
+            "summary": "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435\u0020\u043D\u043E\u0432\u043E\u0433\u043E\u0020\u044D\u043A\u0437\u0435\u043C\u043F\u043B\u044F\u0440\u0430\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430\u0020\u0441\u0020\u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435\u043C\u0020\u0441\u0442\u0440\u043E\u043A\u0438\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430",
+            "url": "classes/Meract-Core-Request.html#method_withHeaderString"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#method___construct"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003AparseCookies\u0028\u0029",
+            "name": "parseCookies",
+            "summary": "\u0420\u0430\u0437\u0431\u043E\u0440\u0020cookies\u0020\u0438\u0437\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u043E\u0432",
+            "url": "classes/Meract-Core-Request.html#method_parseCookies"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024method",
+            "name": "method",
+            "summary": "\u041C\u0435\u0442\u043E\u0434\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#property_method"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024uri",
+            "name": "uri",
+            "summary": "\u0417\u0430\u043F\u0440\u043E\u0448\u0435\u043D\u043D\u044B\u0439\u0020URI",
+            "url": "classes/Meract-Core-Request.html#property_uri"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003Aheader\u0028\u0029",
+            "name": "header",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#method_header"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003Aparam\u0028\u0029",
+            "name": "param",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#method_param"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003Acookie\u0028\u0029",
+            "name": "cookie",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020cookie\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#method_cookie"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#property_parameters"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0438\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#property_headers"
+        },                {
+            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024cookies",
+            "name": "cookies",
+            "summary": "Cookies\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
+            "url": "classes/Meract-Core-Request.html#property_cookies"
+        },                {
             "fqsen": "\\Meract\\Core\\RequestLogger",
             "name": "RequestLogger",
             "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u043B\u043E\u0433\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F\u0020HTTP\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432.",
@@ -380,6 +675,71 @@ Search.appendIndex(
             "name": "handle",
             "summary": "\u041E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442\u0020\u0438\u0020\u043B\u043E\u0433\u0438\u0440\u0443\u0435\u0442\u0020HTTP\u002D\u0437\u0430\u043F\u0440\u043E\u0441.",
             "url": "classes/Meract-Core-RequestLogger.html#method_handle"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response",
+            "name": "Response",
+            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0444\u043E\u0440\u043C\u0438\u0440\u0443\u0435\u0442\u0020\u043E\u0442\u0432\u0435\u0442\u0020\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044E",
+            "url": "classes/Meract-Core-Response.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003Asend\u0028\u0029",
+            "name": "send",
+            "summary": "\u041E\u0442\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043E\u0442\u0432\u0435\u0442\u0020\u0028\u0432\u0020\u0440\u0435\u0436\u0438\u043C\u0435\u0020customServer\u0029",
+            "url": "classes/Meract-Core-Response.html#method_send"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u0440\u043E\u0441\u0442\u043E\u0439\u0020\u043E\u0442\u0432\u0435\u0442\u0020\u043D\u0430\u0020\u043E\u0441\u043D\u043E\u0432\u0435\u0020\u0441\u0442\u0430\u0442\u0443\u0441\u043D\u043E\u0433\u043E\u0020\u043A\u043E\u0434\u0430",
+            "url": "classes/Meract-Core-Response.html#method_error"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u043D\u043E\u0432\u043E\u0433\u043E\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0430\u0020Response",
+            "url": "classes/Meract-Core-Response.html#method___construct"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024body",
+            "name": "body",
+            "summary": "\u0422\u0435\u043A\u0443\u0449\u0435\u0435\u0020\u0442\u0435\u043B\u043E\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
+            "url": "classes/Meract-Core-Response.html#property_body"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003Aheader\u0028\u0029",
+            "name": "header",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u0438\u043B\u0438\u0020\u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u0435\u0442\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430",
+            "url": "classes/Meract-Core-Response.html#method_header"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003AbuildHeaderString\u0028\u0029",
+            "name": "buildHeaderString",
+            "summary": "\u0421\u043E\u0437\u0434\u0430\u0435\u0442\u0020\u0441\u0442\u0440\u043E\u043A\u0443\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430\u0020\u043D\u0430\u0020\u043E\u0441\u043D\u043E\u0432\u0435\u0020\u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0430",
+            "url": "classes/Meract-Core-Response.html#method_buildHeaderString"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003AsetCookie\u0028\u0029",
+            "name": "setCookie",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020cookie",
+            "url": "classes/Meract-Core-Response.html#method_setCookie"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "\u041F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u0443\u0435\u0442\u0020\u0434\u0430\u043D\u043D\u044B\u0435\u0020\u043E\u0442\u0432\u0435\u0442\u0430\u0020\u0432\u0020\u0441\u0442\u0440\u043E\u043A\u0443",
+            "url": "classes/Meract-Core-Response.html#method___toString"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024cookies",
+            "name": "cookies",
+            "summary": "Cookies",
+            "url": "classes/Meract-Core-Response.html#property_cookies"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024statusCodes",
+            "name": "statusCodes",
+            "summary": "\u041C\u0430\u0441\u0441\u0438\u0432\u0020\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0445\u0020HTTP\u002D\u043A\u043E\u0434\u043E\u0432\u0020\u043E\u0442\u0432\u0435\u0442\u043E\u0432",
+            "url": "classes/Meract-Core-Response.html#property_statusCodes"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024status",
+            "name": "status",
+            "summary": "\u0422\u0435\u043A\u0443\u0449\u0438\u0439\u0020\u0441\u0442\u0430\u0442\u0443\u0441\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
+            "url": "classes/Meract-Core-Response.html#property_status"
+        },                {
+            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024headers",
+            "name": "headers",
+            "summary": "\u0422\u0435\u043A\u0443\u0449\u0438\u0435\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0438\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
+            "url": "classes/Meract-Core-Response.html#property_headers"
         },                {
             "fqsen": "\\Meract\\Core\\Route",
             "name": "Route",
@@ -451,6 +811,11 @@ Search.appendIndex(
             "summary": "\u041E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0020MIME\u002D\u0442\u0438\u043F\u0020\u0444\u0430\u0439\u043B\u0430.",
             "url": "classes/Meract-Core-Route.html#method_getMimeType"
         },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003AhandleRequest\u0028\u0029",
+            "name": "handleRequest",
+            "summary": "\u041E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442\u0020\u043F\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0439\u0020\u0437\u0430\u043F\u0440\u043E\u0441",
+            "url": "classes/Meract-Core-Route.html#method_handleRequest"
+        },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003A\u0024routes",
             "name": "routes",
             "summary": "",
@@ -513,7 +878,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Server",
             "name": "Server",
-            "summary": "",
+            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0437\u0430\u043F\u0443\u0441\u043A\u0430\u044E\u0449\u0438\u0439\u0020\u0441\u0435\u0440\u0432\u0435\u0440",
             "url": "classes/Meract-Core-Server.html"
         },                {
             "fqsen": "\\Meract\\Core\\Server\u003A\u003A__construct\u0028\u0029",
@@ -550,121 +915,6 @@ Search.appendIndex(
             "name": "socket",
             "summary": "\u041F\u0440\u0438\u0432\u044F\u0437\u0430\u043D\u043D\u044B\u0439\u0020\u0441\u043E\u043A\u0435\u0442",
             "url": "classes/Meract-Core-Server.html#property_socket"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response",
-            "name": "Response",
-            "summary": "",
-            "url": "classes/Meract-Core-Response.html"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003Aerror\u0028\u0029",
-            "name": "error",
-            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u0440\u043E\u0441\u0442\u043E\u0439\u0020\u043E\u0442\u0432\u0435\u0442\u0020\u043D\u0430\u0020\u043E\u0441\u043D\u043E\u0432\u0435\u0020\u0441\u0442\u0430\u0442\u0443\u0441\u043D\u043E\u0433\u043E\u0020\u043A\u043E\u0434\u0430",
-            "url": "classes/Meract-Core-Response.html#method_error"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u043D\u043E\u0432\u043E\u0433\u043E\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0430\u0020Response",
-            "url": "classes/Meract-Core-Response.html#method___construct"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024body",
-            "name": "body",
-            "summary": "\u0422\u0435\u043A\u0443\u0449\u0435\u0435\u0020\u0442\u0435\u043B\u043E\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
-            "url": "classes/Meract-Core-Response.html#property_body"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003Aheader\u0028\u0029",
-            "name": "header",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u0438\u043B\u0438\u0020\u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0438\u0441\u044B\u0432\u0430\u0435\u0442\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430",
-            "url": "classes/Meract-Core-Response.html#method_header"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003AbuildHeaderString\u0028\u0029",
-            "name": "buildHeaderString",
-            "summary": "\u0421\u043E\u0437\u0434\u0430\u0435\u0442\u0020\u0441\u0442\u0440\u043E\u043A\u0443\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430\u0020\u043D\u0430\u0020\u043E\u0441\u043D\u043E\u0432\u0435\u0020\u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0430",
-            "url": "classes/Meract-Core-Response.html#method_buildHeaderString"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003AsetCookie\u0028\u0029",
-            "name": "setCookie",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020cookie",
-            "url": "classes/Meract-Core-Response.html#method_setCookie"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A__toString\u0028\u0029",
-            "name": "__toString",
-            "summary": "\u041F\u0440\u0435\u043E\u0431\u0440\u0430\u0437\u0443\u0435\u0442\u0020\u0434\u0430\u043D\u043D\u044B\u0435\u0020\u043E\u0442\u0432\u0435\u0442\u0430\u0020\u0432\u0020\u0441\u0442\u0440\u043E\u043A\u0443",
-            "url": "classes/Meract-Core-Response.html#method___toString"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "\u041C\u0430\u0441\u0441\u0438\u0432\u0020\u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B\u0445\u0020HTTP\u002D\u043A\u043E\u0434\u043E\u0432\u0020\u043E\u0442\u0432\u0435\u0442\u043E\u0432",
-            "url": "classes/Meract-Core-Response.html#property_statusCodes"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024status",
-            "name": "status",
-            "summary": "\u0422\u0435\u043A\u0443\u0449\u0438\u0439\u0020\u0441\u0442\u0430\u0442\u0443\u0441\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
-            "url": "classes/Meract-Core-Response.html#property_status"
-        },                {
-            "fqsen": "\\Meract\\Core\\Response\u003A\u003A\u0024headers",
-            "name": "headers",
-            "summary": "\u0422\u0435\u043A\u0443\u0449\u0438\u0435\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0438\u0020\u043E\u0442\u0432\u0435\u0442\u0430",
-            "url": "classes/Meract-Core-Response.html#property_headers"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request",
-            "name": "Request",
-            "summary": "",
-            "url": "classes/Meract-Core-Request.html"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003AwithHeaderString\u0028\u0029",
-            "name": "withHeaderString",
-            "summary": "\u0421\u043E\u0437\u0434\u0430\u043D\u0438\u0435\u0020\u043D\u043E\u0432\u043E\u0433\u043E\u0020\u044D\u043A\u0437\u0435\u043C\u043F\u043B\u044F\u0440\u0430\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430\u0020\u0441\u0020\u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435\u043C\u0020\u0441\u0442\u0440\u043E\u043A\u0438\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430",
-            "url": "classes/Meract-Core-Request.html#method_withHeaderString"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#method___construct"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003AparseCookies\u0028\u0029",
-            "name": "parseCookies",
-            "summary": "\u0420\u0430\u0437\u0431\u043E\u0440\u0020cookies\u0020\u0438\u0437\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u043E\u0432",
-            "url": "classes/Meract-Core-Request.html#method_parseCookies"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024method",
-            "name": "method",
-            "summary": "\u041C\u0435\u0442\u043E\u0434\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#property_method"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024uri",
-            "name": "uri",
-            "summary": "\u0417\u0430\u043F\u0440\u043E\u0448\u0435\u043D\u043D\u044B\u0439\u0020URI",
-            "url": "classes/Meract-Core-Request.html#property_uri"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003Aheader\u0028\u0029",
-            "name": "header",
-            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#method_header"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003Aparam\u0028\u0029",
-            "name": "param",
-            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#method_param"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003Acookie\u0028\u0029",
-            "name": "cookie",
-            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020cookie\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#method_cookie"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024parameters",
-            "name": "parameters",
-            "summary": "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#property_parameters"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024headers",
-            "name": "headers",
-            "summary": "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0438\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#property_headers"
-        },                {
-            "fqsen": "\\Meract\\Core\\Request\u003A\u003A\u0024cookies",
-            "name": "cookies",
-            "summary": "Cookies\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u0430",
-            "url": "classes/Meract-Core-Request.html#property_cookies"
         },                {
             "fqsen": "\\Meract\\Core\\Session",
             "name": "Session",
@@ -728,8 +978,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Storage",
             "name": "Storage",
-            "summary": "",
+            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0433\u043E\u0020\u0445\u0440\u0430\u043D\u0435\u043D\u0438\u044F\u0020\u0434\u0430\u043D\u043D\u044B\u0445.\u0020\u0412\u0020\u0441\u0442\u0430\u043D\u0434\u0430\u0440\u0442\u043D\u043E\u043C\u0020\u0434\u0440\u0430\u0439\u0432\u0435\u0440\u0435\u0028\u043A\u043E\u0442\u043E\u0440\u044B\u0439\u0020\u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442\u0020\u0442\u043E\u043B\u044C\u043A\u043E\u0020\u0441\u0020\u0432\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u044B\u043C\u0020\u0441\u0435\u0440\u0432\u0435\u0440\u043E\u043C\u0029\u0020\u0445\u0440\u0430\u043D\u0438\u0442\u0020\u0434\u0430\u043D\u043D\u044B\u0435\u0020\u0432\u0020\u043E\u043F\u0435\u0440\u0430\u0442\u0438\u0432\u043D\u043E\u0439\u0020\u043F\u0430\u043C\u044F\u0442\u0438.",
             "url": "classes/Meract-Core-Storage.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Storage\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "\u0418\u043D\u0438\u0446\u0438\u0430\u043B\u0438\u0437\u0438\u0440\u0443\u0435\u0442\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435\u0020\u0441\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u043C\u0020\u0434\u0440\u0430\u0439\u0432\u0435\u0440\u043E\u043C.",
+            "url": "classes/Meract-Core-Storage.html#method_init"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003AsetTime\u0028\u0029",
             "name": "setTime",
@@ -738,22 +993,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003Aset\u0028\u0029",
             "name": "set",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0434\u043B\u044F\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430\u0020\u0432\u0020\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435\u0020\u0438\u043B\u0438\u0020\u0432\u0020\u043F\u043E\u0434\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435,\u0020\u0435\u0441\u043B\u0438\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441.",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0434\u043B\u044F\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430.",
             "url": "classes/Meract-Core-Storage.html#method_set"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430\u0020\u0438\u0437\u0020\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430\u0020\u0438\u043B\u0438\u0020\u0438\u0437\u0020\u043F\u043E\u0434\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430,\u0020\u0435\u0441\u043B\u0438\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441.",
+            "summary": "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430.",
             "url": "classes/Meract-Core-Storage.html#method_get"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0437\u0430\u043F\u0438\u0441\u044C\u0020\u0438\u0437\u0020\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430\u0020\u0438\u043B\u0438\u0020\u0438\u0437\u0020\u043F\u043E\u0434\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430,\u0020\u0435\u0441\u043B\u0438\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441.",
+            "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0437\u0430\u043F\u0438\u0441\u044C\u0020\u0438\u0437\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430.",
             "url": "classes/Meract-Core-Storage.html#method_remove"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "\u041E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0020\u0432\u0440\u0435\u043C\u044F\u0020\u0436\u0438\u0437\u043D\u0438\u0020\u0437\u0430\u043F\u0438\u0441\u0438\u0020\u0432\u0020\u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435\u0020\u0438\u043B\u0438\u0020\u0432\u0020\u043F\u043E\u0434\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435,\u0020\u0435\u0441\u043B\u0438\u0020\u0443\u043A\u0430\u0437\u0430\u043D\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441.",
+            "summary": "\u041E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0020\u0432\u0440\u0435\u043C\u044F\u0020\u0436\u0438\u0437\u043D\u0438\u0020\u0437\u0430\u043F\u0438\u0441\u0438.",
             "url": "classes/Meract-Core-Storage.html#method_update"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003AhandleDeletion\u0028\u0029",
@@ -761,15 +1016,50 @@ Search.appendIndex(
             "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0438\u0441\u0442\u0451\u043A\u0448\u0438\u0435\u0020\u0437\u0430\u043F\u0438\u0441\u0438\u0020\u0438\u0437\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430.",
             "url": "classes/Meract-Core-Storage.html#method_handleDeletion"
         },                {
-            "fqsen": "\\Meract\\Core\\Storage\u003A\u003A\u0024storage",
-            "name": "storage",
+            "fqsen": "\\Meract\\Core\\Storage\u003A\u003AensureDriverInitialized\u0028\u0029",
+            "name": "ensureDriverInitialized",
+            "summary": "\u0423\u0431\u0435\u0436\u0434\u0430\u0435\u0442\u0441\u044F,\u0020\u0447\u0442\u043E\u0020\u0434\u0440\u0430\u0439\u0432\u0435\u0440\u0020\u0438\u043D\u0438\u0446\u0438\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043D.",
+            "url": "classes/Meract-Core-Storage.html#method_ensureDriverInitialized"
+        },                {
+            "fqsen": "\\Meract\\Core\\Storage\u003A\u003A\u0024driver",
+            "name": "driver",
             "summary": "",
-            "url": "classes/Meract-Core-Storage.html#property_storage"
+            "url": "classes/Meract-Core-Storage.html#property_driver"
         },                {
             "fqsen": "\\Meract\\Core\\Storage\u003A\u003A\u0024defaultTtl",
             "name": "defaultTtl",
             "summary": "",
             "url": "classes/Meract-Core-Storage.html#property_defaultTtl"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver",
+            "name": "StorageDriver",
+            "summary": "\u0410\u0431\u0441\u0442\u0440\u0430\u043A\u0442\u043D\u044B\u0439\u0020\u043A\u043B\u0430\u0441\u0441\u0020\u0434\u0440\u0430\u0439\u0432\u0435\u0440\u0430\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430.",
+            "url": "classes/Meract-Core-StorageDriver.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0434\u043B\u044F\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430.",
+            "url": "classes/Meract-Core-StorageDriver.html#method_set"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430.",
+            "url": "classes/Meract-Core-StorageDriver.html#method_get"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0437\u0430\u043F\u0438\u0441\u044C\u0020\u0438\u0437\u0020\u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430.",
+            "url": "classes/Meract-Core-StorageDriver.html#method_remove"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver\u003A\u003AupdateTtl\u0028\u0029",
+            "name": "updateTtl",
+            "summary": "\u041E\u0431\u043D\u043E\u0432\u043B\u044F\u0435\u0442\u0020\u0432\u0440\u0435\u043C\u044F\u0020\u0436\u0438\u0437\u043D\u0438\u0020\u0437\u0430\u043F\u0438\u0441\u0438.",
+            "url": "classes/Meract-Core-StorageDriver.html#method_updateTtl"
+        },                {
+            "fqsen": "\\Meract\\Core\\StorageDriver\u003A\u003AhandleDeletion\u0028\u0029",
+            "name": "handleDeletion",
+            "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0432\u0441\u0435\u0020\u0438\u0441\u0442\u0451\u043A\u0448\u0438\u0435\u0020\u0437\u0430\u043F\u0438\u0441\u0438.",
+            "url": "classes/Meract-Core-StorageDriver.html#method_handleDeletion"
         },                {
             "fqsen": "\\Meract\\Core\\View",
             "name": "View",

@@ -126,14 +126,15 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.124" class="phpdocumentor-element-found-in__source" data-line="124" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.6" class="phpdocumentor-element-found-in__source" data-line="6" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Класс формирует ответ пользователю</p>
+
 
 
 
@@ -168,6 +169,13 @@
                         &nbsp;: string            </span>
 </dt>
 <dd>Текущее тело ответа</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a class="" href="classes/Meract-Core-Response.html#property_cookies">$cookies</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Cookies</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/Meract-Core-Response.html#property_headers">$headers</a>
@@ -241,6 +249,13 @@
 <dd>Добавляет или перезаписывает параметр заголовка</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Meract-Core-Response.html#method_send">send()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Отправляет ответ (в режиме customServer)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Response.html#method_setCookie">setCookie()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -275,11 +290,11 @@
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.208" class="phpdocumentor-element-found-in__source" data-line="208" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.123" class="phpdocumentor-element-found-in__source" data-line="123" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Текущее тело ответа</p>
@@ -305,6 +320,44 @@
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_cookies">
+        $cookies
+        <a href="classes/Meract-Core-Response.html#property_cookies" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">12</span>
+
+            <a href="classes/Meract-Core-Response.html#source-view.12" class="phpdocumentor-element-found-in__source" data-line="12" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Cookies</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$cookies</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_headers">
         $headers
         <a href="classes/Meract-Core-Response.html#property_headers" class="headerlink"><i class="fas fa-link"></i></a>
@@ -313,11 +366,11 @@
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.215" class="phpdocumentor-element-found-in__source" data-line="215" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.130" class="phpdocumentor-element-found-in__source" data-line="130" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Текущие заголовки ответа</p>
@@ -351,11 +404,11 @@
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">201</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.201" class="phpdocumentor-element-found-in__source" data-line="201" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.116" class="phpdocumentor-element-found-in__source" data-line="116" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Текущий статус ответа</p>
@@ -389,11 +442,11 @@
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.131" class="phpdocumentor-element-found-in__source" data-line="131" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.18" class="phpdocumentor-element-found-in__source" data-line="18" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Массив доступных HTTP-кодов ответов</p>
@@ -481,11 +534,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">224</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.224" class="phpdocumentor-element-found-in__source" data-line="224" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.139" class="phpdocumentor-element-found-in__source" data-line="139" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Конструктор нового объекта Response</p>
@@ -534,11 +587,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">323</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.323" class="phpdocumentor-element-found-in__source" data-line="323" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Преобразует данные ответа в строку</p>
@@ -574,11 +627,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.241" class="phpdocumentor-element-found-in__source" data-line="241" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.156" class="phpdocumentor-element-found-in__source" data-line="156" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Возвращает тело ответа</p>
@@ -614,11 +667,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.263" class="phpdocumentor-element-found-in__source" data-line="263" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.178" class="phpdocumentor-element-found-in__source" data-line="178" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Создает строку заголовка на основе текущего объекта</p>
@@ -654,11 +707,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">191</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.191" class="phpdocumentor-element-found-in__source" data-line="191" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.106" class="phpdocumentor-element-found-in__source" data-line="106" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Возвращает простой ответ на основе статусного кода</p>
@@ -704,11 +757,11 @@
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.253" class="phpdocumentor-element-found-in__source" data-line="253" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.168" class="phpdocumentor-element-found-in__source" data-line="168" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Добавляет или перезаписывает параметр заголовка</p>
@@ -751,17 +804,53 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_send">
+        send()
+        <a href="classes/Meract-Core-Response.html#method_send" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">77</span>
+
+            <a href="classes/Meract-Core-Response.html#source-view.77" class="phpdocumentor-element-found-in__source" data-line="77" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Отправляет ответ (в режиме customServer)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">send</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_setCookie">
         setCookie()
         <a href="classes/Meract-Core-Response.html#method_setCookie" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Server.php"><a href="files/meract-core-server.html"><abbr title="meract/core/Server.php">Server.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Response.php"><a href="files/meract-core-response.html"><abbr title="meract/core/Response.php">Response.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">291</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
-            <a href="classes/Meract-Core-Response.html#source-view.291" class="phpdocumentor-element-found-in__source" data-line="291" data-modal="source-view" data-src="files/meract/core/Server.php.txt"></a>
+            <a href="classes/Meract-Core-Response.html#source-view.206" class="phpdocumentor-element-found-in__source" data-line="206" data-modal="source-view" data-src="files/meract/core/Response.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Устанавливает cookie</p>
@@ -853,7 +942,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/meract/core/Server.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/meract/core/Response.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -961,6 +1050,7 @@
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="classes/Meract-Core-Response.html#property_body">$body</a></li>
+                                                    <li class=""><a href="classes/Meract-Core-Response.html#property_cookies">$cookies</a></li>
                                                     <li class=""><a href="classes/Meract-Core-Response.html#property_headers">$headers</a></li>
                                                     <li class=""><a href="classes/Meract-Core-Response.html#property_status">$status</a></li>
                                                     <li class=""><a href="classes/Meract-Core-Response.html#property_statusCodes">$statusCodes</a></li>
@@ -976,6 +1066,7 @@
                                             <li class=""><a href="classes/Meract-Core-Response.html#method_buildHeaderString">buildHeaderString()</a></li>
                                             <li class=""><a href="classes/Meract-Core-Response.html#method_error">error()</a></li>
                                             <li class=""><a href="classes/Meract-Core-Response.html#method_header">header()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Response.html#method_send">send()</a></li>
                                             <li class=""><a href="classes/Meract-Core-Response.html#method_setCookie">setCookie()</a></li>
                                     </ul>
             </li>

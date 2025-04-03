@@ -234,4 +234,55 @@ class Route
 		$extension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
 		return $mimeTypes[$extension] ?? 'application/octet-stream';
 	}
+
+	/**
+	 * Обрабатывает передаваемый запрос
+	 * 
+	 * @param \Meract\Core\Request $request
+	 * @return \Meract\Core\Response
+	 */
+	public static function handleRequest(Request $request): Response
+    {
+        $method = $request->method();
+        $uri = $request->uri();
+
+        if (self::$requestLogger) {
+            self::$requestLogger->handle($request);
+        }
+
+        // Обработка динамических маршрутов
+        foreach (self::$routes[$method] ?? [] as $routePath => $callback) {
+            $pattern = preg_replace('/\{([a-z]+)\}/', '(?P<$1>[^/]+)', $routePath);
+            $pattern = "@^" . $pattern . "$@D";
+
+            if (preg_match($pattern, $uri, $matches)) {
+                $routeData = [];
+                foreach ($matches as $key => $value) {
+                    if (is_string($key)) {
+                        $routeData[$key] = $value;
+                    }
+                }
+
+                return $callback($request, $routeData);
+            }
+        }
+
+        // Обработка статических файлов
+        if (self::$staticPath) {
+            $filePath = self::$staticPath . '/' . ltrim($uri, '/');
+            if (file_exists($filePath) && is_file($filePath)) {
+                $response = new Response(file_get_contents($filePath), 200);
+                $mime = self::getMimeType($filePath);
+                $response->header("Content-Type", $mime);
+                return $response;
+            }
+        }
+
+        // Обработка 404 ошибки
+        if (self::$notFoundCallback) {
+            return call_user_func(self::$notFoundCallback, $request);
+        }
+
+        return new Response("Not Found", 404);
+    }
 }
