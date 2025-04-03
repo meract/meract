@@ -3,12 +3,14 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
 use Meract\Core\{
+    Storage,
     Database,
     Route,
     Server,
     Request,
     Response,
-    RequestLogger
+    RequestLogger,
+    Qryli
 };
 
 // Загрузка конфигурации
@@ -19,11 +21,15 @@ $config = require __DIR__ . '/config.php';
 try {
     $database = Database::getInstance($config['database']);
     $pdo = $database->getPdo();
+    Qryli::setPdo($pdo);
 } catch (Exception $e) {
     throw new Exception("Database initialization failed. Please check config.php: " . $e->getMessage());
 }
 
-
+if (isset($config['storage'], $config['storage']['driver'], $config['storage']['time'])){
+    Storage::init($config['storage']['driver']);
+    Storage::setTime($config['storage']['time']);
+}
 
 
 if (!isset($_SERVER['REQUEST_URI'])) { // Проверяем обращаются ли через php server, если нет, то инициализируем сервер.
@@ -45,7 +51,7 @@ if (!isset($_SERVER['REQUEST_URI'])) { // Проверяем обращаютс�
 
 }
 
-requireFilesRecursively(__DIR__ . '/meract/core');
+
 requireFilesRecursively(__DIR__ . '/app/core');
 requireFilesRecursively(__DIR__ . '/app/models');
 requireFilesRecursively(__DIR__ . '/app/middleware');

@@ -21,6 +21,11 @@ class Qryli
 	/** @var array Параметры для подготовленного запроса */
 	private $params = [];
 
+
+	public function __construct() {
+		self::setPdo($GLOBALS['pdo'] ?? null);
+	}
+
 	/**
 	 * Устанавливает подключение PDO.
 	 *

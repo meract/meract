@@ -20,6 +20,7 @@
 	},
 	"autoload": {
 		"psr-4": {
+			"Meract\\Drivers\\": "meract/drivers",
 			"Meract\\Core\\": "meract/core/",
 			"Meract\\Commands\\": "meract/commands/",
 			"App\\": "app/"
