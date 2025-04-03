@@ -1,12 +1,10 @@
 <?php
-use Meract\Core\Storage;
 return [
 	"server" => [
 		"customServer" => false,
 		"host" => "0.0.0.0",
 		"port" => 80,
 		"initFunction" => function () {
-			Storage::setTime(600);
 			echo "server started!\n";
 		}
 	],
