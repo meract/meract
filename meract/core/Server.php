@@ -124,6 +124,11 @@ class Server
 class Response 
 {
 	/**
+	 * Cookies
+	 * @var array
+	 */
+	protected $cookies = [];
+	/**
 	 * Массив доступных HTTP-кодов ответов
 	 *
 	 * @var array
@@ -181,6 +186,34 @@ class Response
 		505 => 'HTTP Version Not Supported',
 		509 => 'Bandwidth Limit Exceeded'
 	];
+
+
+	/**
+	 * Отправляет ответ (в режиме customServer)
+	 * @return void
+	 */
+	public function send(): void
+    {
+		header('Content-Type:');
+        http_response_code($this->status);
+        foreach ($this->headers as $name => $value) {
+            header("$name: $value");
+        }
+        
+        foreach ($this->cookies as $name => $cookie) {
+            setcookie(
+                $name,
+                $cookie['value'],
+                $cookie['expire'],
+                $cookie['path'],
+                $cookie['domain'],
+                $cookie['secure'],
+                $cookie['httponly']
+            );
+        }
+        
+        echo $this->body;
+    }
 
 	/**
 	 * Возвращает простой ответ на основе статусного кода
@@ -363,6 +396,28 @@ class Request
 	 * @var array
 	 */
 	public $cookies = [];
+
+	/**
+	 * Создаёт объект Request из глобавльной переменной $_SERVER
+	 * @return Request
+	 */
+	public static function fromGlobals(): Request
+    {
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+        $uri = $_SERVER['REQUEST_URI'] ?? '/';
+        $headers = getallheaders();
+        
+        $request = new self($method, $uri, $headers);
+        $request->parameters = $_REQUEST;
+        
+        // Для JSON-запросов
+        if (isset($headers['Content-Type']) && strpos($headers['Content-Type'], 'application/json') !== false) {
+            $jsonData = json_decode(file_get_contents('php://input'), true);
+            $request->parameters = array_merge($request->parameters, $jsonData ?? []);
+        }
+        
+        return $request;
+    }
 
 	/**
 	 * Создание нового экземпляра запроса с использованием строки заголовка

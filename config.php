@@ -3,6 +3,7 @@ use Meract\Core\Storage;
 use Meract\Core\Qryli;
 return [
 	"server" => [
+		"customServer" => false,
 		"host" => "0.0.0.0",
 		"port" => 80,
 		"initFunction" => function () {

@@ -1,7 +1,7 @@
 <?php
 
 // Инициализация
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
 // Подключаем основные классы
@@ -26,6 +26,7 @@ if (php_sapi_name() !== 'cli') {
 }
 
 // Константа с путем проекта
+define("IS_MRST", "sdfsdf");
 define("PROJECT_DIR", __DIR__);
 
 // Проверка аргументов
@@ -48,7 +49,7 @@ $argsCount = count($args);
 
 // Запуск команды
 try {
-    $command = require $commandFile;
+    $command = require_once $commandFile;
     $command->run($args, $argsCount);
 } catch (Exception $e) {
     echo "Ошибка: " . $e->getMessage() . "\n";
