@@ -2,28 +2,37 @@
 namespace Meract\Core;
 
 /**
- * Класс для управления маршрутизацией HTTP-запросов.
- *
- * Поддерживает:
- * - Регистрацию маршрутов для различных HTTP-методов
- * - Обработку динамических параметров в URL
- * - Обслуживание статических файлов
- * - Кастомные обработчики 404 ошибок
- * - middleware
- * - groups
+ * Класс для управления маршрутизацией HTTP-запросов
  */
 class Route
 {
+    /** @var array Массив зарегистрированных маршрутов */
     private static $routes = [];
+    
+    /** @var Server|null Сервер для обработки запросов */
     private static $server = null;
+    
+    /** @var RequestLogger|null Логгер запросов */
     private static $requestLogger = null;
+    
+    /** @var string|null Путь к статическим файлам */
     private static $staticPath = null;
+    
+    /** @var callable|null Обработчик 404 ошибки */
     private static $notFoundCallback = null;
+    
+    /** @var array Глобальные middleware */
     private static $globalMiddlewares = [];
+    
+    /** @var array Стек групп маршрутов */
     private static $groupStack = [];
 
     /**
-     * Устанавливает сервер и логгер запросов.
+     * Устанавливает сервер и логгер запросов
+     *
+     * @param Server $server Объект сервера
+     * @param RequestLogger $requestLogger Логгер запросов
+     * @return void
      */
     public static function setServer(Server $server, RequestLogger $requestLogger): void
     {
@@ -32,7 +41,10 @@ class Route
     }
 
     /**
-     * Устанавливает путь к статическим файлам.
+     * Устанавливает путь к статическим файлам
+     *
+     * @param string $path Путь к папке со статическими файлами
+     * @return void
      */
     public static function staticFolder(string $path): void
     {
@@ -40,7 +52,10 @@ class Route
     }
 
     /**
-     * Устанавливает обработчик 404 ошибки.
+     * Устанавливает обработчик 404 ошибки
+     *
+     * @param callable $callback Функция-обработчик
+     * @return void
      */
     public static function notFound(callable $callback): void
     {
@@ -48,7 +63,12 @@ class Route
     }
 
     /**
-     * Регистрация GET-маршрута.
+     * Регистрирует GET-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function get(string $path, callable $callback, array $middlewares = []): void
     {
@@ -56,7 +76,12 @@ class Route
     }
 
     /**
-     * Регистрация POST-маршрута.
+     * Регистрирует POST-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function post(string $path, callable $callback, array $middlewares = []): void
     {
@@ -64,7 +89,12 @@ class Route
     }
 
     /**
-     * Регистрация PUT-маршрута.
+     * Регистрирует PUT-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function put(string $path, callable $callback, array $middlewares = []): void
     {
@@ -72,7 +102,12 @@ class Route
     }
 
     /**
-     * Регистрация DELETE-маршрута.
+     * Регистрирует DELETE-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function delete(string $path, callable $callback, array $middlewares = []): void
     {
@@ -80,7 +115,12 @@ class Route
     }
 
     /**
-     * Регистрация PATCH-маршрута.
+     * Регистрирует PATCH-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function patch(string $path, callable $callback, array $middlewares = []): void
     {
@@ -88,7 +128,12 @@ class Route
     }
 
     /**
-     * Регистрация OPTIONS-маршрута.
+     * Регистрирует OPTIONS-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function options(string $path, callable $callback, array $middlewares = []): void
     {
@@ -96,7 +141,12 @@ class Route
     }
 
     /**
-     * Регистрация HEAD-маршрута.
+     * Регистрирует HEAD-маршрут
+     *
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     public static function head(string $path, callable $callback, array $middlewares = []): void
     {
@@ -104,7 +154,11 @@ class Route
     }
 
     /**
-     * Добавление глобального Middleware.
+     * Добавляет глобальный middleware
+     *
+     * @param callable|object $middleware Middleware (функция или объект с методом handle)
+     * @return void
+     * @throws \InvalidArgumentException Если middleware не callable и не имеет метода handle
      */
     public static function middleware($middleware): void
     {
@@ -118,7 +172,12 @@ class Route
     }
 
     /**
-     * Группировка маршрутов с префиксом и Middleware.
+     * Группирует маршруты с общим префиксом и middleware
+     *
+     * @param string $prefix Префикс пути для группы
+     * @param callable $callback Функция с определением маршрутов группы
+     * @param array $middlewares Массив middleware для группы
+     * @return void
      */
     public static function group(string $prefix, callable $callback, array $middlewares = []): void
     {
@@ -133,7 +192,13 @@ class Route
     }
 
     /**
-     * Внутренний метод для добавления маршрута.
+     * Добавляет маршрут в коллекцию
+     *
+     * @param string $method HTTP-метод
+     * @param string $path Путь маршрута
+     * @param callable $callback Обработчик маршрута
+     * @param array $middlewares Массив middleware
+     * @return void
      */
     private static function addRoute(string $method, string $path, callable $callback, array $middlewares = []): void
     {
@@ -147,7 +212,10 @@ class Route
     }
 
     /**
-     * Применяет префикс группы к пути.
+     * Применяет префикс группы к пути маршрута
+     *
+     * @param string $path Исходный путь
+     * @return string Полный путь с учетом префиксов групп
      */
     private static function applyGroupPrefix(string $path): string
     {
@@ -164,7 +232,9 @@ class Route
     }
 
     /**
-     * Возвращает Middleware текущей группы.
+     * Возвращает middleware текущей группы
+     *
+     * @return array Массив middleware
      */
     private static function getGroupMiddlewares(): array
     {
@@ -181,7 +251,11 @@ class Route
     }
 
     /**
-     * Оборачивает callback в цепочку Middleware.
+     * Оборачивает обработчик в цепочку middleware
+     *
+     * @param callable $handler Исходный обработчик
+     * @param array $middlewares Массив middleware
+     * @return callable Обработанный обработчик
      */
     private static function wrapWithMiddlewares(callable $handler, array $middlewares): callable
     {
@@ -194,7 +268,11 @@ class Route
     }
 
     /**
-     * Запуск обработки маршрутов.
+     * Запускает обработку маршрутов
+     *
+     * @param callable $onStartCallback Функция, вызываемая при старте сервера
+     * @return void
+     * @throws \Exception Если сервер не установлен
      */
     public static function startHandling(callable $onStartCallback)
     {
@@ -257,7 +335,10 @@ class Route
     }
 
     /**
-     * Определяет MIME-тип файла.
+     * Определяет MIME-тип файла по его расширению
+     *
+     * @param string $filePath Путь к файлу
+     * @return string MIME-тип
      */
     private static function getMimeType(string $filePath): string
     {
@@ -278,10 +359,10 @@ class Route
     }
 
     /**
-     * Обрабатывает передаваемый запрос
-     * 
-     * @param \Meract\Core\Request $request
-     * @return \Meract\Core\Response
+     * Обрабатывает входящий запрос
+     *
+     * @param Request $request Объект запроса
+     * @return Response Объект ответа
      */
     public static function handleRequest(Request $request): Response
     {

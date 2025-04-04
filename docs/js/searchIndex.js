@@ -743,102 +743,102 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Route",
             "name": "Route",
-            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u0435\u0439\u0020HTTP\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432.",
+            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u0435\u0439\u0020HTTP\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432",
             "url": "classes/Meract-Core-Route.html"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AsetServer\u0028\u0029",
             "name": "setServer",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u0441\u0435\u0440\u0432\u0435\u0440\u0020\u0438\u0020\u043B\u043E\u0433\u0433\u0435\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432.",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u0441\u0435\u0440\u0432\u0435\u0440\u0020\u0438\u0020\u043B\u043E\u0433\u0433\u0435\u0440\u0020\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432",
             "url": "classes/Meract-Core-Route.html#method_setServer"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AstaticFolder\u0028\u0029",
             "name": "staticFolder",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043F\u0443\u0442\u044C\u0020\u043A\u0020\u0441\u0442\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0020\u0444\u0430\u0439\u043B\u0430\u043C.",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043F\u0443\u0442\u044C\u0020\u043A\u0020\u0441\u0442\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0020\u0444\u0430\u0439\u043B\u0430\u043C",
             "url": "classes/Meract-Core-Route.html#method_staticFolder"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AnotFound\u0028\u0029",
             "name": "notFound",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043E\u0431\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0020404\u0020\u043E\u0448\u0438\u0431\u043A\u0438.",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043E\u0431\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0020404\u0020\u043E\u0448\u0438\u0431\u043A\u0438",
             "url": "classes/Meract-Core-Route.html#method_notFound"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Aget\u0028\u0029",
             "name": "get",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020GET\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020GET\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_get"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Apost\u0028\u0029",
             "name": "post",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020POST\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020POST\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_post"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Aput\u0028\u0029",
             "name": "put",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020PUT\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020PUT\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_put"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020DELETE\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020DELETE\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_delete"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Apatch\u0028\u0029",
             "name": "patch",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020PATCH\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020PATCH\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_patch"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Aoptions\u0028\u0029",
             "name": "options",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020OPTIONS\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020OPTIONS\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_options"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Ahead\u0028\u0029",
             "name": "head",
-            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020HEAD\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020HEAD\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442",
             "url": "classes/Meract-Core-Route.html#method_head"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Amiddleware\u0028\u0029",
             "name": "middleware",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435\u0020\u0433\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u043E\u0433\u043E\u0020Middleware.",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u0433\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u044B\u0439\u0020middleware",
             "url": "classes/Meract-Core-Route.html#method_middleware"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Agroup\u0028\u0029",
             "name": "group",
-            "summary": "\u0413\u0440\u0443\u043F\u043F\u0438\u0440\u043E\u0432\u043A\u0430\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u043E\u0432\u0020\u0441\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441\u043E\u043C\u0020\u0438\u0020Middleware.",
+            "summary": "\u0413\u0440\u0443\u043F\u043F\u0438\u0440\u0443\u0435\u0442\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u044B\u0020\u0441\u0020\u043E\u0431\u0449\u0438\u043C\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441\u043E\u043C\u0020\u0438\u0020middleware",
             "url": "classes/Meract-Core-Route.html#method_group"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AaddRoute\u0028\u0029",
             "name": "addRoute",
-            "summary": "\u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0439\u0020\u043C\u0435\u0442\u043E\u0434\u0020\u0434\u043B\u044F\u0020\u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u044F\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0020\u0432\u0020\u043A\u043E\u043B\u043B\u0435\u043A\u0446\u0438\u044E",
             "url": "classes/Meract-Core-Route.html#method_addRoute"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AapplyGroupPrefix\u0028\u0029",
             "name": "applyGroupPrefix",
-            "summary": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441\u0020\u0433\u0440\u0443\u043F\u043F\u044B\u0020\u043A\u0020\u043F\u0443\u0442\u0438.",
+            "summary": "\u041F\u0440\u0438\u043C\u0435\u043D\u044F\u0435\u0442\u0020\u043F\u0440\u0435\u0444\u0438\u043A\u0441\u0020\u0433\u0440\u0443\u043F\u043F\u044B\u0020\u043A\u0020\u043F\u0443\u0442\u0438\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430",
             "url": "classes/Meract-Core-Route.html#method_applyGroupPrefix"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AgetGroupMiddlewares\u0028\u0029",
             "name": "getGroupMiddlewares",
-            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020Middleware\u0020\u0442\u0435\u043A\u0443\u0449\u0435\u0439\u0020\u0433\u0440\u0443\u043F\u043F\u044B.",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020middleware\u0020\u0442\u0435\u043A\u0443\u0449\u0435\u0439\u0020\u0433\u0440\u0443\u043F\u043F\u044B",
             "url": "classes/Meract-Core-Route.html#method_getGroupMiddlewares"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AwrapWithMiddlewares\u0028\u0029",
             "name": "wrapWithMiddlewares",
-            "summary": "\u041E\u0431\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0020callback\u0020\u0432\u0020\u0446\u0435\u043F\u043E\u0447\u043A\u0443\u0020Middleware.",
+            "summary": "\u041E\u0431\u043E\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0020\u043E\u0431\u0440\u0430\u0431\u043E\u0442\u0447\u0438\u043A\u0020\u0432\u0020\u0446\u0435\u043F\u043E\u0447\u043A\u0443\u0020middleware",
             "url": "classes/Meract-Core-Route.html#method_wrapWithMiddlewares"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AstartHandling\u0028\u0029",
             "name": "startHandling",
-            "summary": "\u0417\u0430\u043F\u0443\u0441\u043A\u0020\u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u043E\u0432.",
+            "summary": "\u0417\u0430\u043F\u0443\u0441\u043A\u0430\u0435\u0442\u0020\u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0443\u0020\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u043E\u0432",
             "url": "classes/Meract-Core-Route.html#method_startHandling"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AgetMimeType\u0028\u0029",
             "name": "getMimeType",
-            "summary": "\u041E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0020MIME\u002D\u0442\u0438\u043F\u0020\u0444\u0430\u0439\u043B\u0430.",
+            "summary": "\u041E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442\u0020MIME\u002D\u0442\u0438\u043F\u0020\u0444\u0430\u0439\u043B\u0430\u0020\u043F\u043E\u0020\u0435\u0433\u043E\u0020\u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043D\u0438\u044E",
             "url": "classes/Meract-Core-Route.html#method_getMimeType"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003AhandleRequest\u0028\u0029",
             "name": "handleRequest",
-            "summary": "\u041E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442\u0020\u043F\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0435\u043C\u044B\u0439\u0020\u0437\u0430\u043F\u0440\u043E\u0441",
+            "summary": "\u041E\u0431\u0440\u0430\u0431\u0430\u0442\u044B\u0432\u0430\u0435\u0442\u0020\u0432\u0445\u043E\u0434\u044F\u0449\u0438\u0439\u0020\u0437\u0430\u043F\u0440\u043E\u0441",
             "url": "classes/Meract-Core-Route.html#method_handleRequest"
         },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003A\u0024routes",

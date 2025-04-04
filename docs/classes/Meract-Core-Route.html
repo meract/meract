@@ -128,24 +128,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.15" class="phpdocumentor-element-found-in__source" data-line="15" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.7" class="phpdocumentor-element-found-in__source" data-line="7" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-            <p class="phpdocumentor-summary">Класс для управления маршрутизацией HTTP-запросов.</p>
+            <p class="phpdocumentor-summary">Класс для управления маршрутизацией HTTP-запросов</p>
 
 
-    <section class="phpdocumentor-description"><p>Поддерживает:</p>
-<ul>
-<li>Регистрацию маршрутов для различных HTTP-методов</li>
-<li>Обработку динамических параметров в URL</li>
-<li>Обслуживание статических файлов</li>
-<li>Кастомные обработчики 404 ошибок</li>
-<li>middleware</li>
-<li>groups</li>
-</ul>
-</section>
 
 
 
@@ -176,43 +166,43 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_globalMiddlewares">$globalMiddlewares</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_groupStack">$groupStack</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_notFoundCallback">$notFoundCallback</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: callable|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_requestLogger">$requestLogger</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: <a href="classes/Meract-Core-RequestLogger.html"><abbr title="\Meract\Core\RequestLogger">RequestLogger</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_routes">$routes</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_server">$server</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: <a href="classes/Meract-Core-Server.html"><abbr title="\Meract\Core\Server">Server</abbr></a>|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/Meract-Core-Route.html#property_staticPath">$staticPath</a>
     <span>
-                        &nbsp;: mixed            </span>
+                        &nbsp;: string|null            </span>
 </dt>
 
     </dl>
@@ -228,133 +218,133 @@
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация DELETE-маршрута.</dd>
+<dd>Регистрирует DELETE-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_get">get()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация GET-маршрута.</dd>
+<dd>Регистрирует GET-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_group">group()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Группировка маршрутов с префиксом и Middleware.</dd>
+<dd>Группирует маршруты с общим префиксом и middleware</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_handleRequest">handleRequest()</a>
     <span>
                                 &nbsp;: <a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a>    </span>
 </dt>
-<dd>Обрабатывает передаваемый запрос</dd>
+<dd>Обрабатывает входящий запрос</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_head">head()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация HEAD-маршрута.</dd>
+<dd>Регистрирует HEAD-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_middleware">middleware()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Добавление глобального Middleware.</dd>
+<dd>Добавляет глобальный middleware</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_notFound">notFound()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Устанавливает обработчик 404 ошибки.</dd>
+<dd>Устанавливает обработчик 404 ошибки</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_options">options()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация OPTIONS-маршрута.</dd>
+<dd>Регистрирует OPTIONS-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_patch">patch()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация PATCH-маршрута.</dd>
+<dd>Регистрирует PATCH-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_post">post()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация POST-маршрута.</dd>
+<dd>Регистрирует POST-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_put">put()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Регистрация PUT-маршрута.</dd>
+<dd>Регистрирует PUT-маршрут</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_setServer">setServer()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Устанавливает сервер и логгер запросов.</dd>
+<dd>Устанавливает сервер и логгер запросов</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_startHandling">startHandling()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Запуск обработки маршрутов.</dd>
+<dd>Запускает обработку маршрутов</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Route.html#method_staticFolder">staticFolder()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Устанавливает путь к статическим файлам.</dd>
+<dd>Устанавливает путь к статическим файлам</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-Route.html#method_addRoute">addRoute()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Внутренний метод для добавления маршрута.</dd>
+<dd>Добавляет маршрут в коллекцию</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-Route.html#method_applyGroupPrefix">applyGroupPrefix()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Применяет префикс группы к пути.</dd>
+<dd>Применяет префикс группы к пути маршрута</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-Route.html#method_getGroupMiddlewares">getGroupMiddlewares()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Возвращает Middleware текущей группы.</dd>
+<dd>Возвращает middleware текущей группы</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-Route.html#method_getMimeType">getMimeType()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Определяет MIME-тип файла.</dd>
+<dd>Определяет MIME-тип файла по его расширению</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-Route.html#method_wrapWithMiddlewares">wrapWithMiddlewares()</a>
     <span>
                                 &nbsp;: callable    </span>
 </dt>
-<dd>Оборачивает callback в цепочку Middleware.</dd>
+<dd>Оборачивает обработчик в цепочку middleware</dd>
 
     </dl>
 
@@ -386,21 +376,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.22" class="phpdocumentor-element-found-in__source" data-line="22" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.25" class="phpdocumentor-element-found-in__source" data-line="25" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$globalMiddlewares</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Глобальные middleware</p>
+</section>
+
     
 
     
@@ -423,21 +415,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.23" class="phpdocumentor-element-found-in__source" data-line="23" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$groupStack</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Стек групп маршрутов</p>
+</section>
+
     
 
     
@@ -460,21 +454,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.21" class="phpdocumentor-element-found-in__source" data-line="21" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.22" class="phpdocumentor-element-found-in__source" data-line="22" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">callable|null</span>
     <span class="phpdocumentor-signature__name">$notFoundCallback</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Обработчик 404 ошибки</p>
+</section>
+
     
 
     
@@ -497,21 +493,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.19" class="phpdocumentor-element-found-in__source" data-line="19" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.16" class="phpdocumentor-element-found-in__source" data-line="16" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/Meract-Core-RequestLogger.html"><abbr title="\Meract\Core\RequestLogger">RequestLogger</abbr></a>|null</span>
     <span class="phpdocumentor-signature__name">$requestLogger</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Логгер запросов</p>
+</section>
+
     
 
     
@@ -534,21 +532,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.17" class="phpdocumentor-element-found-in__source" data-line="17" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.10" class="phpdocumentor-element-found-in__source" data-line="10" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$routes</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Массив зарегистрированных маршрутов</p>
+</section>
+
     
 
     
@@ -571,21 +571,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.18" class="phpdocumentor-element-found-in__source" data-line="18" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type"><a href="classes/Meract-Core-Server.html"><abbr title="\Meract\Core\Server">Server</abbr></a>|null</span>
     <span class="phpdocumentor-signature__name">$server</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Сервер для обработки запросов</p>
+</section>
+
     
 
     
@@ -608,21 +610,23 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.19" class="phpdocumentor-element-found-in__source" data-line="19" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
     
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$staticPath</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Путь к статическим файлам</p>
+</section>
+
     
 
     
@@ -650,12 +654,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.77" class="phpdocumentor-element-found-in__source" data-line="77" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.112" class="phpdocumentor-element-found-in__source" data-line="112" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация DELETE-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует DELETE-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -672,21 +676,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -710,12 +720,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.53" class="phpdocumentor-element-found-in__source" data-line="53" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.73" class="phpdocumentor-element-found-in__source" data-line="73" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация GET-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует GET-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -732,21 +742,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -770,12 +786,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.123" class="phpdocumentor-element-found-in__source" data-line="123" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.182" class="phpdocumentor-element-found-in__source" data-line="182" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Группировка маршрутов с префиксом и Middleware.</p>
+        <p class="phpdocumentor-summary">Группирует маршруты с общим префиксом и middleware</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -792,21 +808,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Префикс пути для группы</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Функция с определением маршрутов группы</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware для группы</p>
+</section>
+
             </dd>
             </dl>
 
@@ -830,12 +852,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">286</span>
+    <span class="phpdocumentor-element-found-in__line">367</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.286" class="phpdocumentor-element-found-in__source" data-line="286" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.367" class="phpdocumentor-element-found-in__source" data-line="367" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Обрабатывает передаваемый запрос</p>
+        <p class="phpdocumentor-summary">Обрабатывает входящий запрос</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -852,7 +874,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-Request.html"><abbr title="\Meract\Core\Request">Request</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Объект запроса</p>
+</section>
+
             </dd>
             </dl>
 
@@ -863,6 +887,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Объект ответа</p>
+</section>
+
             </section>
 
 </article>
@@ -880,12 +908,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.101" class="phpdocumentor-element-found-in__source" data-line="101" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.151" class="phpdocumentor-element-found-in__source" data-line="151" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация HEAD-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует HEAD-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -902,21 +930,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -940,16 +974,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">163</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.109" class="phpdocumentor-element-found-in__source" data-line="109" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.163" class="phpdocumentor-element-found-in__source" data-line="163" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Добавление глобального Middleware.</p>
+        <p class="phpdocumentor-summary">Добавляет глобальный middleware</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">middleware</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">middleware</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$middleware</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -959,14 +993,33 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middleware</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Middleware (функция или объект с методом handle)</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-Route.html#method_middleware#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Если middleware не callable и не имеет метода handle</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -986,12 +1039,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.45" class="phpdocumentor-element-found-in__source" data-line="45" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.60" class="phpdocumentor-element-found-in__source" data-line="60" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Устанавливает обработчик 404 ошибки.</p>
+        <p class="phpdocumentor-summary">Устанавливает обработчик 404 ошибки</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1008,7 +1061,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Функция-обработчик</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1032,12 +1087,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.93" class="phpdocumentor-element-found-in__source" data-line="93" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.138" class="phpdocumentor-element-found-in__source" data-line="138" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация OPTIONS-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует OPTIONS-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1054,21 +1109,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1092,12 +1153,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.85" class="phpdocumentor-element-found-in__source" data-line="85" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.125" class="phpdocumentor-element-found-in__source" data-line="125" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация PATCH-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует PATCH-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1114,21 +1175,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1152,12 +1219,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.86" class="phpdocumentor-element-found-in__source" data-line="86" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация POST-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует POST-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1174,21 +1241,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1212,12 +1285,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.69" class="phpdocumentor-element-found-in__source" data-line="69" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.99" class="phpdocumentor-element-found-in__source" data-line="99" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Регистрация PUT-маршрута.</p>
+        <p class="phpdocumentor-summary">Регистрирует PUT-маршрут</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1234,21 +1307,27 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1272,12 +1351,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.28" class="phpdocumentor-element-found-in__source" data-line="28" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.37" class="phpdocumentor-element-found-in__source" data-line="37" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Устанавливает сервер и логгер запросов.</p>
+        <p class="phpdocumentor-summary">Устанавливает сервер и логгер запросов</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1294,14 +1373,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-Server.html"><abbr title="\Meract\Core\Server">Server</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Объект сервера</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$requestLogger</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-RequestLogger.html"><abbr title="\Meract\Core\RequestLogger">RequestLogger</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Логгер запросов</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1325,16 +1408,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">277</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.199" class="phpdocumentor-element-found-in__source" data-line="199" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.277" class="phpdocumentor-element-found-in__source" data-line="277" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Запуск обработки маршрутов.</p>
+        <p class="phpdocumentor-summary">Запускает обработку маршрутов</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">startHandling</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onStartCallback</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">startHandling</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$onStartCallback</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1347,11 +1430,30 @@
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Функция, вызываемая при старте сервера</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-Route.html#method_startHandling#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Если сервер не установлен</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -1371,12 +1473,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.37" class="phpdocumentor-element-found-in__source" data-line="37" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.49" class="phpdocumentor-element-found-in__source" data-line="49" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Устанавливает путь к статическим файлам.</p>
+        <p class="phpdocumentor-summary">Устанавливает путь к статическим файлам</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1393,7 +1495,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь к папке со статическими файлами</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1417,12 +1521,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">203</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.138" class="phpdocumentor-element-found-in__source" data-line="138" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.203" class="phpdocumentor-element-found-in__source" data-line="203" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Внутренний метод для добавления маршрута.</p>
+        <p class="phpdocumentor-summary">Добавляет маршрут в коллекцию</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1439,28 +1543,36 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>HTTP-метод</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$path</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Обработчик маршрута</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1484,12 +1596,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.152" class="phpdocumentor-element-found-in__source" data-line="152" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.220" class="phpdocumentor-element-found-in__source" data-line="220" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Применяет префикс группы к пути.</p>
+        <p class="phpdocumentor-summary">Применяет префикс группы к пути маршрута</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1506,7 +1618,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Исходный путь</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1517,6 +1631,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Полный путь с учетом префиксов групп</p>
+</section>
+
             </section>
 
 </article>
@@ -1534,12 +1652,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.169" class="phpdocumentor-element-found-in__source" data-line="169" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.239" class="phpdocumentor-element-found-in__source" data-line="239" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Возвращает Middleware текущей группы.</p>
+        <p class="phpdocumentor-summary">Возвращает middleware текущей группы</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1557,6 +1675,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </section>
 
 </article>
@@ -1574,12 +1696,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">262</span>
+    <span class="phpdocumentor-element-found-in__line">343</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.262" class="phpdocumentor-element-found-in__source" data-line="262" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.343" class="phpdocumentor-element-found-in__source" data-line="343" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Определяет MIME-тип файла.</p>
+        <p class="phpdocumentor-summary">Определяет MIME-тип файла по его расширению</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1596,7 +1718,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь к файлу</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1607,6 +1731,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>MIME-тип</p>
+</section>
+
             </section>
 
 </article>
@@ -1624,12 +1752,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Route.php"><a href="files/meract-core-route.html"><abbr title="meract/core/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">186</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 
-            <a href="classes/Meract-Core-Route.html#source-view.186" class="phpdocumentor-element-found-in__source" data-line="186" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
+            <a href="classes/Meract-Core-Route.html#source-view.260" class="phpdocumentor-element-found-in__source" data-line="260" data-modal="source-view" data-src="files/meract/core/Route.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Оборачивает callback в цепочку Middleware.</p>
+        <p class="phpdocumentor-summary">Оборачивает обработчик в цепочку middleware</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1646,14 +1774,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Исходный обработчик</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$middlewares</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Массив middleware</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1664,6 +1796,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">callable</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Обработанный обработчик</p>
+</section>
+
             </section>
 
 </article>
