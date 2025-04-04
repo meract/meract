@@ -7,7 +7,7 @@ MEract - Небольшой фреймворк для языка php.
 
 
 ### Напоминаю
-Все классы фреймворка нужно подключить используя `use Meract\Core\<Class>`
+Все классы фреймворка нужно подключить используя `use Meract\Core\Class`
 
 ## Документация
 Конкретная техническая документация по методам [доступна тут](https://lumetas.github.io/meract/)
@@ -146,6 +146,16 @@ Route::group('/admin', function () {
 
 route::middleware(new FiftyFiftyMiddleware); //Глобальный middleware
 ```
+
+Методы http запросов:
+- get()
+- post()
+- put()
+- delete()
+- patch()
+- options()
+- head()
+
 И контроллер используемый тут:
 ```
 use Meract\Core\Controller;

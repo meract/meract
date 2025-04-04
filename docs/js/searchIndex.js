@@ -771,6 +771,31 @@ Search.appendIndex(
             "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020POST\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
             "url": "classes/Meract-Core-Route.html#method_post"
         },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003Aput\u0028\u0029",
+            "name": "put",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020PUT\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "url": "classes/Meract-Core-Route.html#method_put"
+        },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020DELETE\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "url": "classes/Meract-Core-Route.html#method_delete"
+        },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003Apatch\u0028\u0029",
+            "name": "patch",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020PATCH\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "url": "classes/Meract-Core-Route.html#method_patch"
+        },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003Aoptions\u0028\u0029",
+            "name": "options",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020OPTIONS\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "url": "classes/Meract-Core-Route.html#method_options"
+        },                {
+            "fqsen": "\\Meract\\Core\\Route\u003A\u003Ahead\u0028\u0029",
+            "name": "head",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F\u0020HEAD\u002D\u043C\u0430\u0440\u0448\u0440\u0443\u0442\u0430.",
+            "url": "classes/Meract-Core-Route.html#method_head"
+        },                {
             "fqsen": "\\Meract\\Core\\Route\u003A\u003Amiddleware\u0028\u0029",
             "name": "middleware",
             "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435\u0020\u0433\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u043E\u0433\u043E\u0020Middleware.",
