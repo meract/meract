@@ -12,24 +12,10 @@ if (!SDR::isInitialized()) {
     // Загрузка конфигурации
     $config = require __DIR__ . '/config.php';
     $injector->set('config', $config);
-    $database = Database::getInstance($config['database']);
+    // $database = Database::getInstance($config['database']);
 
-    // 2. Регистрируем экземпляр в контейнере
-    $injector->set(Database::class, $database);
-
-    // 3. Привязываем PDO к существующему подключению
-    $injector->set(PDO::class, $database->getPdo());
-    $pdo = SDR::make(PDO::class);
-    $pdo->query("SELECT 1")->execute();
-    // Проверяем подключение
-    // try {
-    //     echo "test start";
-    //     $pdo = SDR::make(PDO::class);
-    //     $pdo->query("SELECT 1")->execute();
-    //     echo "test end";
-    // } catch (PDOException $e) {
-    //     die("Database connection failed: " . $e->getMessage());
-    // }
+    $db = Database::getInstance($config['database']);
+    SDR::set("pdo.connection", $db->getPdo());
 }
 
 // Загрузка модулей приложения

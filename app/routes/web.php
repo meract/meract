@@ -5,8 +5,6 @@ use Meract\Core\Response;
 use App\Controllers\AdminController;
 
 Route::get('/', function ($rq) {
-	global $config;
-	var_dump($config);
 	return new Response('hello world!', 200);
 });
 

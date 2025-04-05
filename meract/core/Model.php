@@ -103,7 +103,7 @@ abstract class Model
 	 */
     protected static function getPdo(): PDO
     {
-        return SDR::make(PDO::class);
+        return SDR::make("pdo.connection");
     }
 
 	/**

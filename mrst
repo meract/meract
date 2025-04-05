@@ -17,6 +17,7 @@ SDR::setValue('project_dir', PROJECT_DIR);
 $config = require __DIR__ . '/config.php';
 SDR::setValue('config', $config);
 
+
 // Инициализация базы данных
 try {
     SDR::singleton(Database::class, fn() => Database::getInstance($config['database']));
