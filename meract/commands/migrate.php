@@ -1,13 +1,20 @@
 <?php
-use Meract\Core\Migrator;
+namespace Meract\Commands;
+
+use Meract\Core\{Migrator, SDR};
+
 return new class {
-	public function run($argv, $argc) {
-		global $pdo;
-		$migrator = new Migrator(PROJECT_DIR."/app/migrations", $pdo);
-		if ($argc < 1) {
-			$migrator->migrate();
-		} else {
-			$migrator->migrate($argv[0]);
-		}
-	}
+    public function run()
+    {
+        $args = SDR::make('command.args');
+        $migrationsPath = SDR::make('config')['migrations_path'] 
+            ?? SDR::make('project_dir') . '/app/migrations';
+        
+        $migrator = new Migrator(
+            $migrationsPath,
+            SDR::make('pdo.connection')
+        );
+
+        $migrator->migrate($args[0] ?? null);
+    }
 };

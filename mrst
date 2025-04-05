@@ -1,57 +1,50 @@
+#!/usr/bin/env php
 <?php
-
-// Инициализация
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
-// Подключаем основные классы
-requireFilesRecursively(__DIR__ . '/meract/core');
+use Meract\Core\{Database, SDR, Injector};
 
-use Meract\Core\Database;
+// Инициализация контейнера
+$injector = new Injector();
+SDR::setInjector($injector);
+
+// Константы проекта
+define('PROJECT_DIR', __DIR__);
+SDR::setValue('project_dir', PROJECT_DIR);
 
 // Загрузка конфигурации
 $config = require __DIR__ . '/config.php';
+SDR::setValue('config', $config);
 
 // Инициализация базы данных
 try {
-    $database = Database::getInstance($config['database']);
-    $pdo = $database->getPdo();
+    SDR::singleton(Database::class, fn() => Database::getInstance($config['database']));
+    SDR::bind('pdo.connection', fn() => SDR::make(Database::class)->getPdo());
 } catch (Exception $e) {
-    throw new Exception("Ошибка базы данных. Проверьте config.php: " . $e->getMessage());
+    die("Ошибка инициализации БД: " . $e->getMessage() . PHP_EOL);
 }
 
-// Проверка CLI-режима
-if (php_sapi_name() !== 'cli') {
-    die("Этот скрипт можно запускать только из командной строки.\n");
-}
-
-// Константа с путем проекта
-define("IS_MRST", "sdfsdf");
-define("PROJECT_DIR", __DIR__);
-
-// Проверка аргументов
+// Обработка команды
 if ($argc < 2) {
-    die("Использование: php console.php <команда> [аргументы]\n");
+    die("Использование: php mrst <команда> [аргументы]" . PHP_EOL);
 }
 
-// Получаем команду
 $commandName = $argv[1];
 $commandFile = __DIR__ . "/meract/commands/{$commandName}.php";
 
-// Проверка существования команды
 if (!file_exists($commandFile)) {
-    die("Ошибка: Команда '{$commandName}' не найдена.\n");
+    die("Ошибка: Команда '{$commandName}' не найдена." . PHP_EOL);
 }
 
-// Подготовка аргументов
-$args = array_slice($argv, 2);
-$argsCount = count($args);
+// Регистрация аргументов
+SDR::setValue('command.args', array_slice($argv, 2));
 
-// Запуск команды
+// Выполнение команды
 try {
-    $command = require_once $commandFile;
-    $command->run($args, $argsCount);
+    $command = require $commandFile;
+    $commandInstance = SDR::make(get_class($command));
+    $commandInstance->run();
 } catch (Exception $e) {
-    echo "Ошибка: " . $e->getMessage() . "\n";
-    exit(1);
+    die("Ошибка выполнения: " . $e->getMessage() . PHP_EOL);
 }

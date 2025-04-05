@@ -1,10 +1,10 @@
 <?php
-return new class
-{
+use Meract\Core\SDR;
 
-	public function run($argv, $argc)
-	{
-        global $config;
+return new class {
+    public function run() {
+        $config = SDR::make('config');
+        
         if ($config['server']['customServer'] ?? false) {
             $host = $config['server']['host'];
             $port = $config['server']['port'];
@@ -12,6 +12,5 @@ return new class
         } else {
             include "index.php";
         }
-	}
-
+    }
 };

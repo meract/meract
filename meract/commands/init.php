@@ -1,12 +1,11 @@
 <?php
-
+use Meract\Core\SDR;
 /**
  * Класс для настройки структуры проекта.
  *
  * Создает необходимые директории и файлы при инициализации проекта.
  */
-return new class
-{
+return new class {
 	/**
 	 * Основной метод выполнения настройки проекта.
 	 *
@@ -14,32 +13,34 @@ return new class
 	 * @param int $argc Количество аргументов
 	 * @return void
 	 */
-	public function run(array $argv, int $argc): void
+	public function run(): void
 	{
+		$argv = SDR::make('command.args');
+		$argc = count($argv);
 		// Папки, которые должны быть созданы
 		$requiredDirectories = [
-			PROJECT_DIR.'/meract/commands',
-			PROJECT_DIR.'/meract/core',
-			PROJECT_DIR.'/app/core',
-			PROJECT_DIR.'/app/controllers',
-			PROJECT_DIR.'/app/models',
-			PROJECT_DIR.'/app/routes',
-			PROJECT_DIR.'/app/views',
-			PROJECT_DIR.'/app/workers',
-			PROJECT_DIR.'/app/migrations',
-			PROJECT_DIR.'/app/static',
-			PROJECT_DIR.'/tests',
-			PROJECT_DIR.'/app/middleware'
+			PROJECT_DIR . '/meract/commands',
+			PROJECT_DIR . '/meract/core',
+			PROJECT_DIR . '/app/core',
+			PROJECT_DIR . '/app/controllers',
+			PROJECT_DIR . '/app/models',
+			PROJECT_DIR . '/app/routes',
+			PROJECT_DIR . '/app/views',
+			PROJECT_DIR . '/app/workers',
+			PROJECT_DIR . '/app/migrations',
+			PROJECT_DIR . '/app/static',
+			PROJECT_DIR . '/tests',
+			PROJECT_DIR . '/app/middleware'
 		];
 
 		// Файлы, которые должны быть созданы (если их нет)
 		$requiredFiles = [
-			PROJECT_DIR.'/app/routes/web.php' => "<?php\n\nuse Meract\\Core\\Route;\nuse Meract\\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\treturn new Response('hello world!', 200);\n});"
+			PROJECT_DIR . '/app/routes/web.php' => "<?php\n\nuse Meract\\Core\\Route;\nuse Meract\\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\treturn new Response('hello world!', 200);\n});"
 			/* 
-			'index.php' => "<?php\n\n// Your index.php content here\n",
-			'public/index.php' => "<?php\n\n// Your public/index.php content here\n", 
-			'console.php' => "<?php\n\n// Your console.php content here\n", 
-			 */
+					 'index.php' => "<?php\n\n// Your index.php content here\n",
+					 'public/index.php' => "<?php\n\n// Your public/index.php content here\n", 
+					 'console.php' => "<?php\n\n// Your console.php content here\n", 
+					  */
 		];
 
 		// Создаем все необходимые директории

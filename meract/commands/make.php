@@ -1,5 +1,5 @@
 <?php
-
+use Meract\Core\SDR;
 return new class {
     private $templates = [
         'model' => [
@@ -79,18 +79,21 @@ WORKER
     ];
 	
 
-    public function run($argv, $argc)
+    public function run()
     {
+        $argv = SDR::make('command.args');
+		$argc = count($argv);
         if ($argc < 2) {
             $this->showHelp();
             return 1;
         }
 
+        $config = SDR::make('config');
         $type = $argv[0];
         $name = $argv[1];
 
         if (!isset($this->templates[$type])) {
-            echo "Ошибка: Неизвестный тип '$type'\n";
+            echo "Error: Unknown type '$type'\n";
             $this->showAvailableTypes();
             return 1;
         }

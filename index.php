@@ -2,91 +2,65 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
-use Meract\Core\{
-    Storage,
-    Database,
-    Route,
-    Server,
-    Request,
-    Response,
-    RequestLogger,
-    Qryli
-};
+use Meract\Core\{SDR, Database, Route, Server, Request, Response, Injector};
 
-// Загрузка конфигурации
-$config = require __DIR__ . '/config.php';
+// Инициализация контейнера
+if (!SDR::isInitialized()) {
+    $injector = new Injector();
+    SDR::setInjector($injector);
 
-// Инициализация базы данных
-
-try {
+    // Загрузка конфигурации
+    $config = require __DIR__ . '/config.php';
+    $injector->set('config', $config);
     $database = Database::getInstance($config['database']);
-    $pdo = $database->getPdo();
-    Qryli::setPdo($pdo);
-} catch (Exception $e) {
-    throw new Exception("Database initialization failed. Please check config.php: " . $e->getMessage());
+
+    // 2. Регистрируем экземпляр в контейнере
+    $injector->set(Database::class, $database);
+
+    // 3. Привязываем PDO к существующему подключению
+    $injector->set(PDO::class, $database->getPdo());
+    $pdo = SDR::make(PDO::class);
+    $pdo->query("SELECT 1")->execute();
+    // Проверяем подключение
+    // try {
+    //     echo "test start";
+    //     $pdo = SDR::make(PDO::class);
+    //     $pdo->query("SELECT 1")->execute();
+    //     echo "test end";
+    // } catch (PDOException $e) {
+    //     die("Database connection failed: " . $e->getMessage());
+    // }
 }
 
-if (isset($config['storage'], $config['storage']['driver'], $config['storage']['time'])){
-    Storage::init($config['storage']['driver']);
-    Storage::setTime($config['storage']['time']);
-}
-
-
-if (!isset($_SERVER['REQUEST_URI'])) { // Проверяем обращаются ли через php server, если нет, то инициализируем сервер.
-
-
-    // Инициализация сервера
-    try {
-        $requestLogger = $config['server']['requestLogger'] ?? new RequestLogger();
-        Route::setServer(
-            new Server($config['server']['host'], $config['server']['port']),
-            $requestLogger
-        );
-    } catch (Exception $e) {
-        echo "Server startup error. Possible configuration issue or server is already running.\n";
-        echo $e->getMessage() . "\n";
-        exit(1);
-    }
-
-
-}
-
-
+// Загрузка модулей приложения
 requireFilesRecursively(__DIR__ . '/app/core');
 requireFilesRecursively(__DIR__ . '/app/models');
 requireFilesRecursively(__DIR__ . '/app/middleware');
 requireFilesRecursively(__DIR__ . '/app/controllers');
 requireFilesRecursively(__DIR__ . '/app/routes');
 
-// Настройка обработчика воркеров
-if (
-    isset($config['worker']['enabled'])
-    && $config['worker']['enabled']
-    && isset($config['worker']['endpoint'])
-    && isset($config['worker']['server-callback'])
-) {
-    Route::get(
-        "/worker-" . $config['worker']['endpoint'],
-        function (Request $rq) use ($config) {
-            $data = $rq->parameters['data'] ?? null;
-            return new Response(
-                $config['worker']['server-callback']($data),
-                200
-            );
-        }
+// Проверка режима запуска
+if (php_sapi_name() === 'cli' || !isset($_SERVER['REQUEST_URI'])) {
+    // Режим сервера (запуск через mrst или CLI)
+    $serverConfig = SDR::make('config')['server'] ?? [];
+    $server = new Server(
+        $serverConfig['host'] ?? '0.0.0.0',
+        $serverConfig['port'] ?? 8000
     );
-}
 
-// Запуск в соответствующем режиме
-$initFunction = $config['server']['initFunction'] ?? function () {
-    echo "Server started!\n";
-};
+    Route::setServer(
+        $server,
+        SDR::make('config')['server']['requestLogger'] ?? new Meract\Core\RequestLogger()
+    );
 
-if ($config['server']['customServer'] ?? false) {
-    // Режим для Apache/Nginx
-    $response = Route::handleRequest(Request::fromGlobals());
-    $response->send();
-} else {
-    // Оригинальный режим сокет-сервера
+    $initFunction = $serverConfig['initFunction'] ?? function () {
+        echo "Server started!\n";
+    };
     Route::startHandling($initFunction);
+} else {
+    // Режим HTTP (Apache/Nginx)
+    $response = Route::handleRequest(
+        Request::fromGlobals()
+    );
+    $response->send();
 }

@@ -1,5 +1,6 @@
 <?php
 // meract/commands/make.chain.php
+use Meract\Core\SDR;
 
 return new class {
     private $componentMap = [
@@ -20,8 +21,11 @@ return new class {
         'multiLineString', 'multiPolygon', 'geometryCollection'
     ];
 
-    public function run($argv, $argc)
+    public function run()
     {
+        $argv = SDR::make('command.args');
+		$argc = count($argv);
+        $config = SDR::make('config');
         if ($argc < 2) {
             $this->showHelp();
             return 1;
