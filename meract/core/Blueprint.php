@@ -35,7 +35,7 @@ class Blueprint
      */
     public function id(): void
     {
-        $this->columns[] = 'id INT AUTO_INCREMENT PRIMARY KEY';
+        $this->columns[] = 'id IDTYPE';
     }
 
     // Строковые типы

@@ -32,6 +32,11 @@ class PostgreSqlDialect implements DatabaseDialectInterface
      */
     public function compileCreateTable(string $table, array $columns, array $options = []): string
     {
+
+        foreach ($columns as &$column) {
+            $column = $this->compileColumnDefinition($column);
+        }
+
         $sql = sprintf(
             'CREATE TABLE %s (%s)',
             $table,
@@ -55,13 +60,12 @@ class PostgreSqlDialect implements DatabaseDialectInterface
         );
 
         // SERIAL для автоинкремента
-        if ($parameters['auto_increment'] ?? false) {
-            if (str_contains($definition, 'INT')) {
-                if (str_contains($definition, 'BIGINT')) {
-                    return str_replace('BIGINT', 'BIGSERIAL', $definition) . ' PRIMARY KEY';
-                }
-                return str_replace('INT', 'SERIAL', $definition) . ' PRIMARY KEY';
+
+        if (str_contains($definition, 'IDTYPE')) {
+            if (str_contains($definition, 'BIGINT')) {
+                return str_replace('IDTYPE', 'BIGSERIAL', $definition) . ' PRIMARY KEY';
             }
+            return str_replace('IDTYPE', 'SERIAL PRIMARY KEY', $definition);
         }
 
         if (!($parameters['nullable'] ?? true)) {
@@ -69,8 +73,8 @@ class PostgreSqlDialect implements DatabaseDialectInterface
         }
 
         if (array_key_exists('default', $parameters)) {
-            $default = is_string($parameters['default']) 
-                ? "'" . addslashes($parameters['default']) . "'" 
+            $default = is_string($parameters['default'])
+                ? "'" . addslashes($parameters['default']) . "'"
                 : $parameters['default'];
             $definition .= " DEFAULT {$default}";
         }

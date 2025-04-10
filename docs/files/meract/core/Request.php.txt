@@ -45,22 +45,22 @@ class Request
 	 * @return Request
 	 */
 	public static function fromGlobals(): Request
-    {
-        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-        $uri = $_SERVER['REQUEST_URI'] ?? '/';
-        $headers = getallheaders();
-        
-        $request = new self($method, $uri, $headers);
-        $request->parameters = $_REQUEST;
-        
-        // Для JSON-запросов
-        if (isset($headers['Content-Type']) && strpos($headers['Content-Type'], 'application/json') !== false) {
-            $jsonData = json_decode(file_get_contents('php://input'), true);
-            $request->parameters = array_merge($request->parameters, $jsonData ?? []);
-        }
-        
-        return $request;
-    }
+	{
+		$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+		$uri = $_SERVER['REQUEST_URI'] ?? '/';
+		$headers = getallheaders();
+
+		$request = new self($method, $uri, $headers);
+		$request->parameters = $_REQUEST;
+
+		// Для JSON-запросов
+		if (isset($headers['Content-Type']) && strpos($headers['Content-Type'], 'application/json') !== false) {
+			$jsonData = json_decode(file_get_contents('php://input'), true);
+			$request->parameters = array_merge($request->parameters, $jsonData ?? []);
+		}
+
+		return $request;
+	}
 
 	/**
 	 * Создание нового экземпляра запроса с использованием строки заголовка
@@ -68,30 +68,61 @@ class Request
 	 * @param string 			$header
 	 * @return Request
 	 */
-	public static function withHeaderString( $header )
+	public static function withHeaderString($header)
 	{
-		$lines = explode( "\n", $header );
+		// Разделяем заголовки и тело (учитываем \r\n\r\n)
+		$parts = preg_split("/\r\n\r\n/", $header, 2);
+		$headersPart = $parts[0];
+		$body = isset($parts[1]) ? trim($parts[1]) : '';
 
-		// метод и URI
-		@list( $method, $uri ) = explode( ' ', array_shift( $lines ) );
+		$lines = explode("\r\n", $headersPart);
+
+		// Метод и URI из первой строки
+		$firstLine = array_shift($lines);
+		$method = '';
+		$uri = '';
+		if (preg_match('/^([A-Z]+)\s+(.*?)(?:\s+HTTP\/\d\.\d)?$/', $firstLine, $matches)) {
+			$method = $matches[1];
+			$uri = $matches[2];
+		}
+
 		$headers = [];
+		$cookies = [];
+		$parameters = [];
 
-		foreach( $lines as $line )
-		{
-			// очистка строки
-			$line = trim( $line );
-
-			if ( strpos( $line, ': ' ) !== false )
-			{
-				list( $key, $value ) = explode( ': ', $line );
-				$headers[$key] = $value;
+		foreach ($lines as $line) {
+			if (strpos($line, ': ') !== false) {
+				list($key, $value) = explode(': ', $line, 2);
+				$headers[trim($key)] = trim($value);
 			}
-		}	
+		}
 
-		// создание нового объекта запроса
-		return new static( $method, $uri, $headers );
+		// Парсинг cookies
+		if (isset($headers['Cookie'])) {
+			$cookiePairs = explode(';', $headers['Cookie']);
+			foreach ($cookiePairs as $cookiePair) {
+				$parts = explode('=', trim($cookiePair), 2);
+				if (count($parts) === 2) {
+					$cookies[$parts[0]] = $parts[1];
+				}
+			}
+		}
+
+		// Обработка POST-данных
+		if ($method === 'POST' && !empty($body)) {
+			if (isset($headers['Content-Type']) && 
+				strpos($headers['Content-Type'], 'application/x-www-form-urlencoded') !== false) {
+				parse_str($body, $parameters);
+			}
+		}
+
+		// Создание объекта запроса
+		$request = new static($method, $uri, $headers);
+		$request->parameters = $parameters;
+		$request->cookies = $cookies;
+
+		return $request;
 	}
-
 	/**
 	 * Конструктор запроса
 	 *

@@ -17,7 +17,7 @@ class DialectFactory
     public static function create(PDO $pdo): DatabaseDialectInterface
     {
         $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
-
+        // echo "mess with factory";
         return match ($driver) {
             'mysql' => new MySqlDialect(),
             'pgsql' => new PostgreSqlDialect(),

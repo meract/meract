@@ -1,27 +1,31 @@
 <?php
 namespace Meract\Core;
 
+use Meract\Core\DatabaseDialectInterface;
+
 /**
- * Класс для создания SQL-запросов определения таблиц (CREATE TABLE).
- *
- * Позволяет описать структуру таблицы через методы-строители (builder pattern).
+ * Класс для создания SQL-запросов определения таблиц
  */
 class Blueprint
 {
-    /** @var string Название таблицы */
     private string $table;
-
-    /** @var array<string> Список SQL-определений колонок */
     private array $columns = [];
-
+    private DatabaseDialectInterface $dialect;
+    private ?string $engine = null;
+    private ?string $charset = null;
+    private ?string $collation = null;
+    private array $tableOptions = [];
+    private ?string $tableComment = null;
+    
     /**
      * Конструктор.
      *
      * @param string $table Название таблицы
      */
-    public function __construct(string $table)
+    public function __construct(string $table, DatabaseDialectInterface $dialect)
     {
         $this->table = $table;
+        $this->dialect = $dialect;
     }
 
     /**
@@ -31,7 +35,7 @@ class Blueprint
      */
     public function id(): void
     {
-        $this->columns[] = 'id INT AUTO_INCREMENT PRIMARY KEY';
+        $this->columns[] = 'id IDTYPE';
     }
 
     // Строковые типы
@@ -365,12 +369,10 @@ class Blueprint
      *
      * @return string SQL-запрос CREATE TABLE
      */
-    public function compileCreate(): string
+    public function compileCreate(): array
     {
-        return sprintf(
-            'CREATE TABLE %s (%s)',
-            $this->table,
-            implode(', ', $this->columns)
-        );
+        return [
+            $this->dialect->compileCreateTable($this->table, $this->columns, $this->tableOptions)
+        ];
     }
 }

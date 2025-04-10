@@ -68,7 +68,7 @@ abstract class Model
 
 		$stmt = $pdo->prepare("select id from {$table} order by id asc limit 1");
 		$stmt->execute();
-		$result = $stmt->fetch(pdo::fetch_assoc);
+		$result = $stmt->fetch(pdo::FETCH_ASSOC);
 
 		if ($result && isset($result['id'])) {
 			return static::find($result['id']);
@@ -88,7 +88,7 @@ abstract class Model
 
 		$stmt = $pdo->prepare("select id from {$table} order by id desc limit 1");
 		$stmt->execute();
-		$result = $stmt->fetch(pdo::fetch_assoc);
+		$result = $stmt->fetch(pdo::FETCH_ASSOC);
 
 		if ($result && isset($result['id'])) {
 			return static::find($result['id']);
@@ -101,11 +101,10 @@ abstract class Model
 	 *
 	 * @return PDO Объект PDO
 	 */
-	protected static function getpdo()
-	{
-		global $pdo;
-		return $pdo;
-	}
+    protected static function getPdo(): PDO
+    {
+        return SDR::make("pdo.connection");
+    }
 
 	/**
 	 * Определяет имя таблицы для модели.
@@ -133,7 +132,7 @@ abstract class Model
 		$table = self::gettable();
 		$stmt = $pdo->prepare("select * from {$table} where id = :id");
 		$stmt->execute(['id' => $id]);
-		$result = $stmt->fetch(pdo::fetch_assoc);
+		$result = $stmt->fetch(pdo::FETCH_ASSOC);
 
 		if ($result) {
 			return new static($result);
@@ -151,7 +150,7 @@ abstract class Model
 		$pdo = self::getpdo();
 		$table = self::gettable();
 		$stmt = $pdo->query("select * from {$table}");
-		return $stmt->fetchall(pdo::fetch_assoc);
+		return $stmt->fetchall(pdo::FETCH_ASSOC);
 	}
 
 	/**

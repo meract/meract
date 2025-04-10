@@ -20,6 +20,10 @@ class SqliteDialect implements DatabaseDialectInterface
      */
     public function compileCreateTable(string $table, array $columns, array $options = []): string
     {
+
+        foreach ($columns as &$column) {
+            $column = $this->compileColumnDefinition($column);
+        }
         return sprintf(
             'CREATE TABLE %s (%s)',
             $table,
@@ -38,13 +42,14 @@ class SqliteDialect implements DatabaseDialectInterface
     public function compileColumnDefinition(string $columnDefinition, array $parameters = []): string
     {
         $definition = $columnDefinition;
-        
+         echo "$definition\n";
         // AUTOINCREMENT для SQLite
-        if ($parameters['auto_increment'] ?? false) {
-            if (str_contains($columnDefinition, 'INT')) {
-                return str_replace('INT', 'INTEGER PRIMARY KEY AUTOINCREMENT', $columnDefinition);
-            }
+        
+        if (str_contains($definition, 'IDTYPE')) {
+            echo "needle\n";
+            return str_replace('IDTYPE', 'INTEGER PRIMARY KEY AUTOINCREMENT', $definition);
         }
+        
         
         // PRIMARY KEY
         if ($parameters['primary'] ?? false) {

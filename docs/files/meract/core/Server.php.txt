@@ -86,40 +86,52 @@ class Server
 		{
 			throw new Exception( 'Переданный аргумент должен быть вызываемым.' );
 		}
-
-		while ( 1 ) 
-		{
+		while (1) {
 			// ожидаем соединений
-			socket_listen( $this->socket );
+			socket_listen($this->socket);
 			// пытаемся получить ресурс сокета клиента
-			// если false, произошла ошибка, закрываем соединение и продолжаем
-			if ( !$client = socket_accept( $this->socket ) ) 
-			{
-				socket_close( $client ); continue;
+			if (!$client = socket_accept($this->socket)) {
+				socket_close($client); 
+				continue;
 			}
 
-			// создаем новый экземпляр запроса с заголовком клиента.
-			// В реальном мире, конечно, нельзя просто фиксировать максимальный размер в 1024..
-			$request = Request::withHeaderString( socket_read( $client, 1024 ) );
+			// Читаем весь запрос (не только первые 1024 байт)
+			$requestData = '';
+			while ($buffer = socket_read($client, 1024)) {
+				$requestData .= $buffer;
+				// Проверяем, достигли ли конца заголовков
+				if (strpos($requestData, "\r\n\r\n") !== false) {
+					// Для POST запросов читаем тело
+					if (preg_match('/Content-Length: (\d+)/i', $requestData, $matches)) {
+						$contentLength = (int)$matches[1];
+						$headersEndPos = strpos($requestData, "\r\n\r\n") + 4;
+						$bodyLength = strlen($requestData) - $headersEndPos;
+
+						// Добираем оставшиеся данные тела
+						while ($bodyLength < $contentLength) {
+							$buffer = socket_read($client, $contentLength - $bodyLength);
+							$requestData .= $buffer;
+							$bodyLength = strlen($requestData) - $headersEndPos;
+						}
+					}
+					break;
+				}
+			}
+
+			// создаем экземпляр запроса
+			$request = Request::withHeaderString($requestData);
 
 			// выполняем callback
-			$response = call_user_func( $callback, $request );
-			if ($response == null) {continue;}
-			// проверяем, действительно ли мы получили объект Response
-			// если нет, возвращаем объект Response с ошибкой 404
-			if ( !$response || !$response instanceof Response )
-			{
-				$response = Response::error( 404 );
+			$response = call_user_func($callback, $request);
+			if ($response == null) { continue; }
+
+			if (!$response || !$response instanceof Response) {
+				$response = Response::error(404);
 			}
 
-			// преобразуем наш ответ в строку
 			$response = (string) $response;
-
-			// записываем ответ в сокет клиента
-			socket_write( $client, $response, strlen( $response ) );
-
-			// закрываем соединение, чтобы можно было принимать новые
-			socket_close( $client );
+			socket_write($client, $response, strlen($response));
+			socket_close($client);
 		}
 	}
 }

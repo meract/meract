@@ -123,3 +123,40 @@ Route::group("/admin", function () {
 	Route::get("/show", [AdminController::class, "show"]);
 });
 ```
+
+Так же сделаем view "adminShow":
+```
+<table>
+<thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>age</td>
+        <td>mail</td>
+    </tr>
+</thead>
+<tbody>
+    <?php foreach ($admins as $admin) {
+        echo "
+        <td>$admin[id]</td>
+        <td>$admin[name]</td>
+        <td>$admin[age]</td>
+        <td>$admin[mail]</td>
+        ";
+    }
+    ?>
+</tbody>
+
+</table>
+```
+И в методе [AdminController::class, "show"] Отрисуем её. 
+```
+	public static function show($request) {
+		return self::html(new View("admin",
+		 ["body" => new View("adminShow", 
+		 ["admins" => AdminModel::all()]
+		 )]
+		));
+	}
+```
+Здесь мы в view admin В качестве параметра "body" передам view adminShow с параметром "admins" => AdminModel::all()

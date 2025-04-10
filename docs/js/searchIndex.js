@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\Meract\\Core\\Blueprint",
             "name": "Blueprint",
-            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432\u0020\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0020\u0028CREATE\u0020TABLE\u0029.",
+            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432\u0020\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446",
             "url": "classes/Meract-Core-Blueprint.html"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A__construct\u0028\u0029",
@@ -271,6 +271,36 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#property_columns"
         },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024dialect",
+            "name": "dialect",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_dialect"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024engine",
+            "name": "engine",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_engine"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024charset",
+            "name": "charset",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_charset"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024collation",
+            "name": "collation",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_collation"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024tableOptions",
+            "name": "tableOptions",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_tableOptions"
+        },                {
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024tableComment",
+            "name": "tableComment",
+            "summary": "",
+            "url": "classes/Meract-Core-Blueprint.html#property_tableComment"
+        },                {
             "fqsen": "\\Meract\\Core\\Controller",
             "name": "Controller",
             "summary": "\u0410\u0431\u0441\u0442\u0440\u0430\u043A\u0442\u043D\u044B\u0439\u0020\u0431\u0430\u0437\u043E\u0432\u044B\u0439\u0020\u043A\u043E\u043D\u0442\u0440\u043E\u043B\u043B\u0435\u0440.",
@@ -321,10 +351,95 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Database.html#property_pdo"
         },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface",
+            "name": "DatabaseDialectInterface",
+            "summary": "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0020\u0434\u043B\u044F\u0020\u0440\u0430\u0431\u043E\u0442\u044B\u0020\u0441\u0020\u0440\u0430\u0437\u043D\u044B\u043C\u0438\u0020\u0421\u0423\u0411\u0414",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AcompileCreateTable\u0028\u0029",
+            "name": "compileCreateTable",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_compileCreateTable"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AcompileColumnDefinition\u0028\u0029",
+            "name": "compileColumnDefinition",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435\u0020\u043A\u043E\u043B\u043E\u043D\u043A\u0438",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_compileColumnDefinition"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AgetLastInsertId\u0028\u0029",
+            "name": "getLastInsertId",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020ID\u0020\u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0439\u0020\u0432\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u043D\u043E\u0439\u0020\u0437\u0430\u043F\u0438\u0441\u0438",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_getLastInsertId"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AsupportsForeignKeys\u0028\u0029",
+            "name": "supportsForeignKeys",
+            "summary": "\u041F\u0440\u043E\u0432\u0435\u0440\u044F\u0435\u0442\u0020\u043F\u043E\u0434\u0434\u0435\u0440\u0436\u043A\u0443\u0020\u0432\u043D\u0435\u0448\u043D\u0438\u0445\u0020\u043A\u043B\u044E\u0447\u0435\u0439",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_supportsForeignKeys"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AgetDefaultPort\u0028\u0029",
+            "name": "getDefaultPort",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u043E\u0440\u0442\u0020\u043F\u043E\u0020\u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_getDefaultPort"
+        },                {
+            "fqsen": "\\Meract\\Core\\DatabaseDialectInterface\u003A\u003AgetDriverName\u0028\u0029",
+            "name": "getDriverName",
+            "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u0438\u043C\u044F\u0020\u0434\u0440\u0430\u0439\u0432\u0435\u0440\u0430\u0020PDO",
+            "url": "classes/Meract-Core-DatabaseDialectInterface.html#method_getDriverName"
+        },                {
             "fqsen": "\\Meract\\Core\\Exception",
             "name": "Exception",
             "summary": "",
             "url": "classes/Meract-Core-Exception.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector",
+            "name": "Injector",
+            "summary": "\u041A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0020\u0432\u043D\u0435\u0434\u0440\u0435\u043D\u0438\u044F\u0020\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0435\u0439",
+            "url": "classes/Meract-Core-Injector.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003Abind\u0028\u0029",
+            "name": "bind",
+            "summary": "\u041F\u0440\u0438\u0432\u044F\u0437\u044B\u0432\u0430\u0435\u0442\u0020\u0430\u0431\u0441\u0442\u0440\u0430\u043A\u0446\u0438\u044E\u0020\u043A\u0020\u0440\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0438",
+            "url": "classes/Meract-Core-Injector.html#method_bind"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003Asingleton\u0028\u0029",
+            "name": "singleton",
+            "summary": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u0442\u0020\u0441\u0438\u043D\u0433\u043B\u0442\u043E\u043D",
+            "url": "classes/Meract-Core-Injector.html#method_singleton"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u043B\u044C\u043D\u043E\u0435\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435",
+            "url": "classes/Meract-Core-Injector.html#method_set"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003Amake\u0028\u0029",
+            "name": "make",
+            "summary": "\u0421\u043E\u0437\u0434\u0430\u0435\u0442\u0020\u0438\u043B\u0438\u0020\u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u044D\u043A\u0437\u0435\u043C\u043F\u043B\u044F\u0440\u0020\u043A\u043B\u0430\u0441\u0441\u0430",
+            "url": "classes/Meract-Core-Injector.html#method_make"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003Abuild\u0028\u0029",
+            "name": "build",
+            "summary": "\u0410\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0020\u0441\u0442\u0440\u043E\u0438\u0442\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0020\u0441\u0020\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u044F\u043C\u0438",
+            "url": "classes/Meract-Core-Injector.html#method_build"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003AresolveParameter\u0028\u0029",
+            "name": "resolveParameter",
+            "summary": "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0020\u043F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u0020\u043A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0430",
+            "url": "classes/Meract-Core-Injector.html#method_resolveParameter"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003A\u0024singletons",
+            "name": "singletons",
+            "summary": "",
+            "url": "classes/Meract-Core-Injector.html#property_singletons"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003A\u0024bindings",
+            "name": "bindings",
+            "summary": "",
+            "url": "classes/Meract-Core-Injector.html#property_bindings"
+        },                {
+            "fqsen": "\\Meract\\Core\\Injector\u003A\u003A\u0024values",
+            "name": "values",
+            "summary": "",
+            "url": "classes/Meract-Core-Injector.html#property_values"
         },                {
             "fqsen": "\\Meract\\Core\\Migration",
             "name": "Migration",
@@ -426,10 +541,10 @@ Search.appendIndex(
             "summary": "\u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0020\u043F\u043E\u0441\u043B\u0435\u0434\u043D\u044E\u044E\u0020\u0437\u0430\u043F\u0438\u0441\u044C\u0020\u0438\u0437\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B.",
             "url": "classes/Meract-Core-Model.html#method_last"
         },                {
-            "fqsen": "\\Meract\\Core\\Model\u003A\u003Agetpdo\u0028\u0029",
-            "name": "getpdo",
+            "fqsen": "\\Meract\\Core\\Model\u003A\u003AgetPdo\u0028\u0029",
+            "name": "getPdo",
             "summary": "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442\u0020\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435\u0020\u043A\u0020\u0431\u0430\u0437\u0435\u0020\u0434\u0430\u043D\u043D\u044B\u0445.",
-            "url": "classes/Meract-Core-Model.html#method_getpdo"
+            "url": "classes/Meract-Core-Model.html#method_getPdo"
         },                {
             "fqsen": "\\Meract\\Core\\Model\u003A\u003Agettable\u0028\u0029",
             "name": "gettable",
@@ -878,28 +993,68 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\Schema",
             "name": "Schema",
-            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F\u0020\u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u043E\u0439\u0020\u0431\u0430\u0437\u044B\u0020\u0434\u0430\u043D\u043D\u044B\u0445.",
+            "summary": "",
             "url": "classes/Meract-Core-Schema.html"
         },                {
             "fqsen": "\\Meract\\Core\\Schema\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u043A\u043B\u0430\u0441\u0441\u0430.",
+            "summary": "",
             "url": "classes/Meract-Core-Schema.html#method___construct"
         },                {
             "fqsen": "\\Meract\\Core\\Schema\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "\u0421\u043E\u0437\u0434\u0430\u0435\u0442\u0020\u043D\u043E\u0432\u0443\u044E\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443\u0020\u0432\u0020\u0431\u0430\u0437\u0435\u0020\u0434\u0430\u043D\u043D\u044B\u0445.",
+            "summary": "",
             "url": "classes/Meract-Core-Schema.html#method_create"
         },                {
             "fqsen": "\\Meract\\Core\\Schema\u003A\u003Adrop\u0028\u0029",
             "name": "drop",
-            "summary": "\u0423\u0434\u0430\u043B\u044F\u0435\u0442\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443\u0020\u0438\u0437\u0020\u0431\u0430\u0437\u044B\u0020\u0434\u0430\u043D\u043D\u044B\u0445.",
+            "summary": "",
             "url": "classes/Meract-Core-Schema.html#method_drop"
         },                {
             "fqsen": "\\Meract\\Core\\Schema\u003A\u003A\u0024pdo",
             "name": "pdo",
             "summary": "",
             "url": "classes/Meract-Core-Schema.html#property_pdo"
+        },                {
+            "fqsen": "\\Meract\\Core\\Schema\u003A\u003A\u0024dialect",
+            "name": "dialect",
+            "summary": "",
+            "url": "classes/Meract-Core-Schema.html#property_dialect"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR",
+            "name": "SDR",
+            "summary": "\u0421\u0442\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439\u0020\u0444\u0430\u0441\u0430\u0434\u0020\u0434\u043B\u044F\u0020\u0440\u0430\u0431\u043E\u0442\u044B\u0020\u0441\u0020\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u043E\u043C\u0020\u0432\u043D\u0435\u0434\u0440\u0435\u043D\u0438\u044F\u0020\u0437\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0435\u0439",
+            "url": "classes/Meract-Core-SDR.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003AsetInjector\u0028\u0029",
+            "name": "setInjector",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0020\u0434\u043B\u044F\u0020\u0444\u0430\u0441\u0430\u0434\u0430",
+            "url": "classes/Meract-Core-SDR.html#method_setInjector"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003AisInitialized\u0028\u0029",
+            "name": "isInitialized",
+            "summary": "\u041F\u0440\u043E\u0432\u0435\u0440\u043A\u0430\u0020\u043D\u0430\u0020\u0442\u043E\u0020\u0438\u043D\u0438\u0446\u0438\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043D\u0020\u043B\u0438\u0020SDR",
+            "url": "classes/Meract-Core-SDR.html#method_isInitialized"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003AsetValue\u0028\u0029",
+            "name": "setValue",
+            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u043B\u044C\u043D\u043E\u0435\u0020\u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435\u0020\u0432\u0020\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440",
+            "url": "classes/Meract-Core-SDR.html#method_setValue"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003A__callStatic\u0028\u0029",
+            "name": "__callStatic",
+            "summary": "\u041C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439\u0020\u0432\u044B\u0437\u043E\u0432\u0020\u043C\u0435\u0442\u043E\u0434\u043E\u0432\u0020\u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u0430",
+            "url": "classes/Meract-Core-SDR.html#method___callStatic"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003A\u0024injector",
+            "name": "injector",
+            "summary": "",
+            "url": "classes/Meract-Core-SDR.html#property_injector"
+        },                {
+            "fqsen": "\\Meract\\Core\\SDR\u003A\u003A\u0024InjectorInitialyzed",
+            "name": "InjectorInitialyzed",
+            "summary": "",
+            "url": "classes/Meract-Core-SDR.html#property_InjectorInitialyzed"
         },                {
             "fqsen": "\\Meract\\Core\\Server",
             "name": "Server",
