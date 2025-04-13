@@ -1,6 +1,5 @@
 <?php
 namespace Meract\Core;
-
 /**
  * Класс для управления маршрутизацией HTTP-запросов
  */
@@ -73,6 +72,24 @@ class Route
     public static function get(string $path, callable $callback, array $middlewares = []): void
     {
         self::addRoute('GET', $path, $callback, $middlewares);
+    }
+
+    /**
+     * Создаёт маршрут предоставляющий ендпоинты для работы Morph
+     * @param ?string $componentsPath
+     * @return void
+     */
+    public static function autoRegisterMorphComponents(string $componentsPath = __DIR__ . '/../../app/views/components/'): void {
+        if (!is_dir($componentsPath)) return;
+    
+        foreach (glob($componentsPath . '*.morph.php') as $file) {
+            $name = basename($file, '.morph.php');
+            self::get("/morph-component/{name}", function(Request $rq, array $params) {
+                $name = $params['name'];
+                $view = new \Meract\Core\View("components/{$name}");
+                return new Response($view, 200);
+            });
+        }
     }
 
     /**

@@ -1,0 +1,111 @@
+/* ===== Сброс и базовые стили ===== */
+:root {
+    --morph-font: 'Segoe UI', system-ui, sans-serif;
+    --morph-bg: #1a1a1a;
+    /* Тёмный фон по умолчанию */
+    --morph-text: #ffffff;
+    --morph-primary: #6200ee;
+    --morph-secondary: #03dac6;
+    --morph-border-radius: 8px;
+    --morph-transition: 0.3s ease;
+}
+
+/* ===== Каждый morph — это полноэкранная страница ===== */
+morph {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: var(--morph-bg);
+    color: var(--morph-text);
+    font-family: var(--morph-font);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s var(--morph-transition);
+}
+
+/* Активный morph (текущая "страница") */
+morph[active] {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ===== Стилизация ВСЕХ элементов ===== */
+/* 1. Формы */
+morph input,
+morph button,
+morph select,
+morph textarea,
+morph [role="button"],
+morph a[role="button"] {
+    font-family: var(--morph-font);
+    transition: var(--morph-transition);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: var(--morph-border-radius);
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+/* 2. Чекбоксы и радио-кнопки */
+morph input[type="checkbox"],
+morph input[type="radio"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+/* 3. Таблицы */
+morph table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+morph th,
+morph td {
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+morph th {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 4. Кнопки */
+morph button,
+morph [role="button"],
+morph a[role="button"] {
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    background: var(--morph-primary);
+    color: white;
+}
+
+/* 5. Анимации */
+@keyframes morph-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+morph>* {
+    animation: morph-fade-in 0.5s var(--morph-transition);
+}

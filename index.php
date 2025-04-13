@@ -35,6 +35,8 @@ requireFilesRecursively(__DIR__ . '/app/middleware');
 requireFilesRecursively(__DIR__ . '/app/controllers');
 requireFilesRecursively(__DIR__ . '/app/routes');
 
+Route::staticFolder("app/static");
+Route::autoRegisterMorphComponents();
 // Проверка режима запуска
 if (php_sapi_name() === 'cli' || !isset($_SERVER['REQUEST_URI'])) {
     // Режим сервера (запуск через mrst или CLI)
