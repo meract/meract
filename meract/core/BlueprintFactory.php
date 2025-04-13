@@ -1,11 +1,11 @@
 <?php
-namespace Meract\Drivers;
+namespace Meract\Core;
 
 use Meract\Core\DatabaseDialectInterface;
 use PDO;
 use RuntimeException;
-
-class DialectFactory
+use Meract\Core\BluePrints\{MySQLBP, SQLiteBP, PostgreSQLBP};
+class BlueprintFactory
 {
     /**
      * Создает соответствующий диалект для СУБД
@@ -14,14 +14,14 @@ class DialectFactory
      * @return DatabaseDialectInterface
      * @throws RuntimeException Если драйвер не поддерживается
      */
-    public static function create(PDO $pdo): DatabaseDialectInterface
+    public static function create(PDO $pdo, string $table): Blueprint
     {
         $driver = $pdo->getAttribute(PDO::ATTR_DRIVER_NAME);
         // echo "mess with factory";
         return match ($driver) {
-            'mysql' => new MySqlDialect(),
-            'pgsql' => new PostgreSqlDialect(),
-            'sqlite' => new SqliteDialect(),
+            'mysql' => new MySQLBP($table),
+            'pgsql' => new PostgreSQLBP($table),
+            'sqlite' => new SQLiteBP($table),
             default => throw new RuntimeException("Unsupported database driver: {$driver}"),
         };
     }

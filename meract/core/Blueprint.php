@@ -1,41 +1,18 @@
 <?php
 namespace Meract\Core;
 
-use Meract\Core\DatabaseDialectInterface;
-
 /**
- * Класс для создания SQL-запросов определения таблиц
+ * Базовый класс Blueprint с общей реализацией
  */
-class Blueprint
+abstract class Blueprint implements BlueprintInterface
 {
-    private string $table;
-    private array $columns = [];
-    private DatabaseDialectInterface $dialect;
-    private ?string $engine = null;
-    private ?string $charset = null;
-    private ?string $collation = null;
-    private array $tableOptions = [];
-    private ?string $tableComment = null;
-    
-    /**
-     * Конструктор.
-     *
-     * @param string $table Название таблицы
-     */
-    public function __construct(string $table, DatabaseDialectInterface $dialect)
+    protected string $table;
+    protected array $columns = [];
+    protected array $tableOptions = [];
+
+    public function __construct(string $table)
     {
         $this->table = $table;
-        $this->dialect = $dialect;
-    }
-
-    /**
-     * Добавляет первичный ключ (id) в таблицу.
-     *
-     * @return void
-     */
-    public function id(): void
-    {
-        $this->columns[] = 'id IDTYPE';
     }
 
     // Строковые типы
@@ -45,65 +22,22 @@ class Blueprint
         return $this;
     }
 
-    public function char(string $column, int $length = 255): self
-    {
-        $this->columns[] = "{$column} CHAR({$length})";
-        return $this;
-    }
-
     public function text(string $column): self
     {
         $this->columns[] = "{$column} TEXT";
         return $this;
     }
 
-    public function mediumText(string $column): self
+    public function char(string $column, int $length = 255): self
     {
-        $this->columns[] = "{$column} MEDIUMTEXT";
-        return $this;
-    }
-
-    public function longText(string $column): self
-    {
-        $this->columns[] = "{$column} LONGTEXT";
-        return $this;
-    }
-
-    public function binary(string $column, int $length = 255): self
-    {
-        $this->columns[] = "{$column} BINARY({$length})";
-        return $this;
-    }
-
-    public function blob(string $column): self
-    {
-        $this->columns[] = "{$column} BLOB";
-        return $this;
-    }
-
-    public function mediumBlob(string $column): self
-    {
-        $this->columns[] = "{$column} MEDIUMBLOB";
-        return $this;
-    }
-
-    public function longBlob(string $column): self
-    {
-        $this->columns[] = "{$column} LONGBLOB";
+        $this->columns[] = "{$column} CHAR({$length})";
         return $this;
     }
 
     public function enum(string $column, array $values): self
     {
-        $values = array_map(fn($v) => "'{$v}'", $values);
+        $values = array_map(fn($v) => "'" . addslashes($v) . "'", $values);
         $this->columns[] = "{$column} ENUM(" . implode(', ', $values) . ")";
-        return $this;
-    }
-
-    public function set(string $column, array $values): self
-    {
-        $values = array_map(fn($v) => "'{$v}'", $values);
-        $this->columns[] = "{$column} SET(" . implode(', ', $values) . ")";
         return $this;
     }
 
@@ -115,38 +49,10 @@ class Blueprint
         return $this;
     }
 
-    public function tinyInteger(string $column, ?int $length = null): self
-    {
-        $length = $length ? "({$length})" : '';
-        $this->columns[] = "{$column} TINYINT{$length}";
-        return $this;
-    }
-
-    public function smallInteger(string $column, ?int $length = null): self
-    {
-        $length = $length ? "({$length})" : '';
-        $this->columns[] = "{$column} SMALLINT{$length}";
-        return $this;
-    }
-
-    public function mediumInteger(string $column, ?int $length = null): self
-    {
-        $length = $length ? "({$length})" : '';
-        $this->columns[] = "{$column} MEDIUMINT{$length}";
-        return $this;
-    }
-
     public function bigInteger(string $column, ?int $length = null): self
     {
         $length = $length ? "({$length})" : '';
         $this->columns[] = "{$column} BIGINT{$length}";
-        return $this;
-    }
-
-    public function unsignedInteger(string $column, ?int $length = null): self
-    {
-        $length = $length ? "({$length})" : '';
-        $this->columns[] = "{$column} INT{$length} UNSIGNED";
         return $this;
     }
 
@@ -158,18 +64,6 @@ class Blueprint
             $this->columns[] = "{$column} FLOAT({$precision})";
         } else {
             $this->columns[] = "{$column} FLOAT";
-        }
-        return $this;
-    }
-
-    public function double(string $column, ?int $precision = null, ?int $scale = null): self
-    {
-        if ($precision !== null && $scale !== null) {
-            $this->columns[] = "{$column} DOUBLE({$precision}, {$scale})";
-        } elseif ($precision !== null) {
-            $this->columns[] = "{$column} DOUBLE({$precision})";
-        } else {
-            $this->columns[] = "{$column} DOUBLE";
         }
         return $this;
     }
@@ -193,13 +87,6 @@ class Blueprint
         return $this;
     }
 
-    public function time(string $column, ?int $precision = null): self
-    {
-        $precision = $precision ? "({$precision})" : '';
-        $this->columns[] = "{$column} TIME{$precision}";
-        return $this;
-    }
-
     public function dateTime(string $column, ?int $precision = null): self
     {
         $precision = $precision ? "({$precision})" : '';
@@ -214,9 +101,10 @@ class Blueprint
         return $this;
     }
 
-    public function year(string $column): self
+    public function time(string $column, ?int $precision = null): self
     {
-        $this->columns[] = "{$column} YEAR";
+        $precision = $precision ? "({$precision})" : '';
+        $this->columns[] = "{$column} TIME{$precision}";
         return $this;
     }
 
@@ -227,56 +115,7 @@ class Blueprint
         return $this;
     }
 
-    // Пространственные типы
-    public function geometry(string $column): self
-    {
-        $this->columns[] = "{$column} GEOMETRY";
-        return $this;
-    }
-
-    public function point(string $column): self
-    {
-        $this->columns[] = "{$column} POINT";
-        return $this;
-    }
-
-    public function lineString(string $column): self
-    {
-        $this->columns[] = "{$column} LINESTRING";
-        return $this;
-    }
-
-    public function polygon(string $column): self
-    {
-        $this->columns[] = "{$column} POLYGON";
-        return $this;
-    }
-
-    public function multiPoint(string $column): self
-    {
-        $this->columns[] = "{$column} MULTIPOINT";
-        return $this;
-    }
-
-    public function multiLineString(string $column): self
-    {
-        $this->columns[] = "{$column} MULTILINESTRING";
-        return $this;
-    }
-
-    public function multiPolygon(string $column): self
-    {
-        $this->columns[] = "{$column} MULTIPOLYGON";
-        return $this;
-    }
-
-    public function geometryCollection(string $column): self
-    {
-        $this->columns[] = "{$column} GEOMETRYCOLLECTION";
-        return $this;
-    }
-
-    // Дополнительные методы
+    // Модификаторы
     public function nullable(): self
     {
         $lastColumn = array_pop($this->columns);
@@ -287,7 +126,7 @@ class Blueprint
     public function default($value): self
     {
         $lastColumn = array_pop($this->columns);
-        $defaultValue = is_string($value) ? "'{$value}'" : $value;
+        $defaultValue = is_string($value) ? "'" . addslashes($value) . "'" : $value;
         $this->columns[] = "{$lastColumn} DEFAULT {$defaultValue}";
         return $this;
     }
@@ -299,17 +138,10 @@ class Blueprint
         return $this;
     }
 
-    public function autoIncrement(): self
-    {
-        $lastColumn = array_pop($this->columns);
-        $this->columns[] = "{$lastColumn} AUTO_INCREMENT";
-        return $this;
-    }
-
     public function comment(string $comment): self
     {
         $lastColumn = array_pop($this->columns);
-        $this->columns[] = "{$lastColumn} COMMENT '{$comment}'";
+        $this->columns[] = "{$lastColumn} COMMENT '" . addslashes($comment) . "'";
         return $this;
     }
 
@@ -348,6 +180,7 @@ class Blueprint
         return $this;
     }
 
+    // Специальные методы
     public function timestamps(): void
     {
         $this->columns[] = 'created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP';
@@ -362,17 +195,5 @@ class Blueprint
     public function rememberToken(): void
     {
         $this->string('remember_token', 100)->nullable();
-    }
-
-    /**
-     * Генерирует SQL-запрос для создания таблицы.
-     *
-     * @return string SQL-запрос CREATE TABLE
-     */
-    public function compileCreate(): array
-    {
-        return [
-            $this->dialect->compileCreateTable($this->table, $this->columns, $this->tableOptions)
-        ];
     }
 }
