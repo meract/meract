@@ -200,35 +200,53 @@ class FiftyFiftyMiddleware
 
 Работает это следующим образом, когда приходит запрос, сервер сначала ищет по прописанным напрямую маршрутам, если не находит и имеется указанная статичная директория, ищет в ней. Если она не указана и/или такого файла нет, выполняется маршрут 404. Если он не установлен тогда пользователь просто увидит "not found"
 
-## view
+## view / morph
 Шаблоны позволяют упрощать вывод. Синтаксис такой.
 ```
-$header = new View("header", ["title" => $data['name']]);
+$view = new View("test", ["title" => "test", "year" => 2025, "posts" => [[1,2],[2,1],[3,5],[4,8],[58,85],[123,321]]]);
 ```
-Вы можете объеденять несколько шаблонов:
+views/test.morph.php:
 ```
-$header = new View("header", ["title" => $data['name']]);
-$html = new View('index', ["header" => $header, "a" => "sdf"]);
-return self::html($html);
+@extends('layouts/main')
+
+
+@section('loop')
+
+@loop($posts, "post")
+
+{{post[0]}} {{post[1]}}<br> 
+
+@endloop
+
+@endsection
+
+
+@section('year')
+{{year}}
+@endsection
+
+@EOF
 ```
-views/header.php:
-```
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title; ?></title>
-```
-views/index.php:
+views/layots/main.morph.php:
 ```
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<?= $header; ?>
+    <title>{{title}}</title>
 </head>
 <body>
-<?= $a; ?>
+    @yeld('loop')
 
+    @yeld('year')
 </body>
 </html>
+```
+
+В конфиге вы можете добавить свои собственные дополнительные прерпроцессоры, например:
+```
+"viewCompilers" => [
+		new \Meract\Core\Compilers\MinifyHtmlViewCompiler
+]
 ```
 В данном примере вы можете увидеть как вставлять какие-то параметры, а так же использование нескольких шаблонов друг в друге.
 ## Модели
