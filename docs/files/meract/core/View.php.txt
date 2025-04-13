@@ -1,87 +1,113 @@
 <?php
 namespace Meract\Core;
 
-/**
- * Класс для работы с представлениями (шаблонами).
- *
- * Обеспечивает:
- * - Рендеринг PHP-шаблонов
- * - Передачу данных в шаблоны
- * - Буферизацию вывода
- */
-class View
+class View implements \Stringable
 {
-	/**
-	 * @var string Путь к директории с шаблонами
-	 */
-	private static $viewPath = 'app/views';
+    private static string $viewsPath = 'app/views';
+    private static array $compilers = [];
+    
+    private string $template;
+    private array $data;
+    private array $sections = [];
+    private ?string $extendedTemplate = null;
+    private string $currentSection = '';
 
-	/**
-	 * @var string Имя шаблона
-	 */
-	private $template;
+    public function __construct(string $template, array $data = [])
+    {
+        $this->template = $template;
+        $this->data = $data;
+    }
 
-	/**
-	 * @var array Данные для передачи в шаблон
-	 */
-	private $data = [];
+    public function __get(string $name)
+    {
+        return $this->data[$name] ?? null;
+    }
 
-	/**
-	 * Конструктор класса View
-	 *
-	 * @param string $template Имя шаблона (без расширения .php)
-	 * @param array $data Ассоциативный массив данных для шаблона
-	 */
-	public function __construct(string $template, array $data = [])
-	{
-		$this->template = $template;
-		$this->data = $data;
-	}
+    public function __set(string $name, $value): void
+    {
+        $this->data[$name] = $value;
+    }
 
-	/**
-	 * Магический метод для автоматического рендеринга при использовании объекта как строки
-	 *
-	 * @return string Содержимое отрендеренного шаблона
-	 * @throws Exception Если файл шаблона не найден
-	 */
-	public function __toString(): string
-	{
-		return $this->render();
-	}
+    public function __toString(): string
+    {
+        return $this->render();
+    }
 
-	/**
-	 * Рендерит шаблон с переданными данными
-	 *
-	 * @return string Содержимое отрендеренного шаблона
-	 * @throws Exception Если файл шаблона не найден
-	 */
-	public function render(): string
-	{
-		// Формируем полный путь к файлу шаблона
-		$templatePath = self::$viewPath . '/' . $this->template . '.php';
+    public function render(): string
+    {
+        $templatePath = self::$viewsPath . '/' . $this->template . '.morph.php';
+        
+        if (!file_exists($templatePath)) {
+            throw new \Exception("View [{$this->template}] not found at: {$templatePath}");
+        }
 
-		// Проверяем существование файла шаблона
-		if (!file_exists($templatePath)) {
-			throw new Exception("Template file not found: $templatePath");
-		}
+        $content = file_get_contents($templatePath);
+        
+        foreach (self::$compilers as $compiler) {
+            $content = $compiler->run($content);
+        }
 
-		// Извлекаем переменные из массива данных
-		extract($this->data);
+        extract($this->data);
+        ob_start();
+        eval('?>' . $content);
+        $content = ob_get_clean();
 
-		// Включаем буферизацию вывода
-		ob_start();
-		include $templatePath;
-		return ob_get_clean();
-	}
+        if ($this->extendedTemplate) {
+            return $this->renderExtendedTemplate();
+        }
 
-	/**
-	 * Устанавливает новый путь к директории с шаблонами.
-	 *
-	 * @param string $path Абсолютный или относительный путь
-	 * @return void
-	 */
-	public static function setViewPath(string $path): void
-	{
-		self::$viewPath = rtrim($path, '/');
-	}
+        return $content;
+    }
+
+    private function renderExtendedTemplate(): string
+    {
+        $layoutPath = self::$viewsPath . '/' . $this->extendedTemplate . '.morph.php';
+        if (!file_exists($layoutPath)) {
+            throw new \Exception("Layout [{$this->extendedTemplate}] not found");
+        }
+
+        $layoutContent = file_get_contents($layoutPath);
+        foreach (self::$compilers as $compiler) {
+            $layoutContent = $compiler->run($layoutContent);
+        }
+
+        extract($this->data);
+        ob_start();
+        eval('?>' . $layoutContent);
+        return ob_get_clean();
+    }
+
+    public function extends(string $template): void
+    {
+        $this->extendedTemplate = $template;
+    }
+
+    public function section(string $name): void
+    {
+        $this->currentSection = $name;
+        ob_start();
+    }
+
+    public function endSection(): void
+    {
+        if ($this->currentSection) {
+            $this->sections[$this->currentSection] = ob_get_clean();
+            $this->currentSection = '';
+        }
+    }
+
+    public function yeld(string $name): string
+    {
+        return $this->sections[$name] ?? '';
+    }
+
+    public static function setViewsPath(string $path): void
+    {
+        self::$viewsPath = rtrim($path, '/');
+    }
+
+    public static function addCompiler(ViewCompilerInterface $compiler): void
+    {
+        self::$compilers[] = $compiler;
+    }
 }

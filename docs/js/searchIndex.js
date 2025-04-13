@@ -3,113 +3,48 @@ Search.appendIndex(
                 {
             "fqsen": "\\Meract\\Core\\Blueprint",
             "name": "Blueprint",
-            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432\u0020\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446",
+            "summary": "\u0411\u0430\u0437\u043E\u0432\u044B\u0439\u0020\u043A\u043B\u0430\u0441\u0441\u0020Blueprint\u0020\u0441\u0020\u043E\u0431\u0449\u0435\u0439\u0020\u0440\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u0435\u0439",
             "url": "classes/Meract-Core-Blueprint.html"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440.",
+            "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method___construct"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aid\u0028\u0029",
-            "name": "id",
-            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439\u0020\u043A\u043B\u044E\u0447\u0020\u0028id\u0029\u0020\u0432\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443.",
-            "url": "classes/Meract-Core-Blueprint.html#method_id"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Astring\u0028\u0029",
             "name": "string",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_string"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Achar\u0028\u0029",
-            "name": "char",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_char"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atext\u0028\u0029",
             "name": "text",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_text"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumText\u0028\u0029",
-            "name": "mediumText",
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Achar\u0028\u0029",
+            "name": "char",
             "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_mediumText"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlongText\u0028\u0029",
-            "name": "longText",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_longText"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Abinary\u0028\u0029",
-            "name": "binary",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_binary"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ablob\u0028\u0029",
-            "name": "blob",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_blob"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumBlob\u0028\u0029",
-            "name": "mediumBlob",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_mediumBlob"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlongBlob\u0028\u0029",
-            "name": "longBlob",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_longBlob"
+            "url": "classes/Meract-Core-Blueprint.html#method_char"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aenum\u0028\u0029",
             "name": "enum",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_enum"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_set"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ainteger\u0028\u0029",
             "name": "integer",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_integer"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AtinyInteger\u0028\u0029",
-            "name": "tinyInteger",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_tinyInteger"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AsmallInteger\u0028\u0029",
-            "name": "smallInteger",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_smallInteger"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmediumInteger\u0028\u0029",
-            "name": "mediumInteger",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_mediumInteger"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AbigInteger\u0028\u0029",
             "name": "bigInteger",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_bigInteger"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AunsignedInteger\u0028\u0029",
-            "name": "unsignedInteger",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_unsignedInteger"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Afloat\u0028\u0029",
             "name": "float",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_float"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adouble\u0028\u0029",
-            "name": "double",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_double"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Adecimal\u0028\u0029",
             "name": "decimal",
@@ -126,11 +61,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_date"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atime\u0028\u0029",
-            "name": "time",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_time"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AdateTime\u0028\u0029",
             "name": "dateTime",
             "summary": "",
@@ -141,55 +71,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_timestamp"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ayear\u0028\u0029",
-            "name": "year",
+            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Atime\u0028\u0029",
+            "name": "time",
             "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_year"
+            "url": "classes/Meract-Core-Blueprint.html#method_time"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ajson\u0028\u0029",
             "name": "json",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_json"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Ageometry\u0028\u0029",
-            "name": "geometry",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_geometry"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Apoint\u0028\u0029",
-            "name": "point",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_point"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AlineString\u0028\u0029",
-            "name": "lineString",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_lineString"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Apolygon\u0028\u0029",
-            "name": "polygon",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_polygon"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiPoint\u0028\u0029",
-            "name": "multiPoint",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_multiPoint"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiLineString\u0028\u0029",
-            "name": "multiLineString",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_multiLineString"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AmultiPolygon\u0028\u0029",
-            "name": "multiPolygon",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_multiPolygon"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AgeometryCollection\u0028\u0029",
-            "name": "geometryCollection",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_geometryCollection"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Anullable\u0028\u0029",
             "name": "nullable",
@@ -205,11 +95,6 @@ Search.appendIndex(
             "name": "unsigned",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_unsigned"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AautoIncrement\u0028\u0029",
-            "name": "autoIncrement",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#method_autoIncrement"
         },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003Acomment\u0028\u0029",
             "name": "comment",
@@ -256,11 +141,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#method_rememberToken"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003AcompileCreate\u0028\u0029",
-            "name": "compileCreate",
-            "summary": "\u0413\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B.",
-            "url": "classes/Meract-Core-Blueprint.html#method_compileCreate"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024table",
             "name": "table",
             "summary": "",
@@ -271,35 +151,270 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#property_columns"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024dialect",
-            "name": "dialect",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#property_dialect"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024engine",
-            "name": "engine",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#property_engine"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024charset",
-            "name": "charset",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#property_charset"
-        },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024collation",
-            "name": "collation",
-            "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#property_collation"
-        },                {
             "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024tableOptions",
             "name": "tableOptions",
             "summary": "",
             "url": "classes/Meract-Core-Blueprint.html#property_tableOptions"
         },                {
-            "fqsen": "\\Meract\\Core\\Blueprint\u003A\u003A\u0024tableComment",
-            "name": "tableComment",
+            "fqsen": "\\Meract\\Core\\BlueprintFactory",
+            "name": "BlueprintFactory",
             "summary": "",
-            "url": "classes/Meract-Core-Blueprint.html#property_tableComment"
+            "url": "classes/Meract-Core-BlueprintFactory.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintFactory\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "\u0421\u043E\u0437\u0434\u0430\u0435\u0442\u0020\u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0449\u0438\u0439\u0020\u0434\u0438\u0430\u043B\u0435\u043A\u0442\u0020\u0434\u043B\u044F\u0020\u0421\u0423\u0411\u0414",
+            "url": "classes/Meract-Core-BlueprintFactory.html#method_create"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface",
+            "name": "BlueprintInterface",
+            "summary": "\u0418\u043D\u0442\u0435\u0440\u0444\u0435\u0439\u0441\u0020\u0434\u043B\u044F\u0020\u043F\u043E\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u044F\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u043E\u0432\u0020\u043E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446",
+            "url": "classes/Meract-Core-BlueprintInterface.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aid\u0028\u0029",
+            "name": "id",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439\u0020\u043A\u043B\u044E\u0447\u0020\u0028id\u0029\u0020\u0432\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_id"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Astring\u0028\u0029",
+            "name": "string",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_string"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Atext\u0028\u0029",
+            "name": "text",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_text"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Achar\u0028\u0029",
+            "name": "char",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_char"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aenum\u0028\u0029",
+            "name": "enum",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_enum"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Ainteger\u0028\u0029",
+            "name": "integer",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_integer"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003AbigInteger\u0028\u0029",
+            "name": "bigInteger",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_bigInteger"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Afloat\u0028\u0029",
+            "name": "float",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_float"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Adecimal\u0028\u0029",
+            "name": "decimal",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_decimal"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aboolean\u0028\u0029",
+            "name": "boolean",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_boolean"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Adate\u0028\u0029",
+            "name": "date",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_date"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003AdateTime\u0028\u0029",
+            "name": "dateTime",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_dateTime"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Atimestamp\u0028\u0029",
+            "name": "timestamp",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_timestamp"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Atime\u0028\u0029",
+            "name": "time",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_time"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Ajson\u0028\u0029",
+            "name": "json",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_json"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Anullable\u0028\u0029",
+            "name": "nullable",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_nullable"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Adefault\u0028\u0029",
+            "name": "default",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_default"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aunsigned\u0028\u0029",
+            "name": "unsigned",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_unsigned"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003AautoIncrement\u0028\u0029",
+            "name": "autoIncrement",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_autoIncrement"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Acomment\u0028\u0029",
+            "name": "comment",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_comment"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aunique\u0028\u0029",
+            "name": "unique",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_unique"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aprimary\u0028\u0029",
+            "name": "primary",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_primary"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_index"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Aafter\u0028\u0029",
+            "name": "after",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_after"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Afirst\u0028\u0029",
+            "name": "first",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_first"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003Atimestamps\u0028\u0029",
+            "name": "timestamps",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_timestamps"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003AsoftDeletes\u0028\u0029",
+            "name": "softDeletes",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_softDeletes"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003ArememberToken\u0028\u0029",
+            "name": "rememberToken",
+            "summary": "",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_rememberToken"
+        },                {
+            "fqsen": "\\Meract\\Core\\BlueprintInterface\u003A\u003AcompileCreate\u0028\u0029",
+            "name": "compileCreate",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B",
+            "url": "classes/Meract-Core-BlueprintInterface.html#method_compileCreate"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP",
+            "name": "MySQLBP",
+            "summary": "\u0420\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F\u0020Blueprint\u0020\u0434\u043B\u044F\u0020MySQL",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003Aid\u0028\u0029",
+            "name": "id",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439\u0020\u043A\u043B\u044E\u0447\u0020\u0028id\u0029\u0020\u0432\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_id"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003AautoIncrement\u0028\u0029",
+            "name": "autoIncrement",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_autoIncrement"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003AcompileCreate\u0028\u0029",
+            "name": "compileCreate",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_compileCreate"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003Aengine\u0028\u0029",
+            "name": "engine",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_engine"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003Acharset\u0028\u0029",
+            "name": "charset",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_charset"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\MySQLBP\u003A\u003Acollation\u0028\u0029",
+            "name": "collation",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-MySQLBP.html#method_collation"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\PostgreSQLBP",
+            "name": "PostgreSQLBP",
+            "summary": "\u0420\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F\u0020Blueprint\u0020\u0434\u043B\u044F\u0020PostgreSQL",
+            "url": "classes/Meract-Core-BluePrints-PostgreSQLBP.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\PostgreSQLBP\u003A\u003Aid\u0028\u0029",
+            "name": "id",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439\u0020\u043A\u043B\u044E\u0447\u0020\u0028id\u0029\u0020\u0432\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443",
+            "url": "classes/Meract-Core-BluePrints-PostgreSQLBP.html#method_id"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\PostgreSQLBP\u003A\u003AautoIncrement\u0028\u0029",
+            "name": "autoIncrement",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-PostgreSQLBP.html#method_autoIncrement"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\PostgreSQLBP\u003A\u003AcompileCreate\u0028\u0029",
+            "name": "compileCreate",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B",
+            "url": "classes/Meract-Core-BluePrints-PostgreSQLBP.html#method_compileCreate"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\PostgreSQLBP\u003A\u003Ajson\u0028\u0029",
+            "name": "json",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-PostgreSQLBP.html#method_json"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP",
+            "name": "SQLiteBP",
+            "summary": "\u0420\u0435\u0430\u043B\u0438\u0437\u0430\u0446\u0438\u044F\u0020Blueprint\u0020\u0434\u043B\u044F\u0020SQLite",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP\u003A\u003Aid\u0028\u0029",
+            "name": "id",
+            "summary": "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442\u0020\u043F\u0435\u0440\u0432\u0438\u0447\u043D\u044B\u0439\u0020\u043A\u043B\u044E\u0447\u0020\u0028id\u0029\u0020\u0432\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u0443",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html#method_id"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP\u003A\u003AautoIncrement\u0028\u0029",
+            "name": "autoIncrement",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html#method_autoIncrement"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP\u003A\u003AcompileCreate\u0028\u0029",
+            "name": "compileCreate",
+            "summary": "\u041A\u043E\u043C\u043F\u0438\u043B\u0438\u0440\u0443\u0435\u0442\u0020SQL\u002D\u0437\u0430\u043F\u0440\u043E\u0441\u0020\u0434\u043B\u044F\u0020\u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F\u0020\u0442\u0430\u0431\u043B\u0438\u0446\u044B",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html#method_compileCreate"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP\u003A\u003Aunsigned\u0028\u0029",
+            "name": "unsigned",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html#method_unsigned"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints\\SQLiteBP\u003A\u003Aafter\u0028\u0029",
+            "name": "after",
+            "summary": "",
+            "url": "classes/Meract-Core-BluePrints-SQLiteBP.html#method_after"
+        },                {
+            "fqsen": "\\Meract\\Core\\Compilers\\BaseViewCompiler",
+            "name": "BaseViewCompiler",
+            "summary": "",
+            "url": "classes/Meract-Core-Compilers-BaseViewCompiler.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Compilers\\BaseViewCompiler\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "",
+            "url": "classes/Meract-Core-Compilers-BaseViewCompiler.html#method_run"
         },                {
             "fqsen": "\\Meract\\Core\\Controller",
             "name": "Controller",
@@ -1243,33 +1358,78 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Meract\\Core\\View",
             "name": "View",
-            "summary": "\u041A\u043B\u0430\u0441\u0441\u0020\u0434\u043B\u044F\u0020\u0440\u0430\u0431\u043E\u0442\u044B\u0020\u0441\u0020\u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u0438\u044F\u043C\u0438\u0020\u0028\u0448\u0430\u0431\u043B\u043E\u043D\u0430\u043C\u0438\u0029.",
+            "summary": "",
             "url": "classes/Meract-Core-View.html"
         },                {
             "fqsen": "\\Meract\\Core\\View\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440\u0020\u043A\u043B\u0430\u0441\u0441\u0430\u0020View",
+            "summary": "",
             "url": "classes/Meract-Core-View.html#method___construct"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method___get"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A__set\u0028\u0029",
+            "name": "__set",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method___set"
         },                {
             "fqsen": "\\Meract\\Core\\View\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "\u041C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439\u0020\u043C\u0435\u0442\u043E\u0434\u0020\u0434\u043B\u044F\u0020\u0430\u0432\u0442\u043E\u043C\u0430\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E\u0020\u0440\u0435\u043D\u0434\u0435\u0440\u0438\u043D\u0433\u0430\u0020\u043F\u0440\u0438\u0020\u0438\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0438\u0020\u043E\u0431\u044A\u0435\u043A\u0442\u0430\u0020\u043A\u0430\u043A\u0020\u0441\u0442\u0440\u043E\u043A\u0438",
+            "summary": "",
             "url": "classes/Meract-Core-View.html#method___toString"
         },                {
             "fqsen": "\\Meract\\Core\\View\u003A\u003Arender\u0028\u0029",
             "name": "render",
-            "summary": "\u0420\u0435\u043D\u0434\u0435\u0440\u0438\u0442\u0020\u0448\u0430\u0431\u043B\u043E\u043D\u0020\u0441\u0020\u043F\u0435\u0440\u0435\u0434\u0430\u043D\u043D\u044B\u043C\u0438\u0020\u0434\u0430\u043D\u043D\u044B\u043C\u0438",
+            "summary": "",
             "url": "classes/Meract-Core-View.html#method_render"
         },                {
-            "fqsen": "\\Meract\\Core\\View\u003A\u003AsetViewPath\u0028\u0029",
-            "name": "setViewPath",
-            "summary": "\u0423\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442\u0020\u043D\u043E\u0432\u044B\u0439\u0020\u043F\u0443\u0442\u044C\u0020\u043A\u0020\u0434\u0438\u0440\u0435\u043A\u0442\u043E\u0440\u0438\u0438\u0020\u0441\u0020\u0448\u0430\u0431\u043B\u043E\u043D\u0430\u043C\u0438.",
-            "url": "classes/Meract-Core-View.html#method_setViewPath"
-        },                {
-            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024viewPath",
-            "name": "viewPath",
+            "fqsen": "\\Meract\\Core\\View\u003A\u003ArenderExtendedTemplate\u0028\u0029",
+            "name": "renderExtendedTemplate",
             "summary": "",
-            "url": "classes/Meract-Core-View.html#property_viewPath"
+            "url": "classes/Meract-Core-View.html#method_renderExtendedTemplate"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003Aextends\u0028\u0029",
+            "name": "extends",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_extends"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003Asection\u0028\u0029",
+            "name": "section",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_section"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003AendSection\u0028\u0029",
+            "name": "endSection",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_endSection"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003Ayeld\u0028\u0029",
+            "name": "yeld",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_yeld"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003AsetViewsPath\u0028\u0029",
+            "name": "setViewsPath",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_setViewsPath"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003AaddCompiler\u0028\u0029",
+            "name": "addCompiler",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#method_addCompiler"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024viewsPath",
+            "name": "viewsPath",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#property_viewsPath"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024compilers",
+            "name": "compilers",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#property_compilers"
         },                {
             "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024template",
             "name": "template",
@@ -1280,6 +1440,31 @@ Search.appendIndex(
             "name": "data",
             "summary": "",
             "url": "classes/Meract-Core-View.html#property_data"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024sections",
+            "name": "sections",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#property_sections"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024extendedTemplate",
+            "name": "extendedTemplate",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#property_extendedTemplate"
+        },                {
+            "fqsen": "\\Meract\\Core\\View\u003A\u003A\u0024currentSection",
+            "name": "currentSection",
+            "summary": "",
+            "url": "classes/Meract-Core-View.html#property_currentSection"
+        },                {
+            "fqsen": "\\Meract\\Core\\ViewCompilerInterface",
+            "name": "ViewCompilerInterface",
+            "summary": "",
+            "url": "classes/Meract-Core-ViewCompilerInterface.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\ViewCompilerInterface\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "",
+            "url": "classes/Meract-Core-ViewCompilerInterface.html#method_run"
         },                {
             "fqsen": "\\Meract\\Core\\Worker",
             "name": "Worker",
@@ -1325,5 +1510,15 @@ Search.appendIndex(
             "name": "Meract",
             "summary": "",
             "url": "namespaces/meract.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\BluePrints",
+            "name": "BluePrints",
+            "summary": "",
+            "url": "namespaces/meract-core-blueprints.html"
+        },                {
+            "fqsen": "\\Meract\\Core\\Compilers",
+            "name": "Compilers",
+            "summary": "",
+            "url": "namespaces/meract-core-compilers.html"
         }            ]
 );

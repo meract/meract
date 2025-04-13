@@ -1,7 +1,7 @@
 <?php
 namespace Meract\Core;
 
-use Meract\Drivers\DialectFactory;
+use Meract\Core\BlueprintFactory;
 use PDO;
 
 class Schema
@@ -9,15 +9,11 @@ class Schema
     public function __construct(
         private PDO $pdo,
         private ?DatabaseDialectInterface $dialect = null
-    ) {
-        if ($this->dialect === null) {
-            $this->dialect = DialectFactory::create($pdo);
-        }
-    }
+    ) {}
 
     public function create(string $table, callable $callback): void
     {
-        $blueprint = new Blueprint($table, $this->dialect);
+        $blueprint = BlueprintFactory::create($this->pdo, $table);
         $callback($blueprint);
 
         $queries = $blueprint->compileCreate();
