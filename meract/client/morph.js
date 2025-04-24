@@ -19,6 +19,14 @@ class MorphInstance {
 				return;
 			}
 
+			el.virutal = function () {
+				return this.cloneNode(true);
+			}
+
+			el.renderVirtual = function(dom) {
+				this.innerHTML = dom.innerHTML;
+			}
+
 			this.morphs[name] = el;
 			this.initMorphElement(el);
 
