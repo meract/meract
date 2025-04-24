@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
@@ -21,7 +22,7 @@ if (!SDR::isInitialized()) {
     SDR::set("pdo.connection", $db->getPdo());
 }
 
-View::addCompiler(new \Meract\Core\Compilers\BaseViewCompiler);
+View::addCompiler(new \Meract\Core\Compilers\BaseViewCompiler());
 if (isset($config['viewCompilers'])) {
     foreach ($config['viewCompilers'] as $compiler) {
         View::addCompiler($compiler);

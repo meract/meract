@@ -23,7 +23,7 @@ class MorphInstance {
 			this.initMorphElement(el);
 
 			// Handle backload if needed
-			const backload = el.getAttribute('backload');
+			const backload = this.getBackloadUrl(el);
 			if (backload && el.getAttribute('backloadType') === 'once') {
 				this.loadComponent(el, backload);
 			}
@@ -36,8 +36,8 @@ class MorphInstance {
 		}
 	}
 
-	async goTo(name) {
-		if (!this.initialized) await this.init();
+	goTo(name, data = null) {
+		if (!this.initialized) this.init();
 
 		const targetPage = this.morphs[name];
 		if (!targetPage) {
@@ -45,13 +45,28 @@ class MorphInstance {
 			return false;
 		}
 
-		await this.activatePage(targetPage);
+		this.activatePage(targetPage, data);
 		return true;
 	}
 
-	async activatePage(pageElement) {
+	reload(data = null) {
+		this.activatePage(this.currentPage, data, true);
+	}
+	
+	getBackloadUrl(morphElement) {
+		// Priority: backloadUrl > backload
+		const customUrl = morphElement.getAttribute('customBackload');
+		if (customUrl) return customUrl;
+		
+		const componentName = morphElement.getAttribute('backload');
+		if (componentName) return `/morph-component/${componentName}`;
+		
+		return null;
+	}
+
+	async activatePage(pageElement, data = null, reload = false) {
 		// Skip if already active
-		if (this.currentPage === pageElement) return;
+		if (this.currentPage === pageElement && !reload) return;
 
 		// Deactivate current page
 		if (this.currentPage) {
@@ -63,16 +78,17 @@ class MorphInstance {
 		this.currentPage = pageElement;
 
 		// Handle backload if needed
-		const backload = pageElement.getAttribute('backload');
-		if (backload) {
+		const backloadUrl = this.getBackloadUrl(pageElement);
+		if (backloadUrl) {
 			const backloadType = pageElement.getAttribute('backloadType');
 			if (backloadType !== "once") {
 				try {
-					await this.loadComponent(pageElement, backload);
+					await this.loadComponent(pageElement, backloadUrl, data);
 
-					// Remove backload attribute if type is "goto"
+					// Remove backload attributes if type is "goto"
 					if (backloadType === 'goto') {
 						pageElement.removeAttribute('backload');
+						pageElement.removeAttribute('customBackload');
 					}
 				} catch (error) {
 					console.error(`Failed to backload component for ${pageElement.getAttribute('name')}:`, error);
@@ -81,9 +97,24 @@ class MorphInstance {
 		}
 	}
 
-	async loadComponent(morphElement, componentName) {
+	async loadComponent(morphElement, url, data = null) {
 		try {
-			const response = await fetch(`/morph-component/${componentName}`);
+			const fetchOptions = {
+				method: data ? 'POST' : 'GET',
+				headers: {},
+			};
+
+			// Если есть данные, формируем тело запроса в формате urlencoded
+			if (data) {
+				const formData = new URLSearchParams();
+				for (const key in data) {
+					formData.append(key, data[key]);
+				}
+				fetchOptions.body = formData;
+				fetchOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+			}
+
+			const response = await fetch(url, fetchOptions);
 			if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
 			const html = await response.text();
@@ -104,13 +135,13 @@ class MorphInstance {
 
 			return true;
 		} catch (error) {
-			console.error(`Failed to load component "${componentName}":`, error);
+			console.error(`Failed to load component from "${url}":`, error);
 			morphElement.innerHTML = `
-		<div class="morph-error">
-		  Failed to load component: ${componentName}
-		  <small>${error.message}</small>
-		</div>
-	  `;
+			<div class="morph-error">
+				Failed to load component from: ${url}
+				<small>${error.message}</small>
+			</div>
+		`;
 			return false;
 		}
 	}

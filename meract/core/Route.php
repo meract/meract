@@ -89,6 +89,12 @@ class Route
                 $view = new \Meract\Core\View("components/{$name}");
                 return new Response($view, 200);
             });
+
+            self::post("/morph-component/{name}", function(Request $rq, array $params) {
+                $name = $params['name'];
+                $view = new \Meract\Core\View("components/{$name}", (array)$rq->parameters);
+                return new Response($view, 200);
+            });
         }
 
 
