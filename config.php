@@ -1,9 +1,9 @@
 <?php
 return [
 	"server" => [
-		"customServer" => true,
+		"customServer" => false,
 		"host" => "0.0.0.0",
-		"port" => 80,
+		"port" => 8000,
 		"initFunction" => function () {
 			echo "server started!\n";
 		}

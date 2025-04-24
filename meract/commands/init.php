@@ -28,6 +28,8 @@ return new class {
 			PROJECT_DIR . '/app/views',
 			PROJECT_DIR . '/app/views/layouts',
 			PROJECT_DIR . '/app/views/components',
+			PROJECT_DIR . '/app/views/colorschemes',
+			PROJECT_DIR . '/app/views/themes',
 			PROJECT_DIR . '/app/workers',
 			PROJECT_DIR . '/app/migrations',
 			PROJECT_DIR . '/app/static',

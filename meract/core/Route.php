@@ -90,6 +90,35 @@ class Route
                 return new Response($view, 200);
             });
         }
+
+
+		//Создание маршрута для тем
+		self::get("/morph-themes/{theme}", function($rq, $data) {
+			try{
+				$theme = file_get_contents(__DIR__.'/../../app/views/themes/'.$data['theme']);
+			} catch(\Exception $e) {
+				$resp = new Response("", 404);
+				return $resp;
+			}
+			$resp = new Response($theme, 200);
+			$resp->header('Content-Type', 'text/css');
+			return $resp;
+			
+		});
+
+		//Создание маршрута для цветовых схем
+		self::get("/morph-colorschemes/{scheme}", function($rq, $data) {
+			try{
+				$theme = file_get_contents(__DIR__.'/../../app/views/colorschemes/'.$data['scheme']);
+			} catch(\Exception $e) {
+				$resp = new Response("", 404);
+				return $resp;
+			}
+			$resp = new Response($theme, 200);
+			$resp->header('Content-Type', 'text/css');
+			return $resp;
+			
+		});
     }
 
     /**

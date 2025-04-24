@@ -1,5 +1,5 @@
 <?php
-namespace Meract\Drivers;
+namespace Meract\Core\Drivers;
 use Meract\Core\StorageDriver;
 
 /**

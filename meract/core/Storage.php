@@ -16,7 +16,7 @@ class Storage
      */
     public static function init(?StorageDriver $driver = null): void
     {
-        self::$driver = $driver ?? new \Meract\Drivers\MemoryStorageDriver();
+        self::$driver = $driver ?? new \Meract\Core\Drivers\MemoryStorageDriver();
     }
 
     /**

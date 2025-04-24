@@ -1,0 +1,9 @@
+return {
+  cmd = "mrst",
+  controllers = "app/controllers",
+  migrations = "app/migrations",
+  models = "app/models",
+  routes = "app/routes",
+  seeders = "database/seeders",
+  views = "app/views"
+}

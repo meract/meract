@@ -2,7 +2,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
-use Meract\Core\{View, SDR, Database, Route, Server, Request, Response, Injector};
+use Meract\Core\{View, SDR, Database, Route, Server, Request, Response, Injector, Storage};
 
 // Инициализация контейнера
 if (!SDR::isInitialized()) {
@@ -27,6 +27,10 @@ if (isset($config['viewCompilers'])) {
         View::addCompiler($compiler);
     }
 }
+Storage::init($config['storage']['driver']);
+Storage::setTime($config['storage']['time']);
+
+
 
 // Загрузка модулей приложения
 requireFilesRecursively(__DIR__ . '/app/core');
