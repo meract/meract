@@ -32,7 +32,9 @@ class MorphInstance {
 
 			// Handle backload if needed
 			const backload = this.getBackloadUrl(el);
-			if (backload && el.getAttribute('backloadType') === 'once') {
+			const backloadType = el.getAttribute('backloadType');
+			
+			if (backload && backloadType === 'once') {
 				this.loadComponent(el, backload);
 			}
 		});
@@ -57,8 +59,38 @@ class MorphInstance {
 		return true;
 	}
 
-	reload(data = null) {
-		this.activatePage(this.currentPage, data, true);
+	async render(name, data = null) {
+		if (!this.initialized) this.init();
+
+		const targetPage = this.morphs[name];
+		if (!targetPage) {
+			console.error(`Page "${name}" not found`);
+			return false;
+		}
+
+		const backloadUrl = this.getBackloadUrl(targetPage);
+		const backloadType = targetPage.getAttribute('backloadType');
+		
+		if (backloadUrl && backloadType === 'wait') {
+			await this.loadComponent(targetPage, backloadUrl, data);
+			return true;
+		}
+		
+		console.warn(`Morph "${name}" is not of type "wait" or has no backload URL`);
+		return false;
+	}
+
+	async reload(data = null) {
+		if (!this.currentPage) return;
+		
+		const backloadUrl = this.getBackloadUrl(this.currentPage);
+		const backloadType = this.currentPage.getAttribute('backloadType');
+		
+		if (backloadUrl && (backloadType === 'every' || backloadType === 'wait')) {
+			await this.loadComponent(this.currentPage, backloadUrl, data);
+		} else if (backloadUrl && backloadType === 'goto') {
+			await this.activatePage(this.currentPage, data, true);
+		}
 	}
 	
 	getBackloadUrl(morphElement) {
@@ -89,7 +121,8 @@ class MorphInstance {
 		const backloadUrl = this.getBackloadUrl(pageElement);
 		if (backloadUrl) {
 			const backloadType = pageElement.getAttribute('backloadType');
-			if (backloadType !== "once") {
+			
+			if (backloadType === 'every' || (backloadType === 'goto' && !reload)) {
 				try {
 					await this.loadComponent(pageElement, backloadUrl, data);
 
