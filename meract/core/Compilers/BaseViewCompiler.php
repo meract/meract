@@ -33,7 +33,8 @@ class BaseViewCompiler implements ViewCompilerInterface
 
         $template = str_replace('@includeMorph', "
             <script>".file_get_contents(__DIR__.'/../../client/morph.js')."</script>
-            <style>".file_get_contents(__DIR__.'/../../client/morph.css')."</style>
+			<style>".file_get_contents(__DIR__.'/../../client/morph.css')."</style>
+			<meta name='viewport' content='width=device-width, initial-scale=1' />
         ", $template);
 
         // Обработка свойств объектов и массивов - добавлена поддержка пробелов

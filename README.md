@@ -684,13 +684,12 @@ backload'ы - это система которая позволяет загру
 ```
 После чего создайте файл `app/views/components/test.morph.php`, например с таким содержимым:
 ```
-<form>
+<form action="form" type="morph">
 <input name="login">
 <input name="password">
 </form>
 ```
 Дальше morph вставит содержимое данного файла внутрь. 
-
 ### типы backload'ов
 | Тип | Поведение |
 | ------------- | ------------- |
@@ -742,4 +741,11 @@ morph('main') // dom морфа аналогично
 
 Morph.morphs.main.virtual() // Возвращает виртуальное дeрево морфа
 Morph.morphs.main.renderVirtual(virtual) // Рендерит виртуальное дерево (Изменения самого элемента morph не применятся)
+
+Morph.ajaxForm(formElement) // Делает форму типа morph
 ```
+
+### Формы
+Вы можете либо дать форме аттрибут type="morph" либо использовать Morph.ajaxForm(formElement).
+
+Тогда при отправке откроется морф с названием указанным в action с параметрами заполненными пользователем

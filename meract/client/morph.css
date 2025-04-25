@@ -83,7 +83,7 @@ morph th {
 /* 4. Кнопки */
 morph button,
 morph [role="button"],
-morph a[role="button"] {
+morph a[role="button"], morph input[type="submit"], morph input[type="button"] {
     cursor: pointer;
     font-weight: 600;
     text-align: center;
