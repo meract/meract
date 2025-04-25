@@ -144,7 +144,11 @@ Route::group('/admin', function () {
     Route::get('/test2', function ($rq){return new Response('hello admin test2!', 200);});
 }, [new FiftyFiftyMiddleware()]);
 
-route::middleware(new FiftyFiftyMiddleware); //Глобальный middleware
+Route::middleware(new FiftyFiftyMiddleware); //Глобальный middleware
+
+Route::get('/', function (){}, [], "route.name"); // Имя маршрута
+
+route("route.name"); // Вернёт урл маршрута: /
 ```
 
 Методы http запросов:
@@ -713,14 +717,14 @@ b: {{b}}
 
 Учитывайте что Morph.goTo без параметров отправляет get, а с параметрами - post запрос. Получить и использовать которые вы кстати можете так:
 ```
-<morph customBackload='/test' name='test' backloadType='every'></morph>
+<morph customBackload="{{{route('component.test'}}}" name='test' backloadType='every'></morph>
 ```
 ```
 Route::post('/test', function($rq) {
   $resp = (new Response(new View('components/test', ["a" => $rq->parameters['a']), 200));
   $resp->header('Content-Type', 'text/html');
   return $resp;
-});
+}, [], "component.test");
 ```
 ```
 Morph.goTo({a : "Произвольное значение"});
@@ -733,6 +737,8 @@ Morph.goTo() // Открывает морф.
 Morph.reload() // Перезагружает морф, может так же принимать параметры с которыми морф будет снова загружен, работает только с backloadType=every
 
 Morph.morphs.main // dom елемент морфа с именем "main"
+morph('main') // dom морфа аналогично
+
 Morph.morphs.main.virtual() // Возвращает виртуальное дeрево морфа
 Morph.morphs.main.renderVirtual(virtual) // Рендерит виртуальное дерево (Изменения самого элемента morph не применятся)
 ```

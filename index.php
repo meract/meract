@@ -32,6 +32,7 @@ Storage::init($config['storage']['driver']);
 Storage::setTime($config['storage']['time']);
 
 
+requireFilesRecursively(__DIR__. '/meract/core/Helpers');
 
 // Загрузка модулей приложения
 requireFilesRecursively(__DIR__ . '/app/core');

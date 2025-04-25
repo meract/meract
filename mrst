@@ -12,7 +12,6 @@ SDR::setInjector($injector);
 // Константы проекта
 define('PROJECT_DIR', __DIR__);
 SDR::setValue('project_dir', PROJECT_DIR);
-
 // Загрузка конфигурации
 $config = require __DIR__ . '/config.php';
 SDR::setValue('config', $config);

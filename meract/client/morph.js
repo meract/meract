@@ -192,4 +192,7 @@ class MorphInstance {
 }
 
 const Morph = new MorphInstance();
+function morph(name){
+	return Morph.morphs[name];
+}
 document.addEventListener('DOMContentLoaded', () => Morph.init());

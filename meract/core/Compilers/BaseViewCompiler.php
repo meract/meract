@@ -8,6 +8,9 @@ class BaseViewCompiler implements ViewCompilerInterface
     {
         // Обработка extends - теперь принимает как одинарные, так и двойные кавычки
         $template = preg_replace('/@extends\(\s*([\'"])(.+?)\1\s*\)/', '<?php $this->extends($1$2$1); ?>', $template);
+		
+		// Обработка функций
+		$template = preg_replace('/\{\{\{\s*(.+?)\s*\}\}\}/', '<?= htmlspecialchars($1); ?>', $template);
 
         // Обработка section - аналогично extends
         $template = preg_replace('/@section\(\s*([\'"])(.+?)\1\s*\)/', '<?php $this->section($1$2$1); ?>', $template);
