@@ -8,16 +8,25 @@
     --morph-secondary: #03dac6;
     --morph-border-radius: 8px;
     --morph-transition: 0.3s ease;
+	--morph-top: 0;
+	--morph-left: 0;
+	--morph-position:fixed;
+	--morph-width: 100%;
+	--morph-height:100%;
+	--morph-no-active-opacity: 0;
+	--morph-active-opacity: 1;
+	--morph-no-active-enable: none;
+	--morph-active-enable: all;
 }
 
 /* ===== Каждый morph — это полноэкранная страница ===== */
 morph {
     display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: var(--morph-position);
+    top: var(--morph-top);
+    left: var(--morph-left);
+    width: var(--morph-width);
+    height: var(--morph-height);
     overflow-y: auto;
     padding: 2rem;
     box-sizing: border-box;
@@ -25,15 +34,15 @@ morph {
     color: var(--morph-text);
     font-family: var(--morph-font);
     z-index: 10;
-    opacity: 0;
-    pointer-events: none;
+    opacity: var(--morph-no-active-opacity);
+    pointer-events: var(--morph-no-active-enable);
     transition: opacity 0.5s var(--morph-transition);
 }
 
 /* Активный morph (текущая "страница") */
 morph[active] {
-    opacity: 1;
-    pointer-events: all;
+    opacity: var(--morph-active-opacity);
+    pointer-events: var(--morph-active-enable);
 }
 
 /* ===== Стилизация ВСЕХ элементов ===== */
@@ -53,6 +62,18 @@ morph a[role="button"] {
     border-radius: var(--morph-border-radius);
     box-sizing: border-box;
     font-size: 1rem;
+}
+
+morph input:not([type="submit"]):not([type="button"]), morph textarea{
+    background: var(--morph-bg);
+    color: var(--morph-bg);
+    border: var(--morph-text) 1px solid;
+	color:var(--morph-fg);
+}
+
+morph input:not([type="submit"]):not([type="button"]):focus, morph textarea:focus {
+    outline: var(--morph-primary) 3px solid;
+	border-color:transparent;
 }
 
 /* 2. Чекбоксы и радио-кнопки */

@@ -160,3 +160,5 @@ Route::group("/admin", function () {
 	}
 ```
 Здесь мы в view admin В качестве параметра "body" передам view adminShow с параметром "admins" => AdminModel::all()
+
+# [NEXT](morph1.md)
