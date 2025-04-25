@@ -1,6 +1,7 @@
 <?php
 namespace Meract\Core\Compilers;
 use Meract\Core\ViewCompilerInterface;
+use Meract\Core\SDR;
 
 class BaseViewCompiler implements ViewCompilerInterface
 {
@@ -30,12 +31,21 @@ class BaseViewCompiler implements ViewCompilerInterface
             return "<?php foreach({$matches[1]} as \${$matches[3]}): ?>";
         }, $template);
         $template = str_replace('@endloop', '<?php endforeach; ?>', $template);
-
-        $template = str_replace('@includeMorph', "
+	
+		$modules = SDR::make('config')['morph']['modules'] ?? [];
+		
+		$morph = "
             <script>".file_get_contents(__DIR__.'/../../client/morph.js')."</script>
+            <script>".file_get_contents(__DIR__.'/../../client/morph-http.js')."</script>
 			<style>".file_get_contents(__DIR__.'/../../client/morph.css')."</style>
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
-        ", $template);
+";
+
+		for($i = 0; $i < count($modules); $i ++){
+			$morph .= "<script>".file_get_contents(__DIR__.'/../../../app/views/modules/'.$modules[$i].'.js')."</script>";
+		}
+
+        $template = str_replace('@includeMorph', $morph, $template);
 
         // Обработка свойств объектов и массивов - добавлена поддержка пробелов
         $template = preg_replace('/\{\{\s*(.+?)->(.+?)\s*\}\}/', '<?= htmlspecialchars($$1->$2 ?? null, ENT_QUOTES) ?>', $template);

@@ -749,3 +749,23 @@ Morph.ajaxForm(formElement) // Делает форму типа morph
 Вы можете либо дать форме аттрибут type="morph" либо использовать Morph.ajaxForm(formElement).
 
 Тогда при отправке откроется морф с названием указанным в action с параметрами заполненными пользователем
+
+## http
+```
+Morph.http.sync.get('url') // {body : str, status : number, headers: array, error: null, success: true}
+
+Morph.http.async.get('url', (object) => console.log(object)); // object : {body : str, status : number, headers: array, error: null, success: true}
+
+Morph.http.sync.post('url', {param: "value"}) // {body : str, status : number, headers: array, error: null, success: true}
+
+Morph.http.async.post('url', {param: "value"}, (object) => console.log(object)); // object : {body : str, status : number, headers: array, error: null, success: true}
+```
+
+## Модули
+Находятся в `app/views/modules/module.js` подключаем в конфиге:
+```
+"morph" => [
+    "modules" => [ "module" ]
+]
+```
+Код модуля будет подключен при использовании "@includeMorph"
