@@ -116,9 +116,7 @@ Route::get('/', function(Request $rq) {
 		"title" => "example lumframework project",
 		"value" => IterateController::get()
 	]);
-	$r = new Response($content, 200);
-	$r->header("Content-Type", "text/html");
-	return $r;
+	return (new Response($content))->header('Content-Type', "text/html")->cookie('test', 'cookie');
 });
 
 Route::get('/add/{num}', [IterateController::class, "add"]);

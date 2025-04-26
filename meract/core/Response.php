@@ -153,13 +153,13 @@ class Response
 	 *
 	 * @return string
 	 */
-	public function body(string|null $body = null) : string|null
+	public function body(string|null $body = null) : string|self
 	{
 		if ($body === null) {
 			return $this->body;
 		} else {
 			$this->body = (string)$body;
-			return null;
+			return $this;
 		}
 	}
 
@@ -173,6 +173,7 @@ class Response
 	public function header( $key, $value )
 	{
 		$this->headers[ucfirst($key)] = $value;
+		return $this;
 	}
 
 	/**
@@ -208,7 +209,7 @@ class Response
 	 * @param bool $httpOnly Указывает, что cookie доступна только через HTTP (не через JavaScript)
 	 * @return void
 	 */
-	public function setCookie($name, $value, $expire = 0, $path = '', $domain = '', $secure = false, $httpOnly = false)
+	public function cookie($name, $value, $expire = 0, $path = '', $domain = '', $secure = false, $httpOnly = false)
 	{
 		$cookie = urlencode($name) . '=' . urlencode($value);
 
@@ -233,6 +234,8 @@ class Response
 		}
 
 		$this->header('Set-Cookie', $cookie);
+
+		return $this;
 	}
 
 	/**
