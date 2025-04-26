@@ -131,13 +131,16 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.4" class="phpdocumentor-element-found-in__source" data-line="4" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Класс для работы с шаблонами представлений.</p>
 
+
+    <section class="phpdocumentor-description"><p>Реализует систему шаблонов с поддержкой наследования, секций и компиляторов.
+Поддерживает интерфейс Stringable для автоматического преобразования в строку.</p>
+</section>
 
 
 
@@ -227,72 +230,84 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Конструктор представления.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method___get">__get()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Магический метод для получения данных шаблона.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method___set">__set()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Магический метод для установки данных шаблона.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Преобразует представление в строку (реализация Stringable).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_addCompiler">addCompiler()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Добавляет компилятор шаблонов.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_endSection">endSection()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Завершает текущую секцию контента.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_extends">extends()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Устанавливает родительский шаблон для наследования.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_render">render()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Рендерит шаблон и возвращает результат.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_section">section()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Начинает новую секцию контента.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_setViewsPath">setViewsPath()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Устанавливает путь к директории с шаблонами.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-View.html#method_yeld">yeld()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Выводит содержимое секции.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/Meract-Core-View.html#method_renderExtendedTemplate">renderExtendedTemplate()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Рендерит родительский шаблон с подставленными секциями.</dd>
 
     </dl>
 
@@ -324,9 +339,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.7" class="phpdocumentor-element-found-in__source" data-line="7" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -338,7 +352,9 @@
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Массив зарегистрированных компиляторов шаблонов</p>
+</section>
+
     
 
     
@@ -361,9 +377,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.13" class="phpdocumentor-element-found-in__source" data-line="13" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -375,7 +390,9 @@
      = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Текущая активная секция</p>
+</section>
+
     
 
     
@@ -398,9 +415,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.10" class="phpdocumentor-element-found-in__source" data-line="10" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -412,7 +428,9 @@
     </code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Данные для передачи в шаблон</p>
+</section>
+
     
 
     
@@ -435,9 +453,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.12" class="phpdocumentor-element-found-in__source" data-line="12" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -449,7 +466,9 @@
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Родительский шаблон для наследования</p>
+</section>
+
     
 
     
@@ -472,9 +491,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.11" class="phpdocumentor-element-found-in__source" data-line="11" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -486,7 +504,9 @@
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Секции контента</p>
+</section>
+
     
 
     
@@ -509,9 +529,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.9" class="phpdocumentor-element-found-in__source" data-line="9" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -523,7 +542,9 @@
     </code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Имя текущего шаблона</p>
+</section>
+
     
 
     
@@ -546,9 +567,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.6" class="phpdocumentor-element-found-in__source" data-line="6" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
     
@@ -560,7 +580,9 @@
      = <span class="phpdocumentor-signature__default-value">&#039;app/views&#039;</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Путь к директории с шаблонами</p>
+</section>
+
     
 
     
@@ -588,12 +610,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.15" class="phpdocumentor-element-found-in__source" data-line="15" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Конструктор представления.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -609,14 +631,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя шаблона (без расширения)</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$data</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Данные для передачи в шаблон</p>
+</section>
+
             </dd>
             </dl>
 
@@ -640,12 +666,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.21" class="phpdocumentor-element-found-in__source" data-line="21" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Магический метод для получения данных шаблона.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -661,7 +687,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя переменной</p>
+</section>
+
             </dd>
             </dl>
 
@@ -669,7 +697,15 @@
 
     
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Значение переменной или null если не существует</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -685,12 +721,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.26" class="phpdocumentor-element-found-in__source" data-line="26" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Магический метод для установки данных шаблона.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -706,14 +742,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя переменной</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Значение переменной</p>
+</section>
+
             </dd>
             </dl>
 
@@ -737,12 +777,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.31" class="phpdocumentor-element-found-in__source" data-line="31" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Преобразует представление в строку (реализация Stringable).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -759,6 +799,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Результат рендеринга шаблона</p>
+</section>
+
             </section>
 
 </article>
@@ -776,12 +820,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.109" class="phpdocumentor-element-found-in__source" data-line="109" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Добавляет компилятор шаблонов.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">addCompiler</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-ViewCompilerInterface.html"><abbr title="\Meract\Core\ViewCompilerInterface">ViewCompilerInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$compiler</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -797,7 +841,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-ViewCompilerInterface.html"><abbr title="\Meract\Core\ViewCompilerInterface">ViewCompilerInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Компилятор шаблонов</p>
+</section>
+
             </dd>
             </dl>
 
@@ -821,12 +867,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.91" class="phpdocumentor-element-found-in__source" data-line="91" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Завершает текущую секцию контента.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">endSection</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -856,12 +902,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.80" class="phpdocumentor-element-found-in__source" data-line="80" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Устанавливает родительский шаблон для наследования.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">extends</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -877,7 +923,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя родительского шаблона</p>
+</section>
+
             </dd>
             </dl>
 
@@ -901,12 +949,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.36" class="phpdocumentor-element-found-in__source" data-line="36" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Рендерит шаблон и возвращает результат.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">render</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -917,12 +965,33 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-View.html#method_render#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Если шаблон не найден</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Результат рендеринга</p>
+</section>
+
             </section>
 
 </article>
@@ -940,12 +1009,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">162</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.85" class="phpdocumentor-element-found-in__source" data-line="85" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Начинает новую секцию контента.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">section</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -961,7 +1030,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя секции</p>
+</section>
+
             </dd>
             </dl>
 
@@ -985,12 +1056,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.104" class="phpdocumentor-element-found-in__source" data-line="104" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Устанавливает путь к директории с шаблонами.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">setViewsPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1006,7 +1077,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Путь к директории</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1030,12 +1103,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.99" class="phpdocumentor-element-found-in__source" data-line="99" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Выводит содержимое секции.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">yeld</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -1051,7 +1124,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Имя секции</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1062,6 +1137,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Содержимое секции или пустая строка</p>
+</section>
+
             </section>
 
 </article>
@@ -1079,12 +1158,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/View.php"><a href="files/meract-core-view.html"><abbr title="meract/core/View.php">View.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
-            <a href="classes/Meract-Core-View.html#source-view.62" class="phpdocumentor-element-found-in__source" data-line="62" data-modal="source-view" data-src="files/meract/core/View.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Рендерит родительский шаблон с подставленными секциями.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">renderExtendedTemplate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -1095,12 +1174,33 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-View.html#method_renderExtendedTemplate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Если родительский шаблон не найден</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Результат рендеринга</p>
+</section>
+
             </section>
 
 </article>

@@ -132,7 +132,6 @@
     :
     <span class="phpdocumentor-element-found-in__line">9</span>
 
-            <a href="classes/Meract-Core-Controller.html#source-view.9" class="phpdocumentor-element-found-in__source" data-line="9" data-modal="source-view" data-src="files/meract/core/Controller.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">Абстрактный базовый контроллер.</p>
@@ -182,6 +181,13 @@
 </dt>
 <dd>Подготавливает JSON-контент для HTTP-ответа.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/Meract-Core-Controller.html#method_redirect">redirect()</a>
+    <span>
+                                &nbsp;: <a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a>    </span>
+</dt>
+<dd>Перенаправляет пользователя на другой адрес</dd>
+
     </dl>
 
 
@@ -210,16 +216,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Controller.php"><a href="files/meract-core-controller.html"><abbr title="meract/core/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
-            <a href="classes/Meract-Core-Controller.html#source-view.20" class="phpdocumentor-element-found-in__source" data-line="20" data-modal="source-view" data-src="files/meract/core/Controller.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Подготавливает HTML-контент для HTTP-ответа.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">html</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">html</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">200</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -236,6 +241,17 @@
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>HTML-контент для отправки</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$status</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">200</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><ul>
+<li>Необязательный параметр http статус</li>
+</ul>
 </section>
 
             </dd>
@@ -269,16 +285,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Controller.php"><a href="files/meract-core-controller.html"><abbr title="meract/core/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
-            <a href="classes/Meract-Core-Controller.html#source-view.37" class="phpdocumentor-element-found-in__source" data-line="37" data-modal="source-view" data-src="files/meract/core/Controller.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Подготавливает JSON-контент для HTTP-ответа.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">json</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">json</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$json</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">200</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -295,6 +310,83 @@
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>JSON-срока | объект | массив для отправки</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$status</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">200</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><ul>
+<li>Необязательный параметр http статус</li>
+</ul>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Объект HTTP-ответа с подготовленными данными</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_redirect">
+        redirect()
+        <a href="classes/Meract-Core-Controller.html#method_redirect" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Controller.php"><a href="files/meract-core-controller.html"><abbr title="meract/core/Controller.php">Controller.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Перенаправляет пользователя на другой адрес</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">redirect</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">301</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/Meract-Core-Response.html"><abbr title="\Meract\Core\Response">Response</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$url</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>адрес для перенаправления</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$status</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">301</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><ul>
+<li>Необязательный параметр http статус</li>
+</ul>
 </section>
 
             </dd>
@@ -429,6 +521,7 @@
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/Meract-Core-Controller.html#method_html">html()</a></li>
                                             <li class=""><a href="classes/Meract-Core-Controller.html#method_json">json()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Controller.html#method_redirect">redirect()</a></li>
                                     </ul>
             </li>
                     </ul>

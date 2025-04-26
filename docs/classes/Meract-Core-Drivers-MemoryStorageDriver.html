@@ -103,12 +103,16 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/meract.html">Meract</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/meract-core.html">Core</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/meract-core-drivers.html">Drivers</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    StorageDriver
+    MemoryStorageDriver
 
+        <span class="phpdocumentor-element__extends">
+        extends <a href="classes/Meract-Core-StorageDriver.html"><abbr title="\Meract\Core\StorageDriver">StorageDriver</abbr></a>
+    </span>
     
             <div class="phpdocumentor-element__package">
             in package
@@ -123,22 +127,18 @@
 <div class="phpdocumentor-label-line">
 
 
-    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Abstract</span><span>Yes</span></div>
-
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Абстрактный класс драйвера хранилища.</p>
+            <p class="phpdocumentor-summary">Драйвер хранилища, работающий в памяти.</p>
 
 
-    <section class="phpdocumentor-description"><p>Определяет интерфейс, который должны реализовывать все конкретные драйверы.</p>
-</section>
 
 
 
@@ -148,7 +148,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/Meract-Core-StorageDriver.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -160,43 +160,56 @@
 
 
 
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#property_storage">$storage</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+
+    </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/Meract-Core-StorageDriver.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Meract-Core-StorageDriver.html#method_get">get()</a>
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_get">get()</a>
     <span>
                                 &nbsp;: mixed|null    </span>
 </dt>
 <dd>Получает значение свойства.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Meract-Core-StorageDriver.html#method_handleDeletion">handleDeletion()</a>
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_handleDeletion">handleDeletion()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Удаляет все истёкшие записи.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Meract-Core-StorageDriver.html#method_remove">remove()</a>
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_remove">remove()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Удаляет запись из хранилища.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Meract-Core-StorageDriver.html#method_set">set()</a>
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_set">set()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Устанавливает значение для свойства.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/Meract-Core-StorageDriver.html#method_updateTtl">updateTtl()</a>
+    <a class="" href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_updateTtl">updateTtl()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -209,28 +222,71 @@
         
 
         
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_storage">
+        $storage
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#property_storage" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">10</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$storage</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/Meract-Core-StorageDriver.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
         class="phpdocumentor-element
             -method
             -public
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_get">
         get()
-        <a href="classes/Meract-Core-StorageDriver.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_get" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -238,7 +294,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
+                    <span class="phpdocumentor-signature__name">get</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -284,17 +340,17 @@
         class="phpdocumentor-element
             -method
             -public
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_handleDeletion">
         handleDeletion()
-        <a href="classes/Meract-Core-StorageDriver.html#method_handleDeletion" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_handleDeletion" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -302,7 +358,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">handleDeletion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">handleDeletion</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -319,17 +375,17 @@
         class="phpdocumentor-element
             -method
             -public
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_remove">
         remove()
-        <a href="classes/Meract-Core-StorageDriver.html#method_remove" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_remove" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -337,7 +393,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">remove</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">remove</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -375,17 +431,17 @@
         class="phpdocumentor-element
             -method
             -public
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_set">
         set()
-        <a href="classes/Meract-Core-StorageDriver.html#method_set" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_set" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -393,7 +449,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">set</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -449,17 +505,17 @@
         class="phpdocumentor-element
             -method
             -public
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_updateTtl">
         updateTtl()
-        <a href="classes/Meract-Core-StorageDriver.html#method_updateTtl" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_updateTtl" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/StorageDriver.php"><a href="files/meract-core-storagedriver.html"><abbr title="meract/core/StorageDriver.php">StorageDriver.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Drivers/MemoryStorageDriver.php"><a href="files/meract-core-drivers-memorystoragedriver.html"><abbr title="meract/core/Drivers/MemoryStorageDriver.php">MemoryStorageDriver.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -467,7 +523,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">updateTtl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">updateTtl</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$property</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -516,7 +572,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/meract/core/StorageDriver.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/meract/core/Drivers/MemoryStorageDriver.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -615,19 +671,26 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/Meract-Core-StorageDriver.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#property_storage">$storage</a></li>
+                                            </ul>
+                </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/Meract-Core-StorageDriver.html#method_get">get()</a></li>
-                                            <li class=""><a href="classes/Meract-Core-StorageDriver.html#method_handleDeletion">handleDeletion()</a></li>
-                                            <li class=""><a href="classes/Meract-Core-StorageDriver.html#method_remove">remove()</a></li>
-                                            <li class=""><a href="classes/Meract-Core-StorageDriver.html#method_set">set()</a></li>
-                                            <li class=""><a href="classes/Meract-Core-StorageDriver.html#method_updateTtl">updateTtl()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_get">get()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_handleDeletion">handleDeletion()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_remove">remove()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_set">set()</a></li>
+                                            <li class=""><a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#method_updateTtl">updateTtl()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -647,7 +710,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/Meract-Core-StorageDriver.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/Meract-Core-Drivers-MemoryStorageDriver.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

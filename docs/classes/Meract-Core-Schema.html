@@ -128,13 +128,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.7" class="phpdocumentor-element-found-in__source" data-line="7" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Класс для работы со структурой базы данных.</p>
 
+
+    <section class="phpdocumentor-description"><p>Предоставляет методы для создания и удаления таблиц через PDO соединение.</p>
+</section>
 
 
 
@@ -193,12 +195,14 @@
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Создает новую таблицу в базе данных.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/Meract-Core-Schema.html#method_drop">drop()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Удаляет таблицу из базы данных.</dd>
 
     </dl>
 
@@ -230,9 +234,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.11" class="phpdocumentor-element-found-in__source" data-line="11" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
     
@@ -267,9 +270,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.10" class="phpdocumentor-element-found-in__source" data-line="10" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
     
@@ -309,9 +311,8 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.9" class="phpdocumentor-element-found-in__source" data-line="9" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
     
@@ -330,14 +331,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\PDO">PDO</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Объект PDO для работы с базой данных</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$dialect</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/Meract-Core-DatabaseDialectInterface.html"><abbr title="\Meract\Core\DatabaseDialectInterface">DatabaseDialectInterface</abbr></a>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Диалект базы данных (опционально)</p>
+</section>
+
             </dd>
             </dl>
 
@@ -361,12 +366,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.14" class="phpdocumentor-element-found-in__source" data-line="14" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Создает новую таблицу в базе данных.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callback</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -382,18 +387,39 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Название создаваемой таблицы</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$callback</span>
                 : <span class="phpdocumentor-signature__argument__return-type">callable</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Функция для определения структуры таблицы через Blueprint</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-Schema.html#method_create#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\PDOException">PDOException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>В случае ошибки выполнения SQL-запросов</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -413,12 +439,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="meract/core/Schema.php"><a href="files/meract-core-schema.html"><abbr title="meract/core/Schema.php">Schema.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
-            <a href="classes/Meract-Core-Schema.html#source-view.25" class="phpdocumentor-element-found-in__source" data-line="25" data-modal="source-view" data-src="files/meract/core/Schema.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Удаляет таблицу из базы данных.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">drop</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -434,11 +460,30 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Название удаляемой таблицы</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/Meract-Core-Schema.html#method_drop#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\PDOException">PDOException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>В случае ошибки выполнения SQL-запроса</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
