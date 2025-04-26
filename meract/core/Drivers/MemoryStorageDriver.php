@@ -14,18 +14,17 @@ class MemoryStorageDriver extends StorageDriver
      */
     public function set(string $property, $value, int $ttl, ?string $prefix = null): void
     {
-        $expires = time() + $ttl;
+        $data = ['value' => $value];
+        
+        // Устанавливаем expires только если TTL не равен 0
+        if ($ttl !== 0) {
+            $data['expires'] = time() + $ttl;
+        }
         
         if ($prefix !== null) {
-            $this->storage[$prefix][$property] = [
-                'value' => $value,
-                'expires' => $expires
-            ];
+            $this->storage[$prefix][$property] = $data;
         } else {
-            $this->storage[$property] = [
-                'value' => $value,
-                'expires' => $expires
-            ];
+            $this->storage[$property] = $data;
         }
     }
 
@@ -37,7 +36,8 @@ class MemoryStorageDriver extends StorageDriver
         if ($prefix !== null) {
             if (isset($this->storage[$prefix][$property])) {
                 $data = $this->storage[$prefix][$property];
-                if ($data['expires'] > time()) {
+                // Проверяем срок действия только если он установлен
+                if (!isset($data['expires']) || $data['expires'] > time()) {
                     return $data['value'];
                 }
                 $this->remove($property, $prefix);
@@ -45,7 +45,8 @@ class MemoryStorageDriver extends StorageDriver
         } else {
             if (isset($this->storage[$property])) {
                 $data = $this->storage[$property];
-                if ($data['expires'] > time()) {
+                // Проверяем срок действия только если он установлен
+                if (!isset($data['expires']) || $data['expires'] > time()) {
                     return $data['value'];
                 }
                 $this->remove($property);
@@ -74,15 +75,21 @@ class MemoryStorageDriver extends StorageDriver
      */
     public function updateTtl(string $property, int $ttl, ?string $prefix = null): void
     {
-        $expires = time() + $ttl;
-        
         if ($prefix !== null) {
             if (isset($this->storage[$prefix][$property])) {
-                $this->storage[$prefix][$property]['expires'] = $expires;
+                if ($ttl === 0) {
+                    unset($this->storage[$prefix][$property]['expires']);
+                } else {
+                    $this->storage[$prefix][$property]['expires'] = time() + $ttl;
+                }
             }
         } else {
             if (isset($this->storage[$property])) {
-                $this->storage[$property]['expires'] = $expires;
+                if ($ttl === 0) {
+                    unset($this->storage[$property]['expires']);
+                } else {
+                    $this->storage[$property]['expires'] = time() + $ttl;
+                }
             }
         }
     }
@@ -95,6 +102,7 @@ class MemoryStorageDriver extends StorageDriver
         foreach ($this->storage as $key => $data) {
             if (is_array($data)) {
                 foreach ($data as $subKey => $subData) {
+                    // Удаляем только записи с истекшим сроком (те, у которых expires установлен)
                     if (isset($subData['expires']) && $subData['expires'] < time()) {
                         unset($this->storage[$key][$subKey]);
                     }

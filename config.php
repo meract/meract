@@ -13,7 +13,7 @@ return [
 		"sqlite_path" => __DIR__ . "/db.sqlite"
 	],
 	"storage" => [
-		"driver" => null,
-		"time" => 20
+		"driver" =>	null, 
+		"time" => 600
 	]
 ];

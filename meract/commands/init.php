@@ -40,7 +40,7 @@ return new class {
 
 		// Файлы, которые должны быть созданы (если их нет)
 		$requiredFiles = [
-			PROJECT_DIR . '/app/routes/web.php' => "<?php\n\nuse Meract\\Core\\Route;\nuse Meract\\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\treturn new Response('hello world!', 200);\n});"
+			PROJECT_DIR . '/app/routes/web.php' => "<?php\nuse Meract\Core\Session;\nuse Meract\Core\Route;\nuse Meract\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\t\$session = Session::start(\$rq);\n\tif (isset(\$session->a)) { \$session->a += 1; } else {\$session->a = 0;}\n\n\treturn \$session->end(new Response(\$session->a, 200));\n});"
 			/* 
 					 'index.php' => "<?php\n\n// Your index.php content here\n",
 					 'public/index.php' => "<?php\n\n// Your public/index.php content here\n", 

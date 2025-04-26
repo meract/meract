@@ -23,18 +23,17 @@ class Qryli
 
 
 	public function __construct() {
-		self::setPdo($GLOBALS['pdo'] ?? null);
+		self::setPdo();
 	}
 
 	/**
 	 * Устанавливает подключение PDO.
 	 *
-	 * @param PDO $pdo Объект PDO
 	 * @return void
 	 */
-	public static function setPdo(PDO $pdo): void
+	public static function setPdo(): void
 	{
-		self::$pdo = $pdo;
+		self::$pdo = SDR::make('pdo.connection');
 	}
 
 	/**
