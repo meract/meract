@@ -15,5 +15,13 @@ return [
 	"storage" => [
 		"driver" =>	null, 
 		"time" => 600
+	],
+	"auth" => [
+		'table' => 'meract_users',
+		'login_fields' => ['email', 'password'],
+		'registration_fields' => ['email', 'password'],
+		'jwt_secret' => 'your-strong-secret',
+		'tokens_table' => 'meract_tokens',
+		'cookie_name' => "AUTHTOKEN"
 	]
 ];

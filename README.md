@@ -803,3 +803,167 @@ Morph.http.async.post('url', {param: "value"}, (object) => console.log(object));
 ]
 ```
 Код модуля будет подключен при использовании "@includeMorph"
+
+
+
+
+
+
+
+
+# Auth
+## Конфигурация
+В файле конфигурации config.php укажите параметры аутентификации:
+```
+'auth' => [
+    'table' => 'meract_users',               // Таблица пользователей
+    'login_fields' => ['email', 'password'], // Поля для входа
+    'registration_fields' => ['email', 'password'], // Поля для регистрации
+    'jwt_secret' => 'your-strong-secret',    // Секретный ключ для JWT
+    'tokens_table' => 'meract_tokens',       // Таблица недействительных токенов
+    'cookie_name' => "AUTHTOKEN"            // Название cookie
+]
+```
+## Базовое использование на сервере
+
+### Инициализация
+```
+use Meract\Core\Auth;
+use Meract\Core\Request;
+
+// В middleware или обработчике маршрута
+$auth = Auth::start($request);
+Регистрация пользователя
+php
+try {
+    $user = Auth::register([
+        'email' => 'user@example.com',
+        'password' => 'securepassword',
+        'name' => 'John Doe' // дополнительные поля
+    ], $request);
+    
+    $response = $user->set(new Response());
+} catch (Exception $e) {
+    // Обработка ошибки
+}
+```
+### Авторизация пользователя
+```
+try {
+    $user = Auth::login([
+        'email' => 'user@example.com',
+        'password' => 'securepassword'
+    ], $request);
+    
+    $response = $user->set(new Response());
+} catch (Exception $e) {
+    // Обработка ошибки
+}
+```
+### Выход из системы
+```
+$user = Auth::start($request);
+$response = $user->logout(new Response());
+Получение данных пользователя
+php
+$user = Auth::start($request);
+if ($user->id) {
+    // Пользователь авторизован
+    $name = $user->name;
+    $email = $user->email;
+} else {
+    // Пользователь не авторизован
+}
+```
+## Использование на клиенте
+### Авторизация
+```
+Morph.http.async.post('/auth', {
+    type: 'log',
+    login: 'user@example.com',
+    password: 'securepassword'
+}, (response) => {
+    if (response.success) {
+        // Успешная авторизация
+        // Cookie установится автоматически
+        window.location.href = '/show';
+    } else {
+        // Ошибка авторизации
+        console.error(response.error);
+    }
+});
+```
+### Обновление токенов (если access истек)
+```
+// При получении 401 ошибки
+function refreshTokens() {
+    const refreshToken = localStorage.getItem('refresh_token');
+    
+    Morph.http.async.post('/auth/refresh', {
+        refresh_token: refreshToken
+    }, (response) => {
+        if (response.success) {
+            const data = JSON.parse(response.body);
+            localStorage.setItem('refresh_token', data.refresh);
+            // Повторяем оригинальный запрос с новым access токеном
+        } else {
+            // Перенаправляем на страницу входа
+            window.location.href = '/login';
+        }
+    });
+}
+```
+### Защищенные запросы
+```
+// Для API запросов передаем токен в заголовке
+Morph.http.async.get('/api/data', (response) => {
+    // Обработка ответа
+}, {
+    'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+});
+Примеры маршрутов
+Простой роут с проверкой авторизации
+php
+Route::get('/profile', function ($request) {
+    $user = Auth::start($request);
+    
+    if (!$user->id) {
+        return new Response('Unauthorized', 401);
+    }
+    
+    return new View('profile', ['user' => $user]);
+});
+```
+## API endpoint с токеном
+```
+Route::get('/api/user', function ($request) {
+    $user = Auth::apiLogin($request->header('Authorization'));
+    
+    if (!$user) {
+        return new Response(json_encode(['error' => 'Unauthorized']), 401);
+    }
+    
+    return new Response(json_encode([
+        'id' => $user->id,
+        'name' => $user->name,
+        'email' => $user->email
+    ]), 200, ['Content-Type' => 'application/json']);
+});
+```
+## Особенности работы
+1. Cookie-based аутентификация:
+    - После успешного login/register устанавливается HTTP-only cookie
+    - При каждом запросе токен автоматически проверяется
+
+2. API аутентификация:
+    - Используйте Authorization: Bearer <token> заголовок
+    - Для проверки используйте Auth::apiLogin()
+
+3. Обновление токенов:
+    - Refresh токены должны храниться на клиенте (localStorage)
+    - При истечении access токена клиент должен запросить новый
+
+4. Безопасность:
+    - Все токены подписываются с использованием HMAC-SHA256
+    - Refresh токены можно отзывать
+    - HTTP-only cookie защищает от XSS

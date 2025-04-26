@@ -136,7 +136,7 @@ class Response
 	 * @param int 			$status
 	 * @return void
 	 */
-	public function __construct( $body, $status = null )
+	public function __construct( $body = "", $status = null )
 	{
 		if ( !is_null( $status ) )
 		{
@@ -153,9 +153,14 @@ class Response
 	 *
 	 * @return string
 	 */
-	public function body()
+	public function body(string $body = "") : string|null
 	{
-		return $this->body;
+		if ($body = "") {
+			return $this->body;
+		} else {
+			$this->body = $body;
+			return null;
+		}
 	}
 
 	/**
