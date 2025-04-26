@@ -795,6 +795,21 @@ Morph.http.sync.post('url', {param: "value"}) // {body : str, status : number, h
 Morph.http.async.post('url', {param: "value"}, (object) => console.log(object)); // object : {body : str, status : number, headers: array, error: null, success: true}
 ```
 
+## morph live 
+Morph live позволяет вам использовать методы контроллера и middleware для customBackload не регестрируя маршруты. Выглядит это вот так:
+```
+<morph customBackload='{{{morphLive([\App\Controllers\test::class, "index"])}}}' backloadType="every">without middleware</morph>
+
+<morph customBackload='{{{morphLive([\App\Controllers\test::class, "index"], (new \App\Middlewares\User::class)->handle())}}}' backloadType="every">without middleware</morph>
+```
+
+Пожалуйста укажите ключ шифрования в конфиге:
+```
+"morph" => [
+    "live" => "super secret key"
+]
+```
+
 ## Модули
 Находятся в `app/views/modules/module.js` подключаем в конфиге:
 ```

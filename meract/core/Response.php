@@ -153,12 +153,12 @@ class Response
 	 *
 	 * @return string
 	 */
-	public function body(string $body = "") : string|null
+	public function body(string|null $body = null) : string|null
 	{
-		if ($body = "") {
+		if ($body === null) {
 			return $this->body;
 		} else {
-			$this->body = $body;
+			$this->body = (string)$body;
 			return null;
 		}
 	}

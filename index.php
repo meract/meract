@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
-use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage};
+use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage, Morph};
 
 // Инициализация контейнера
 if (!SDR::isInitialized()) {
@@ -28,6 +28,7 @@ if (isset($config['viewCompilers'])) {
         View::addCompiler($compiler);
     }
 }
+Morph::setMorphLiveEncription($config['morph']['live'] ?? "superSecretKey");
 Storage::init($config['storage']['driver']);
 Storage::setTime($config['storage']['time']);
 Auth::configure($config['auth']);

@@ -23,5 +23,6 @@ return [
 		'jwt_secret' => 'your-strong-secret',
 		'tokens_table' => 'meract_tokens',
 		'cookie_name' => "AUTHTOKEN"
-	]
+	], 
+	"morph" => ["live" => "SuperSecretKey"]
 ];

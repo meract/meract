@@ -1,565 +1,575 @@
 <?php
 namespace Meract\Core;
-
+use Meract\Core\Morph;
 /**
  * Класс для управления маршрутизацией HTTP-запросов с поддержкой именованных маршрутов,
  * middleware, групп маршрутов и обработки статических файлов.
  */
 class Route
 {
-    /** @var array Массив зарегистрированных маршрутов */
-    private static $routes = [];
-    
-    /** @var array Массив именованных маршрутов */
-    private static $namedRoutes = [];
-    
-    /** @var Server|null Сервер для обработки запросов */
-    private static $server = null;
-    
-    /** @var RequestLogger|null Логгер запросов */
-    private static $requestLogger = null;
-    
-    /** @var string|null Путь к статическим файлам */
-    private static $staticPath = null;
-    
-    /** @var callable|null Обработчик 404 ошибки */
-    private static $notFoundCallback = null;
-    
-    /** @var array Глобальные middleware */
-    private static $globalMiddlewares = [];
-    
-    /** @var array Стек групп маршрутов */
-    private static $groupStack = [];
+	/** @var array Массив зарегистрированных маршрутов */
+	private static $routes = [];
 
-    /**
-     * Устанавливает сервер и логгер запросов
-     *
-     * @param Server $server Объект сервера
-     * @param RequestLogger $requestLogger Логгер запросов
-     * @return void
-     */
-    public static function setServer(Server $server, RequestLogger $requestLogger): void
-    {
-        self::$server = $server;
-        self::$requestLogger = $requestLogger;
-    }
+	/** @var array Массив именованных маршрутов */
+	private static $namedRoutes = [];
 
-    /**
-     * Устанавливает путь к статическим файлам
-     *
-     * @param string $path Путь к папке со статическими файлами
-     * @return void
-     */
-    public static function staticFolder(string $path): void
-    {
-        self::$staticPath = rtrim($path, '/');
-    }
+	/** @var Server|null Сервер для обработки запросов */
+	private static $server = null;
 
-    /**
-     * Устанавливает обработчик 404 ошибки
-     *
-     * @param callable $callback Функция-обработчик
-     * @return void
-     */
-    public static function notFound(callable $callback): void
-    {
-        self::$notFoundCallback = $callback;
-    }
+	/** @var RequestLogger|null Логгер запросов */
+	private static $requestLogger = null;
 
-    /**
-     * Регистрирует GET-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function get(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('GET', $path, $callback, $middlewares, $name);
-    }
+	/** @var string|null Путь к статическим файлам */
+	private static $staticPath = null;
 
-    /**
-     * Регистрирует POST-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function post(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('POST', $path, $callback, $middlewares, $name);
-    }
+	/** @var callable|null Обработчик 404 ошибки */
+	private static $notFoundCallback = null;
 
-    /**
-     * Регистрирует PUT-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function put(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('PUT', $path, $callback, $middlewares, $name);
-    }
+	/** @var array Глобальные middleware */
+	private static $globalMiddlewares = [];
 
-    /**
-     * Регистрирует DELETE-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function delete(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('DELETE', $path, $callback, $middlewares, $name);
-    }
+	/** @var array Стек групп маршрутов */
+	private static $groupStack = [];
 
-    /**
-     * Регистрирует PATCH-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function patch(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('PATCH', $path, $callback, $middlewares, $name);
-    }
+	/**
+	 * Устанавливает сервер и логгер запросов
+	 *
+	 * @param Server $server Объект сервера
+	 * @param RequestLogger $requestLogger Логгер запросов
+	 * @return void
+	 */
+	public static function setServer(Server $server, RequestLogger $requestLogger): void
+	{
+		self::$server = $server;
+		self::$requestLogger = $requestLogger;
+	}
 
-    /**
-     * Регистрирует OPTIONS-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function options(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('OPTIONS', $path, $callback, $middlewares, $name);
-    }
+	/**
+	 * Устанавливает путь к статическим файлам
+	 *
+	 * @param string $path Путь к папке со статическими файлами
+	 * @return void
+	 */
+	public static function staticFolder(string $path): void
+	{
+		self::$staticPath = rtrim($path, '/');
+	}
 
-    /**
-     * Регистрирует HEAD-маршрут
-     *
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута (для генерации URL)
-     * @return void
-     */
-    public static function head(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        self::addRoute('HEAD', $path, $callback, $middlewares, $name);
-    }
+	/**
+	 * Устанавливает обработчик 404 ошибки
+	 *
+	 * @param callable $callback Функция-обработчик
+	 * @return void
+	 */
+	public static function notFound(callable $callback): void
+	{
+		self::$notFoundCallback = $callback;
+	}
 
-    /**
-     * Автоматически регистрирует маршруты для компонентов Morph
-     *
-     * @param string|null $componentsPath Путь к компонентам Morph
-     * @return void
-     */
-    public static function autoRegisterMorphComponents(?string $componentsPath = null): void
-    {
-        $componentsPath = $componentsPath ?? __DIR__ . '/../../app/views/components/';
-        
-        if (!is_dir($componentsPath)) return;
-    
-        foreach (glob($componentsPath . '*.morph.php') as $file) {
-            $name = basename($file, '.morph.php');
-            
-            self::get("/morph-component/{name}", function(Request $rq, array $params) {
-                $name = $params['name'];
-                $view = new \Meract\Core\View("components/{$name}");
-                return new Response($view, 200);
-            }, [], "morph.component.{$name}");
+	/**
+	 * Регистрирует GET-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function get(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('GET', $path, $callback, $middlewares, $name);
+	}
 
-            self::post("/morph-component/{name}", function(Request $rq, array $params) {
-                $name = $params['name'];
-                $view = new \Meract\Core\View("components/{$name}", (array)$rq->parameters);
-                return new Response($view, 200);
-            }, [], "morph.component.{$name}.post");
-        }
+	/**
+	 * Регистрирует POST-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function post(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('POST', $path, $callback, $middlewares, $name);
+	}
 
-        // Регистрация маршрута для тем
-        self::get("/morph-themes/{theme}", function($rq, $data) {
-            try {
-                $theme = file_get_contents(__DIR__.'/../../app/views/themes/'.$data['theme']);
-            } catch(\Exception $e) {
-                return new Response("", 404);
-            }
-            $resp = new Response($theme, 200);
-            $resp->header('Content-Type', 'text/css');
-            return $resp;
-        }, [], "morph.theme");
+	/**
+	 * Регистрирует PUT-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function put(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('PUT', $path, $callback, $middlewares, $name);
+	}
 
-        // Регистрация маршрута для цветовых схем
-        self::get("/morph-colorschemes/{scheme}", function($rq, $data) {
-            try {
-                $theme = file_get_contents(__DIR__.'/../../app/views/colorschemes/'.$data['scheme']);
-            } catch(\Exception $e) {
-                return new Response("", 404);
-            }
-            $resp = new Response($theme, 200);
-            $resp->header('Content-Type', 'text/css');
-            return $resp;
-        }, [], "morph.colorscheme");
-    }
+	/**
+	 * Регистрирует DELETE-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function delete(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('DELETE', $path, $callback, $middlewares, $name);
+	}
 
-    /**
-     * Добавляет глобальный middleware
-     *
-     * @param callable|object $middleware Middleware (функция или объект с методом handle)
-     * @return void
-     * @throws \InvalidArgumentException Если middleware не callable и не имеет метода handle
-     */
-    public static function middleware($middleware): void
-    {
-        if (is_callable($middleware)) {
-            self::$globalMiddlewares[] = $middleware;
-        } elseif (is_object($middleware) && method_exists($middleware, 'handle')) {
-            self::$globalMiddlewares[] = $middleware;
-        } else {
-            throw new \InvalidArgumentException("Middleware must be callable or implement handle() method");
-        }
-    }
+	/**
+	 * Регистрирует PATCH-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function patch(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('PATCH', $path, $callback, $middlewares, $name);
+	}
 
-    /**
-     * Группирует маршруты с общим префиксом и middleware
-     *
-     * @param string $prefix Префикс пути для группы
-     * @param callable $callback Функция с определением маршрутов группы
-     * @param array $middlewares Массив middleware для группы
-     * @param string|null $namePrefix Префикс для имен маршрутов в группе
-     * @return void
-     */
-    public static function group(string $prefix, callable $callback, array $middlewares = [], ?string $namePrefix = null): void
-    {
-        self::$groupStack[] = [
-            'prefix' => $prefix,
-            'middlewares' => $middlewares,
-            'namePrefix' => $namePrefix
-        ];
+	/**
+	 * Регистрирует OPTIONS-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function options(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('OPTIONS', $path, $callback, $middlewares, $name);
+	}
 
-        $callback();
+	/**
+	 * Регистрирует HEAD-маршрут
+	 *
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута (для генерации URL)
+	 * @return void
+	 */
+	public static function head(string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		self::addRoute('HEAD', $path, $callback, $middlewares, $name);
+	}
 
-        array_pop(self::$groupStack);
-    }
+	/**
+	 * Автоматически регистрирует маршруты для компонентов Morph
+	 *
+	 * @param string|null $componentsPath Путь к компонентам Morph
+	 * @return void
+	 */
+	public static function autoRegisterMorphComponents(?string $componentsPath = null): void
+	{
 
-    /**
-     * Добавляет маршрут в коллекцию
-     *
-     * @param string $method HTTP-метод
-     * @param string $path Путь маршрута
-     * @param callable $callback Обработчик маршрута
-     * @param array $middlewares Массив middleware
-     * @param string|null $name Имя маршрута
-     * @return void
-     */
-    private static function addRoute(string $method, string $path, callable $callback, array $middlewares = [], ?string $name = null): void
-    {
-        $fullPath = self::applyGroupPrefix($path);
-        $combinedMiddlewares = array_merge(
-            self::getGroupMiddlewares(),
-            $middlewares
-        );
-        $wrappedCallback = self::wrapWithMiddlewares($callback, $combinedMiddlewares);
-        self::$routes[$method][$fullPath] = $wrappedCallback;
-        
-        // Регистрируем именованный маршрут, если имя указано
-        if ($name !== null) {
-            $fullName = self::applyGroupNamePrefix($name);
-            self::$namedRoutes[$fullName] = [
-                'method' => $method,
-                'path' => $fullPath
-            ];
-        }
-    }
+		self::get("/morph-component/{name}", function(Request $rq, array $params) {
+			$name = $params['name'];
+			$view = new \Meract\Core\View("components/{$name}");
+			return new Response($view, 200);
+		});
 
-    /**
-     * Применяет префикс группы к пути маршрута
-     *
-     * @param string $path Исходный путь
-     * @return string Полный путь с учетом префиксов групп
-     */
-    private static function applyGroupPrefix(string $path): string
-    {
-        if (empty(self::$groupStack)) {
-            return $path;
-        }
+		self::post("/morph-component/{name}", function(Request $rq, array $params) {
+			$name = $params['name'];
+			$view = new \Meract\Core\View("components/{$name}", (array)$rq->parameters);
+			return new Response($view, 200);
+		});
 
-        $prefix = '';
-        foreach (self::$groupStack as $group) {
-            $prefix .= $group['prefix'];
-        }
 
-        return $prefix . $path;
-    }
 
-    /**
-     * Применяет префикс группы к имени маршрута
-     *
-     * @param string $name Исходное имя маршрута
-     * @return string Полное имя с учетом префиксов групп
-     */
-    private static function applyGroupNamePrefix(string $name): string
-    {
-        if (empty(self::$groupStack)) {
-            return $name;
-        }
+		$handler = function ($rq, $data) {
+			$array = \Meract\Core\Morph::resolve($data['hash']);
 
-        $prefix = '';
-        foreach (self::$groupStack as $group) {
-            if ($group['namePrefix'] !== null) {
-                $prefix .= $group['namePrefix'];
-            }
-        }
+			if (!isset($array[0]) || !is_callable($array[0])) {
+				return;
+			}
 
-        return $prefix . $name;
-    }
+			$middleware = $array[1] ?? null;
+			return $middleware ? $middleware($rq, $array[0]) : $array[0]($rq);
+		};
 
-    /**
-     * Возвращает middleware текущей группы
-     *
-     * @return array Массив middleware
-     */
-    private static function getGroupMiddlewares(): array
-    {
-        if (empty(self::$groupStack)) {
-            return [];
-        }
 
-        $middlewares = [];
-        foreach (self::$groupStack as $group) {
-            $middlewares = array_merge($middlewares, $group['middlewares']);
-        }
+		self::get("/morph-live/{hash}", $handler);
+		self::post("/morph-live/{hash}", $handler);
 
-        return $middlewares;
-    }
+		// Регистрация маршрута для тем
+		self::get("/morph-themes/{theme}", function($rq, $data) {
+			try {
+				$theme = file_get_contents(__DIR__.'/../../app/views/themes/'.$data['theme']);
+			} catch(\Exception $e) {
+				return new Response("", 404);
+			}
+			$resp = new Response($theme, 200);
+			$resp->header('Content-Type', 'text/css');
+			return $resp;
+		});
 
-    /**
-     * Оборачивает обработчик в цепочку middleware
-     *
-     * @param callable $handler Исходный обработчик
-     * @param array $middlewares Массив middleware
-     * @return callable Обработанный обработчик
-     */
-    private static function wrapWithMiddlewares(callable $handler, array $middlewares): callable
-    {
-        foreach (array_reverse($middlewares) as $middleware) {
-            $handler = function (Request $req, array $params = []) use ($middleware, $handler) {
-                if (is_callable($middleware)) {
-                    return $middleware($req, $handler, $params);
-                } elseif (is_object($middleware) && method_exists($middleware, 'handle')) {
-                    return $middleware->handle($req, $handler, $params);
-                }
-                return $handler($req, $params);
-            };
-        }
-        return $handler;
-    }
+		// Регистрация маршрута для цветовых схем
+		self::get("/morph-colorschemes/{scheme}", function($rq, $data) {
+			try {
+				$theme = file_get_contents(__DIR__.'/../../app/views/colorschemes/'.$data['scheme']);
+			} catch(\Exception $e) {
+				return new Response("", 404);
+			}
+			$resp = new Response($theme, 200);
+			$resp->header('Content-Type', 'text/css');
+			return $resp;
+		});
+	}
 
-    /**
-     * Генерирует URL по имени маршрута
-     *
-     * @param string $name Имя маршрута
-     * @param array $parameters Параметры для подстановки в URL
-     * @return string
-     * @throws \InvalidArgumentException Если маршрут не найден или не хватает параметров
-     */
-    public static function route(string $name, array $parameters = []): string
-    {
-        if (!isset(self::$namedRoutes[$name])) {
-            throw new \InvalidArgumentException("Route [{$name}] not found.");
-        }
+	/**
+	 * Добавляет глобальный middleware
+	 *
+	 * @param callable|object $middleware Middleware (функция или объект с методом handle)
+	 * @return void
+	 * @throws \InvalidArgumentException Если middleware не callable и не имеет метода handle
+	 */
+	public static function middleware($middleware): void
+	{
+		if (is_callable($middleware)) {
+			self::$globalMiddlewares[] = $middleware;
+		} elseif (is_object($middleware) && method_exists($middleware, 'handle')) {
+			self::$globalMiddlewares[] = $middleware;
+		} else {
+			throw new \InvalidArgumentException("Middleware must be callable or implement handle() method");
+		}
+	}
 
-        $route = self::$namedRoutes[$name];
-        $path = $route['path'];
+	/**
+	 * Группирует маршруты с общим префиксом и middleware
+	 *
+	 * @param string $prefix Префикс пути для группы
+	 * @param callable $callback Функция с определением маршрутов группы
+	 * @param array $middlewares Массив middleware для группы
+	 * @param string|null $namePrefix Префикс для имен маршрутов в группе
+	 * @return void
+	 */
+	public static function group(string $prefix, callable $callback, array $middlewares = [], ?string $namePrefix = null): void
+	{
+		self::$groupStack[] = [
+			'prefix' => $prefix,
+			'middlewares' => $middlewares,
+			'namePrefix' => $namePrefix
+		];
 
-        // Заменяем параметры в пути
-        foreach ($parameters as $key => $value) {
-            $path = str_replace('{' . $key . '}', $value, $path);
-        }
+		$callback();
 
-        // Проверяем, остались ли незамененные параметры
-        if (preg_match('/\{[a-z]+\}/', $path)) {
-            throw new \InvalidArgumentException("Missing required parameters for route [{$name}].");
-        }
+		array_pop(self::$groupStack);
+	}
 
-        return $path;
-    }
+	/**
+	 * Добавляет маршрут в коллекцию
+	 *
+	 * @param string $method HTTP-метод
+	 * @param string $path Путь маршрута
+	 * @param callable $callback Обработчик маршрута
+	 * @param array $middlewares Массив middleware
+	 * @param string|null $name Имя маршрута
+	 * @return void
+	 */
+	private static function addRoute(string $method, string $path, callable $callback, array $middlewares = [], ?string $name = null): void
+	{
+		$fullPath = self::applyGroupPrefix($path);
+		$combinedMiddlewares = array_merge(
+			self::getGroupMiddlewares(),
+			$middlewares
+		);
+		$wrappedCallback = self::wrapWithMiddlewares($callback, $combinedMiddlewares);
+		self::$routes[$method][$fullPath] = $wrappedCallback;
 
-    /**
-     * Проверяет, существует ли маршрут с указанным именем
-     *
-     * @param string $name Имя маршрута
-     * @return bool
-     */
-    public static function hasRoute(string $name): bool
-    {
-        return isset(self::$namedRoutes[$name]);
-    }
+		// Регистрируем именованный маршрут, если имя указано
+		if ($name !== null) {
+			$fullName = self::applyGroupNamePrefix($name);
+			self::$namedRoutes[$fullName] = [
+				'method' => $method,
+				'path' => $fullPath
+			];
+		}
+	}
 
-    /**
-     * Возвращает список всех именованных маршрутов
-     *
-     * @return array
-     */
-    public static function getNamedRoutes(): array
-    {
-        return self::$namedRoutes;
-    }
+	/**
+	 * Применяет префикс группы к пути маршрута
+	 *
+	 * @param string $path Исходный путь
+	 * @return string Полный путь с учетом префиксов групп
+	 */
+	private static function applyGroupPrefix(string $path): string
+	{
+		if (empty(self::$groupStack)) {
+			return $path;
+		}
 
-    /**
-     * Запускает обработку маршрутов
-     *
-     * @param callable $onStartCallback Функция, вызываемая при старте сервера
-     * @return void
-     * @throws \Exception Если сервер не установлен
-     */
-    public static function startHandling(callable $onStartCallback): void
-    {
-        if (!self::$server) {
-            throw new \Exception("Server not set. Use Route::setServer()");
-        }
+		$prefix = '';
+		foreach (self::$groupStack as $group) {
+			$prefix .= $group['prefix'];
+		}
 
-        $handler = function (Request $request) {
-            $method = $request->method;
-            $uri = $request->uri;
+		return $prefix . $path;
+	}
 
-            if ($uri === null || trim($uri) == "") {
-                return null;
-            }
+	/**
+	 * Применяет префикс группы к имени маршрута
+	 *
+	 * @param string $name Исходное имя маршрута
+	 * @return string Полное имя с учетом префиксов групп
+	 */
+	private static function applyGroupNamePrefix(string $name): string
+	{
+		if (empty(self::$groupStack)) {
+			return $name;
+		}
 
-            if (self::$requestLogger) {
-                self::$requestLogger->handle($request);
-            }
+		$prefix = '';
+		foreach (self::$groupStack as $group) {
+			if ($group['namePrefix'] !== null) {
+				$prefix .= $group['namePrefix'];
+			}
+		}
 
-            // Обработка динамических маршрутов
-            foreach (self::$routes[$method] ?? [] as $routePath => $callback) {
-                $pattern = preg_replace('/\{([a-z]+)\}/', '(?P<$1>[^/]+)', $routePath);
-                $pattern = "@^" . $pattern . "$@D";
+		return $prefix . $name;
+	}
 
-                if (preg_match($pattern, $uri, $matches)) {
-                    $routeData = [];
-                    foreach ($matches as $key => $value) {
-                        if (is_string($key)) {
-                            $routeData[$key] = $value;
-                        }
-                    }
+	/**
+	 * Возвращает middleware текущей группы
+	 *
+	 * @return array Массив middleware
+	 */
+	private static function getGroupMiddlewares(): array
+	{
+		if (empty(self::$groupStack)) {
+			return [];
+		}
 
-                    return $callback($request, $routeData);
-                }
-            }
+		$middlewares = [];
+		foreach (self::$groupStack as $group) {
+			$middlewares = array_merge($middlewares, $group['middlewares']);
+		}
 
-            // Обработка статических файлов
-            if (self::$staticPath) {
-                $filePath = self::$staticPath . '/' . ltrim($uri, '/');
-                if (file_exists($filePath) && is_file($filePath)) {
-                    $response = new Response(file_get_contents($filePath), 200);
-                    $mime = self::getMimeType($filePath);
-                    $response->header("Content-Type", $mime);
-                    return $response;
-                }
-            }
+		return $middlewares;
+	}
 
-            // Обработка 404 ошибки
-            if (self::$notFoundCallback) {
-                return call_user_func(self::$notFoundCallback, $request);
-            }
+	/**
+	 * Оборачивает обработчик в цепочку middleware
+	 *
+	 * @param callable $handler Исходный обработчик
+	 * @param array $middlewares Массив middleware
+	 * @return callable Обработанный обработчик
+	 */
+	private static function wrapWithMiddlewares(callable $handler, array $middlewares): callable
+	{
+		foreach (array_reverse($middlewares) as $middleware) {
+			$handler = function (Request $req, array $params = []) use ($middleware, $handler) {
+				if (is_callable($middleware)) {
+					return $middleware($req, $handler, $params);
+				} elseif (is_object($middleware) && method_exists($middleware, 'handle')) {
+					return $middleware->handle($req, $handler, $params);
+				}
+				return $handler($req, $params);
+			};
+		}
+		return $handler;
+	}
 
-            return new Response("Not Found", 404);
-        };
+	/**
+	 * Генерирует URL по имени маршрута
+	 *
+	 * @param string $name Имя маршрута
+	 * @param array $parameters Параметры для подстановки в URL
+	 * @return string
+	 * @throws \InvalidArgumentException Если маршрут не найден или не хватает параметров
+	 */
+	public static function route(string $name, array $parameters = []): string
+	{
+		if (!isset(self::$namedRoutes[$name])) {
+			throw new \InvalidArgumentException("Route [{$name}] not found.");
+		}
 
-        // Применяем глобальные Middleware
-        $wrappedHandler = self::wrapWithMiddlewares($handler, self::$globalMiddlewares);
+		$route = self::$namedRoutes[$name];
+		$path = $route['path'];
 
-        self::$server->listen($wrappedHandler, $onStartCallback);
-    }
+		// Заменяем параметры в пути
+		foreach ($parameters as $key => $value) {
+			$path = str_replace('{' . $key . '}', $value, $path);
+		}
 
-    /**
-     * Обрабатывает входящий запрос
-     *
-     * @param Request $request Объект запроса
-     * @return Response Объект ответа
-     */
-    public static function handleRequest(Request $request): Response
-    {
-        $method = $request->method();
-        $uri = $request->uri();
+		// Проверяем, остались ли незамененные параметры
+		if (preg_match('/\{[a-z]+\}/', $path)) {
+			throw new \InvalidArgumentException("Missing required parameters for route [{$name}].");
+		}
 
-        if (self::$requestLogger) {
-            self::$requestLogger->handle($request);
-        }
+		return $path;
+	}
 
-        // Обработка динамических маршрутов
-        foreach (self::$routes[$method] ?? [] as $routePath => $callback) {
-            $pattern = preg_replace('/\{([a-z]+)\}/', '(?P<$1>[^/]+)', $routePath);
-            $pattern = "@^" . $pattern . "$@D";
+	/**
+	 * Проверяет, существует ли маршрут с указанным именем
+	 *
+	 * @param string $name Имя маршрута
+	 * @return bool
+	 */
+	public static function hasRoute(string $name): bool
+	{
+		return isset(self::$namedRoutes[$name]);
+	}
 
-            if (preg_match($pattern, $uri, $matches)) {
-                $routeData = [];
-                foreach ($matches as $key => $value) {
-                    if (is_string($key)) {
-                        $routeData[$key] = $value;
-                    }
-                }
+	/**
+	 * Возвращает список всех именованных маршрутов
+	 *
+	 * @return array
+	 */
+	public static function getNamedRoutes(): array
+	{
+		return self::$namedRoutes;
+	}
 
-                return $callback($request, $routeData);
-            }
-        }
+	/**
+	 * Запускает обработку маршрутов
+	 *
+	 * @param callable $onStartCallback Функция, вызываемая при старте сервера
+	 * @return void
+	 * @throws \Exception Если сервер не установлен
+	 */
+	public static function startHandling(callable $onStartCallback): void
+	{
+		if (!self::$server) {
+			throw new \Exception("Server not set. Use Route::setServer()");
+		}
 
-        // Обработка статических файлов
-        if (self::$staticPath) {
-            $filePath = self::$staticPath . '/' . ltrim($uri, '/');
-            if (file_exists($filePath) && is_file($filePath)) {
-                $response = new Response(file_get_contents($filePath), 200);
-                $mime = self::getMimeType($filePath);
-                $response->header("Content-Type", $mime);
-                return $response;
-            }
-        }
+		$handler = function (Request $request) {
+			$method = $request->method;
+			$uri = $request->uri;
 
-        // Обработка 404 ошибки
-        if (self::$notFoundCallback) {
-            return call_user_func(self::$notFoundCallback, $request);
-        }
+			if ($uri === null || trim($uri) == "") {
+				return null;
+			}
 
-        return new Response("Not Found", 404);
-    }
+			if (self::$requestLogger) {
+				self::$requestLogger->handle($request);
+			}
 
-    /**
-     * Определяет MIME-тип файла по его расширению
-     *
-     * @param string $filePath Путь к файлу
-     * @return string MIME-тип
-     */
-    private static function getMimeType(string $filePath): string
-    {
-        $mimeTypes = [
-            'css'  => 'text/css',
-            'js'   => 'application/javascript',
-            'json' => 'application/json',
-            'html' => 'text/html',
-            'txt'  => 'text/plain',
-            'jpg'  => 'image/jpeg',
-            'png'  => 'image/png',
-            'gif'  => 'image/gif',
-            'svg'  => 'image/svg+xml',
-        ];
+			// Обработка динамических маршрутов
+			foreach (self::$routes[$method] ?? [] as $routePath => $callback) {
+				$pattern = preg_replace('/\{([a-z]+)\}/', '(?P<$1>[^/]+)', $routePath);
+				$pattern = "@^" . $pattern . "$@D";
 
-        $extension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
-        return $mimeTypes[$extension] ?? 'application/octet-stream';
-    }
+				if (preg_match($pattern, $uri, $matches)) {
+					$routeData = [];
+					foreach ($matches as $key => $value) {
+						if (is_string($key)) {
+							$routeData[$key] = $value;
+						}
+					}
+
+					return $callback($request, $routeData);
+				}
+			}
+
+			// Обработка статических файлов
+			if (self::$staticPath) {
+				$filePath = self::$staticPath . '/' . ltrim($uri, '/');
+				if (file_exists($filePath) && is_file($filePath)) {
+					$response = new Response(file_get_contents($filePath), 200);
+					$mime = self::getMimeType($filePath);
+					$response->header("Content-Type", $mime);
+					return $response;
+				}
+			}
+
+			// Обработка 404 ошибки
+			if (self::$notFoundCallback) {
+				return call_user_func(self::$notFoundCallback, $request);
+			}
+
+			return new Response("Not Found", 404);
+		};
+
+		// Применяем глобальные Middleware
+		$wrappedHandler = self::wrapWithMiddlewares($handler, self::$globalMiddlewares);
+
+		self::$server->listen($wrappedHandler, $onStartCallback);
+	}
+
+	/**
+	 * Обрабатывает входящий запрос
+	 *
+	 * @param Request $request Объект запроса
+	 * @return Response Объект ответа
+	 */
+	public static function handleRequest(Request $request): Response
+	{
+		$method = $request->method();
+		$uri = $request->uri();
+
+		if (self::$requestLogger) {
+			self::$requestLogger->handle($request);
+		}
+
+		// Обработка динамических маршрутов
+		foreach (self::$routes[$method] ?? [] as $routePath => $callback) {
+			$pattern = preg_replace('/\{([a-z]+)\}/', '(?P<$1>[^/]+)', $routePath);
+			$pattern = "@^" . $pattern . "$@D";
+
+			if (preg_match($pattern, $uri, $matches)) {
+				$routeData = [];
+				foreach ($matches as $key => $value) {
+					if (is_string($key)) {
+						$routeData[$key] = $value;
+					}
+				}
+
+				return $callback($request, $routeData);
+			}
+		}
+
+		// Обработка статических файлов
+		if (self::$staticPath) {
+			$filePath = self::$staticPath . '/' . ltrim($uri, '/');
+			if (file_exists($filePath) && is_file($filePath)) {
+				$response = new Response(file_get_contents($filePath), 200);
+				$mime = self::getMimeType($filePath);
+				$response->header("Content-Type", $mime);
+				return $response;
+			}
+		}
+
+		// Обработка 404 ошибки
+		if (self::$notFoundCallback) {
+			return call_user_func(self::$notFoundCallback, $request);
+		}
+
+		return new Response("Not Found", 404);
+	}
+
+	/**
+	 * Определяет MIME-тип файла по его расширению
+	 *
+	 * @param string $filePath Путь к файлу
+	 * @return string MIME-тип
+	 */
+	private static function getMimeType(string $filePath): string
+	{
+		$mimeTypes = [
+			'css'  => 'text/css',
+			'js'   => 'application/javascript',
+			'json' => 'application/json',
+			'html' => 'text/html',
+			'txt'  => 'text/plain',
+			'jpg'  => 'image/jpeg',
+			'png'  => 'image/png',
+			'gif'  => 'image/gif',
+			'svg'  => 'image/svg+xml',
+		];
+
+		$extension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
+		return $mimeTypes[$extension] ?? 'application/octet-stream';
+	}
 }
