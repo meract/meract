@@ -47,6 +47,9 @@ class BaseViewCompiler implements ViewCompilerInterface
 
         $template = str_replace('@includeMorph', $morph, $template);
 
+		$template = str_replace('@includeNamedRoutes', "<script> Morph.routes = JSON.parse(`".json_encode(\Meract\Core\Route::getNamedRoutes())."`);</script>", $template);
+
+
         // Обработка свойств объектов и массивов - добавлена поддержка пробелов
         $template = preg_replace('/\{\{\s*(.+?)->(.+?)\s*\}\}/', '<?= htmlspecialchars($$1->$2 ?? null, ENT_QUOTES) ?>', $template);
         $template = preg_replace('/\{\{\s*(.+?)\[(.+?)\]\s*\}\}/', '<?= htmlspecialchars($$1[$2] ?? null, ENT_QUOTES) ?>', $template);

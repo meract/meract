@@ -31,6 +31,7 @@ class Route
 	/** @var array Стек групп маршрутов */
 	private static $groupStack = [];
 
+
 	/**
 	 * Устанавливает сервер и логгер запросов
 	 *

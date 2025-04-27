@@ -217,8 +217,51 @@ class MorphInstance {
 				morphElement.setAttribute('active', '');
 			}
 
+
+			morphElement.querySelectorAll('morph').forEach(el => {
+				const name = el.getAttribute('name');
+				if (!name) {
+					console.warn('Morph element missing name attribute', el);
+					return;
+				}
+
+				el.virutal = function() {
+					return this.cloneNode(true);
+				};
+
+				el.renderVirtual = function(dom) {
+					this.innerHTML = dom.innerHTML;
+				};
+
+				this.morphs[name] = el;
+				this.initMorphElement(el);
+
+				// Загрузка компонента при необходимости
+				const backload = this.getBackloadUrl(el);
+				const backloadType = el.getAttribute('backloadType');
+
+				if (backload && backloadType === 'once') {
+					this.loadComponent(el, backload);
+				}
+			});
+
+
 			this.initMorphElement(morphElement);
+			// Инициализируем морф формы
 			this.initMorphForms();
+
+			// Инициализируем скрипты
+			const scripts = morphElement.querySelectorAll('script');
+			scripts.forEach(script => {
+				const newScript = document.createElement('script');
+				if (script.src) {
+					newScript.src = script.src; // Подгружаем внешние скрипты
+				} else {
+					newScript.textContent = script.textContent; // Выполняем inline-скрипты
+				}
+				document.body.appendChild(newScript).remove(); // Добавляем и сразу удаляем
+			});
+
 			return true;
 		} catch (error) {
 			console.error(`Failed to load component from "${url}":`, error);

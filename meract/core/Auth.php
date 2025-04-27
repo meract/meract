@@ -179,7 +179,7 @@ class Auth
     public function set(Response $response): Response
     {
         if ($this->tokens) {
-            $response->setCookie(
+            $response->cookie(
                 self::$config['cookie_name'],
                 $this->tokens['access'],
                 time() + self::$config['jwt_expire'],
@@ -410,7 +410,7 @@ class Auth
      */
     private function clearAuthCookie(Response $response): Response
     {
-        $response->setCookie(
+        $response->cookie(
             self::$config['cookie_name'],
             '',
             time() - 3600,

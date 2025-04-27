@@ -85,7 +85,7 @@ class Session
 		Storage::set($this->id, $this->data, 'sessions');
 
 		// Устанавливаем куки
-		$resp->setCookie(
+		$resp->cookie(
 			'LUMSESSID', 
 			$this->id, 
 			time() + 3600, // Время жизни куки (1 час)
