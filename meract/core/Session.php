@@ -86,7 +86,7 @@ class Session
 
 		// Устанавливаем куки
 		$resp->cookie(
-			'LUMSESSID', 
+			'MERACTSESSID', 
 			$this->id, 
 			time() + 3600, // Время жизни куки (1 час)
 			'/',          // Путь
