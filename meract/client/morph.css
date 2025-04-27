@@ -3,6 +3,7 @@
     --morph-font: 'Segoe UI', system-ui, sans-serif;
     --morph-bg: #1a1a1a;
     /* Тёмный фон по умолчанию */
+	--morph-z-index: 10;
     --morph-text: #ffffff;
     --morph-primary: #6200ee;
     --morph-secondary: #03dac6;
@@ -33,7 +34,7 @@ morph {
     background: var(--morph-bg);
     color: var(--morph-text);
     font-family: var(--morph-font);
-    z-index: 10;
+    z-index: var(--morph-z-index);
     opacity: var(--morph-no-active-opacity);
     pointer-events: var(--morph-no-active-enable);
     transition: opacity 0.5s var(--morph-transition);

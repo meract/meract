@@ -5,6 +5,9 @@ require_once __DIR__ . '/meract/core/RecursiveLoad.php';
 
 use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage, Morph};
 
+
+define("PROJECT_DIR", __DIR__);
+
 // Инициализация контейнера
 if (!SDR::isInitialized()) {
     $injector = new Injector();
