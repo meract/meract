@@ -1,57 +1,61 @@
-## Описание
-Meract - MVC фреймворк для PHP.
+| Русский / Russian | English / Английский |
+|-----------------|---------------|
+| [README.md](README-rus.md) | [README-rus.md](README.md) |
 
-У него есть много особенностей, выделяющих его на фоне других фреймворков, от своего сервера до плотной интеграции с фронтендом.
+## Description
+Meract is an MVC framework for PHP.
 
-### Основной namespace
-Основным неймспэйсом для большинства классов которые вы будете использовать является, `Meract\Core`
+It has many features that set it apart from other frameworks, from its server to its tight integration with the front-end.
 
-## Документация
-Конкретная техническая документация по методам [доступна тут](https://lumetas.github.io/meract/)
+### Main namespace
+The main namespace for most of the classes that you will use is, `Meract\Core`
 
-[Step By Step Гайд](docs/stepByStep/install.md)
+## Documentation
+Specific technical documentation on the methods [available here](https://lumetas .github.io/meract/)
+
+[Step By Step Guide](docs/stepByStep/install.md)
 
 
-## Стрктура
-```
+## Structure
+``
 .
-├───app                 - Код вашего приложения
-│   ├───controllers     - Контроллеры
-│   ├───core            - Скрипты выполняемые перед запуском сервера. Общие утилиты, дополнительные настройки и т.д.
-│   ├───middleware      - middleware Роутов
-│   ├───migrations      - Миграции базы данных
-│   ├───models          - Ваши модели
-│   ├───routes          - Ваши роуты
-│   ├───static          - Сатичные файлы(html, css, js)
-│   ├───views           - Директория с view
-│   │   ├───colorschemes- Цветовые схемы morph компонентов
-│   │   ├───components  - Morph компоненты
+───The app code of your app
+───controllers - Controllers
+│   ├───core            - Scripts executed before starting the server. Common utilities, additional settings, etc.
+───middleware - middleware Routes
+───migrations - Database migrations
+───models - Your models
+───routes - Your routes
+│ ├───static - Binary files(html, css, js)
+│ ├───views - Directory with view
+│   │   ───colorschemes- Color schemes of morph components
+│   │   ───components - Morph components
 │   │   ├───layouts     - layouts view
-│   │   ├───modules     - morph модули
-│   │   └───themes      - темы для компонентов morph
-│   │
-│   └───workers         - Ваши воркеры
-├───meract              - Код фреймворка
-│   ├───commands        - Команды для mrst
-│   ├───core            - Основные классы и код фреймворка
-│   └───drivers         - Драйвера для различных компонентов фреймворка например StorageDriver's
+│   │   ───modules - morph modules
+│   │   ───themes - themes for morph
+components
+───workers - Your workers
+───meract - The code of the framework
+───commands - Commands for mrst
+│   ├───core            - Basic classes and framework code
+───drivers - Drivers for various components of the framework , such
+as Storagedriver's
+
+,───config.php - Configuration of the framework, as well as your application.
+├───index.The php index file starts the server and your entire application.
+,───worker.php - A file that starts a worker that will perform tasks from the queue
+├───mrst - The framework's command-line utility
 │
 │
-├───config.php          - Конфиг фреймворка, а так же вашего приложения.
-├───index.php           - index файл запускаешь сервер и всё ваше приложение
-├───worker.php          - Файл запускающий воркер, который будет выполнять задачи из очереди
-├───mrst                - Утилита командной строки фреймворка
-│
-│
-├───vendor              - composer vendor
+├───vendor - composer vendor
 ├───composer.json       - composer.json
 ├───composer.lock       - composer.lock
-└───tests               - Директория тестов phpUNIT
-```
+───tests - The PHPUnit test directory
+``
 
 
-## Конфигурация
-Конфигурация хранится в файле `config.php`, по умолчанию он выглядит примерно так:
+## Configuration
+The configuration is stored in a file `config.php `, by default it looks something like this:
 ```
 <?php
 return [
@@ -70,11 +74,11 @@ return [
 	]
 ];
 ```
-Здесь задаётся host и port сервера. Вы можете указать свою функцию при поднятии сервера, а так же свой логгер запросов:
-```
+The server's host and port are set here. You can specify your function when raising the server, as well as your query logger:
+``
 <?php
 return [
-	"server" => [
+"server" => [
 		"host" => "0.0.0.0",
 		"port" => 8000,
 		"requestLogger" => new class extends RequestLogger {
@@ -89,30 +93,30 @@ return [
 ```
 
 
-## Установка
-```
+## Installation
+``
 composer create-project lumetas/meract project-name
 cd project-name;
 php mrst init;
 php mrst migrate;
-```
+``
 
-## Запуск
-В зависимости от выбранного сервера, вы можете использовать либо `php index.php` либо `php -S interface:port index.php` или универсальный вариант `php mrst serve`
+## Launch
+Depending on the server you choose, you can use either `php index.php ` or `php -S interface:port index.php ` or the universal version of `php mrst serve`
 
-В случае использования встроенного сервера может быть выполнена функция инициализация сервера. В случае использования стандартного сервера или apache/nginx. Он выполнена не будет. Так что различные настройки которые необходимо настаивать из кода. Необходимо делать где-либо ещё. Так же в случае запуска тестового сервера используя стандартный сервер php. Вы не сможете настроить свой обработчик запросов. По крайней мере на данный момент.
+If the embedded server is used, the server initialization function can be performed. In the case of using a standard server or apache/nginx. It will not be executed. So there are various settings that need to be infused from the code. It must be done somewhere else. Also, in the case of running a test server using a standard php server. You will not be able to configure your request handler. At least for now.
 
-Сервер начнёт слушать и принимать запросы выводя информацию о запросе в консоль, формат логов вы так же можете поменять как и было указано выше
+The server will start listening and accepting requests by outputting information about the request to the console. You can also change the format of the logs as described above
 
 
 
-## Роутеры и контроллеры
-Очень во многом я вдохновляюсь laravel. Так что многое покажется для вас знакомым.
+## Routers and controllers
+I am very much inspired by laravel. So a lot of things will seem familiar to you.
 
-И так, вот все примеры синтаксиса роутеров:
-```
+And so, here are all the examples of router syntax:
+``
 Route::get('/', function(Request $rq) {
-	$content = View::render("main", [
+$content = View::render("main", [
 		"title" => "example lumframework project",
 		"value" => IterateController::get()
 	]);
@@ -143,14 +147,14 @@ Route::group('/admin', function () {
     Route::get('/test2', function ($rq){return new Response('hello admin test2!', 200);});
 }, [new FiftyFiftyMiddleware()]);
 
-Route::middleware(new FiftyFiftyMiddleware); //Глобальный middleware
+Route::middleware(new FiftyFiftyMiddleware); //Global middleware
 
-Route::get('/', function (){}, [], "route.name"); // Имя маршрута
+Route::get('/', function (){}, [], "route.name "); // Route name
 
-route("route.name"); // Вернёт урл маршрута: /
-```
+route("route.name "); // Returns the route URL: /
+``
 
-Методы http запросов:
+HTTP request methods:
 - get()
 - post()
 - put()
@@ -159,7 +163,7 @@ route("route.name"); // Вернёт урл маршрута: /
 - options()
 - head()
 
-И контроллер используемый тут:
+And the controller used here:
 ```
 use Meract\Core\Controller;
 class IterateController extends Controller{
@@ -177,8 +181,8 @@ class IterateController extends Controller{
 	}
 }
 
-```
-А так же middleware:
+``
+As well as middleware:
 ```
 use Meract\Core\Request;
 use Meract\Core\Response;
@@ -188,23 +192,23 @@ class FiftyFiftyMiddleware
     public function handle(Request $request, callable $next): Response
     {
         if (mt_rand(0, 1) === 1) {
-            // Пропускаем запрос (50% шанс)
-            return $next($request);
+            // Skipping the request (50% chance)
+return $next($request);
         }
 
-        // Блокируем запрос (50% шанс)
-        return new Response("Sorry, you lost the 50/50 chance", 403);
+        // Blocking the request (50% chance)
+return new Response("Sorry, you lost the 50/50 chance", 403);
     }
 }
 ```
-Мы можем передать в роутер путь, и коллбэк функцию, так же как и метода контроллера. Так же мы можем установить маршрут для ошибки 404.
+We can pass the path and the callback function to the router, as well as the controller method. We can also set a route for the 404 error.
 
-Статический метод html который предоставляет класс Controller принимает html и возвращает, объект класса Response с установленным заголовком `Content-Type : text/html`, просто сокращает ненужный код в контроллерах.
+The static html method that provides the Controller class accepts html and returns an object of the Response class with the set header `Content-Type : text/html`, simply reduces unnecessary code in controllers.
 
-Работает это следующим образом, когда приходит запрос, сервер сначала ищет по прописанным напрямую маршрутам, если не находит, тогда ищет соответствующий файл в папке static. Если она такого файла нет, выполняется маршрут 404. Если он не установлен тогда пользователь просто увидит "not found"
+It works as follows: when a request arrives, the server first searches for the routes specified directly, if it does not find it, then it searches for the corresponding file in the static folder. If there is no such file, route 404 is executed. If it is not installed, then the user will just see "not found"
 
 ## view / morph
-Шаблоны позволяют упрощать вывод. Синтаксис такой.
+Templates allow you to simplify the output. The syntax is like this.
 ```
 $view = new View("test", ["title" => "test", "year" => 2025, "posts" => [[1,2],[2,1],[3,5],[4,8],[58,85],[123,321]]]);
 ```
@@ -245,25 +249,25 @@ views/layots/main.morph.php:
 </html>
 ```
 
-В конфиге вы можете добавить свои собственные дополнительные прерпроцессоры, например:
-```
+In the config, you can add your own additional preprocessors, for example:
+``
 "viewCompilers" => [
 		new \Meract\Core\Compilers\MinifyHtmlViewCompiler
 ]
 ```
-В данном примере вы можете увидеть как вставлять какие-то параметры, а так же использование нескольких шаблонов друг в друге.
-## Модели
-Для работы прийдётся настроить базу данных. В вашем файле config.php
-Примеры:
-```
+In this example, you can see how to insert some parameters, as well as the use of several templates in each other.
+## Models
+To work, you will need to set up a database. In your file config.php
+Examples:
+``
 "database" => [
-    "driver" => "mysql",
-    "host" => "localhost",
-    "port" => 3306,
-    "dbname" => "test",
-    "username" => "root",
-    "password" => "",
-    "charset" => "utf8mb4"
+"driver" => "mysql",
+"host" => "localhost",
+"port" => 3306,
+"dbname" => "test",
+"username" => "root",
+"password" => "",
+"charset" => "utf8mb4"
 ]
 ```
 ```
@@ -282,110 +286,110 @@ views/layots/main.morph.php:
     "sqlite_path" => __DIR__ . "/database.sqlite"
 ]
 ```
-У вас должны быть установлены и включены модули pdo и pdo для вашей субд.
+You must have the pdo and pdo modules installed and enabled for your DBMS.
 ```
 use Meract\Core\Model;
 class TestModel extends Model{
-	protected static $table = 'your_table'; // Имя таблицы
+	protected static $table = 'your_table'; // Table name
 	protected $fillable = ['id', 'name'];
 
 }
 ```
-Вот так вы можете создать модель привязанную к таблице. Далее примеры использования данной модели. В рамках данного примера выполнение происходит внутри роута. Вы же должны делать это внутри контроллера.
+This is how you can create a model linked to a table. The following are examples of using this model. In this example, execution takes place inside the router. You have to do this inside the controller.
 ```
 Route::get('/', function (Request $rq) {
-	$m = new TestModel(["name" => (string) random_int(0, 10000)]); // Создаём модель с случайным именем.
-	$m->save(); //Сохраняем.
-	$r = new Response("Запись создана", 200); //Создаём ответ. С текстом и статусом 200.
-	$r->header("Content-Type", "text/html");// Устанавливаем тип html
-	return $r;// возвращаем ответ.
+	$m = new TestModel(["name" => (string) random_int(0, 10000)]); // Creating a model with a random name.
+	$m->save(); //Save.
+	$r = new Response("Record created", 200); //Creating a response. With text and status 200.
+$r->header("Content-Type", "text/html");// Setting the html type
+to return $r;// returning the response.
 });
 
 Route::get('/show', function (Request $rq) {
-	$m = new TestModel();//Создаём модель 
-	$pices = OUTVAR::dump($m->all()); //$m->all() - Возвращает все записи. OUTVAR::dump делает var_dump в переменную
+	$m = new TestModel();//Creating a model 
+	$pices = OUTVAR::dump($m->all()); //$m->all() - Returns all entries. OUTVAR::dump makes var_dump a variable
 
-	$r = new Response("<pre>$pices</pre>", 200);// Выводим всё пользователю обрамляе в pre
+	$r = new Response("<pre>$pices</pre>", 200);// We display everything framed to the user in pre
 	$r->header("Content-Type", "text/html");
 	return $r;
 });
 
 Route::get('/up/{id}/{data}', function (Request $rq, array $data) {
-	$test = TestModel::find((int) $data["id"]); //Создаём модель из записи с id полученным из запроса.
-	$test->name = $data['data']; // Устанавливаем значение data из запроса в name.
-	$test->save(); // сохраняем
+	$test = TestModel::find((int) $data["id"]); //Creating a model from a record with the id obtained from the request.
+	$test->name = $data['data']; // Setting the data value from the query to name.
+	$test->save(); // save
 
-	$pices = "Запись $data[id] обновлена";
-	//Сообщаем пользователю.
+	$pices = "Record $data[id] updated";
+	//We inform the user.
 	$r = new Response("<pre>$pices</pre>", 200);
 	$r->header("Content-Type", "text/html");
 	return $r;
 });
 
 Route::get('/del/{id}', function (Request $rq, array $data) {
-	$test = TestModel::find((int) $data["id"]);// создаём модель из записи по id 
-	$test->delete();// Удаляем запись.
+	$test = TestModel::find((int) $data["id"]);// creating a model from an entry by id 
+	$test->delete();// Deleting the record.
 	
-	$pices = "Запись $data[id] Удалена";//Информируем пользователя.
+	$pices = "Record $data[id] Deleted";//We inform the user.
 
 	$r = new Response("<pre>$pices</pre>", 200);
 	$r->header("Content-Type", "text/html");
 	return $r;
 });
 ```
-Данные примеры кода охватывают стандартные CRUD операции выполненные через модели.
+These code examples cover standard CRUD operations performed through models.
 
 
 ## Storage
-Синтаксис:
+Syntax:
 ```
-Storage::setTime(int seconds); // Устанавливает время жизни записей.
-Storage::set("property", "value" ?prefix); // Создаёт запись, при указании префикса запись на определённом префиксе
-Storage::get("property", ?prefix); // Получает значение записи
-Storage::update("property", ?prefix); // Обновляет время жизни записи.
-Storage::remove("property", ?prefix); // Удаляет запись
-Storage::handleDeletion(); // Удаляет все истёкшие записи.
+Storage::setTime(int seconds); // Sets the lifetime of the records.
+Storage::set("property", "value" ?prefix); // Creates an entry, when specifying a prefix, the entry is based on a specific prefix
+Storage::get("property", ?prefix); // Gets the value of the record
+Storage::update("property", ?prefix); // Updates the lifetime of the record.
+Storage::remove("property", ?prefix); // Deletes an entry
+Storage::handleDeletion(); // Deletes all expired records.
 ```
 
-### Настройка->config.php:
-```
+### Setup->config.php :
+``
 "storage" => [
 	"driver" => null,
 	"time" => 20
 ]
 ```
 
-- driver - Объект класса StorageDriver или null(Стандартный драйвер)
-- time - Время жизни записей в секундах или 0 вечно
+- driver - An object of the StorageDriver or null class (Standard driver)
+- time - Lifetime of records in seconds or 0 forever
 
-Есть драйвер для работы в базе sql включить вот так:
+There is a driver for working in the sql database to enable it like this:
 ```
 "storage" => [
 	"driver" => new \Meract\Core\Drivers\SQLStorageDriver,
 	"time" => 600
 ]
 ```
-Не забудьте смигрировать таблицу
+Don't forget to migrate the table
 
-Установка произвольного драйвера нужна поскольку при использовании стандартного сервера(fpm) невозможно сохранять данные между запросами в оперативной памяти. Таким образом вы можете использовать например redis или даже sql базу данных.
+Installing an arbitrary driver is necessary because when using a standard server (fpm), it is impossible to save data between requests in RAM. This way you can use, for example, redis or even an sql database.
 
 ## Workers
-Воркеры представляют собой систему очередей.
+Workers are a queue system.
 
-Начнём с конфигурации:
-```
+Let's start with the configuration:
+``
 "worker" => [
-	"enabled" => true,
-	"endpoint" => "endpoint",
+"enabled" => true,
+"endpoint" => "endpoint",
 	"server-callback" => function (string $data): string {
 		echo $data."\n";
-		return "Понял";
-	}
+		return "Understood";
+}
 ]
-```
-Далее создадим небольшой воркер `sleep`.
+``
+Next, let's create a small `sleep` worker.
 
-В файле `app/workers/sleep.php`:
+In the file `app/workers/sleep.php `:
 ```
 <?php
 use Meract\Core\Worker;
@@ -393,29 +397,29 @@ use Meract\Core\Worker;
 return new class extends Worker {
     public function run(string $message) {
         sleep((int) $message);
-        $result = self::sendToServer("Я подождал $message секунд");
-        if ($result == "Понял") {
-            echo "Меня услышали!\n";
+        $result =self::sendToServer("I waited for $message seconds");
+        if ($result == "Understood") {
+echo "I was heard!\n";
         }
     }
 };
-```
-И в любом месте кода нашего мастер процесса можем использовать:
-```
+``
+And anywhere in the code of our master process we can use:
+``
 Worker::register("sleep", "3");
 ```
-Это создаст запись в таблице. После worker process когда дойдёт до выполнения этой записи возьмёт имя "sleep" и запустит метод run передав туда message.
+This will create an entry in the table. After the worker process, when it comes to executing this record, it will take the name "sleep" and run the run method by passing a message there.
 
-Метод sendToServer отправит данные на endpoint. И в мастер процессе отработает колбэк функция воркера. Возвращаемое ей значение выйдет из метода sendToServer.
+The sendToServer method will send the data to the endpoint. And in the master process, the worker's callback function will work out. The value returned to it will exit the sendToServer method.
 
-По факту это система очередей. Но благодоря сохранению состояния. Вы можете создать воркер для обработки большого количества информации. Результат отправить в мастер и сохранить в storage для быстрого ответа пользователю.
+In fact, this is a queue system. But thanks to the preservation of the state. You can create a worker to process a large amount of information. Send the result to the wizard and save it to storage for a quick response to the user.
 
-Для запуска воркера нужно запустить `worker.php`.
+To start the worker, you need to run `worker.php `.
 
 ## QRYLI
-qryli это QueryBuilder.
+qryli is a QueryBuilder.
 
-Небольшие примеры использования:
+Small usage examples:
 ```
 Qryli::insert("users", ["name" => "aaaaa"])->run();
 $users = Qryli::select('*')->from('users')->where('age > ?', [18])->orderBy('name')->limit(10)->run();
@@ -423,7 +427,7 @@ Qryli::update('users', ['age' => 26])->where('id = ?', [1])->run();
 Qryli::delete('users')->where('id = ?', [1])->run();
 ```
 ## Session
-В общем случае использование сессий выглядит примерно так:
+In general, the use of sessions looks something like this:
 ```
 Route::get('/', function ($rq) {
 	$session = Session::start($rq);
@@ -432,50 +436,50 @@ Route::get('/', function ($rq) {
 	return $session->end(new Response($session->a, 200));
 });
 ```
-Так вы можете устанавливать любые параметры любого типа. Сохранятся они будут с помощью `Storage` Так что не забывайте чистить истёкшие записи перед участками работы с сессиями. И настроить произвольный драйвер в случае использования fpm
+This way you can set any type of parameters. They will be saved using `Storage` So don't forget to clean expired records before doing any session work. And configure an arbitrary driver in case of using fpm
 
 ## SDR
-Простой способ управлять зависимостями в Meract.
-Регистрация сервисов:
-```
-// Синглтон (один экземпляр)  
+An easy way to manage dependencies in Meract.
+Service registration:
+``
+// Singleton (single instance)
 SDR::singleton(Database::class);  
 
-// Привязка интерфейса к реализации  
+// Binding the interface to the implementation  
 SDR::bind(LoggerInterface::class, FileLogger::class);  
 
-// Произвольное значение  
+// Any value  
 SDR::set('db.host', 'localhost');  
 ```
 
-Получение сервисов:
-```
-// Автоматическое создание объекта  
+Getting services:
+``
+// Automatic object creation  
 $db = SDR::make(Database::class);  
 
-// Получение значения  
+// Getting the value  
 $host = SDR::make('db.host');  
 ```
 
-Автоматической внедрение:
+Automatic implementation:
 ```
 class UserController {  
-    public function __construct(  
-        private Database $db,  // Автоматически создастся  
+    public function __construct(
+private Database $db, // Will be created automatically  
         private LoggerInterface $logger  
     ) {}  
 }  
 
-// Создаем контроллер – зависимости подставятся сами  
+// Creating a controller – the dependencies will be substituted by themselves  
 $controller = SDR::make(UserController::class);  
 ```
 
 
 
-## Миграции
-Фреймворк обладает базовым функционалом миграций.
+## Migrations
+The framework has basic migration functionality.
 
-Для создания миграции вам нужно создать файл, например `app/migrations/first_migration.php`:
+To create a migration, you need to create a file, for example `app/migrations/first_migration.php `:
 ```
 <?php
 
@@ -485,9 +489,9 @@ return new class extends Migration {
     public function up()
     {
         $this->schema->create('fist_migration', function ($table) {
-            $table->id();               // Автоинкрементный первичный ключ
-            $table->string('name');     // Строковое поле name
-            $table->string('message');  // Строковое поле message
+            $table->id(); // Auto-incremented primary key
+            $table->string('name'); // String field name
+            $table->string('message'); // String field message
         });
     }
 
@@ -496,74 +500,74 @@ return new class extends Migration {
         $this->schema->drop('first_migration');
     }
 };
-```
-Дальше вы можете воспользоваться `mrst` для применения миграции:
-```
-php mrst migrate # Все миграции
-php mrst migrate fist_migration # Миграция "first_migration"
-```
-Так же чтобы откатить миграции вы можете сделать:
-```
-php mrst migrate.rollback # Все миграции
-php mrst migrate.rollback fist_migration # Миграция "first_migration"
-```
+``
+Next, you can use `mrst` to apply migration:
+``
+php mrst migrate # All migrations
+php mrst migrate fist_migration # Migration "first_migration"
+``
+Also, to roll back migrations, you can do:
+``
+php mrst migrate.rollback # All migrations
+php mrst migrate.rollback fist_migration # Migration "first_migration"
+``
 
 ## mrst
-`mrst` или `meract support tool` средство помощи.
-Для создания команды вам нужно создать файл в 'meract/commands/file.php'
-С примерно таким синтаксисом:
-```
+The `mrst` or `meract support tool' is an aid tool.
+To create a command, you need to create a file in 'meract/commands/file.php '
+With something like this syntax:
+``
 <?php
 return new class {
-	public function run() {
-        $args = SDR::make('command.args');
+public function run() {
+$args = SDR::make('command.args');
 		var_dump($args);
 	}
 };
 ```
-После вы сможете вызвать команду так:
+Then you can call the command like this:
 ```
 php mrst file arg0 arg1 arg2 arg3
 ```
-Вы увидите примерно следующее:
-```
+You will see something like this:
+``
 array(4) {
-  [0]=>
-  string(4) "arg0"
-  [1]=>
-  string(4) "arg1"
-  [2]=>
-  string(4) "arg2"
-  [3]=>
-  string(4) "arg3"
+[0]=>
+string(4) "arg0"
+[1]=>
+string(4) "arg1"
+[2]=>
+string(4) "arg2"
+[3]=>
+string(4) "arg3"
 }
-```
+``
 
 ### make
 ```
 php mrst make <type> <name>
 ```
-Так это создасть файл указанного типа с указанным названием, например:
-```
+So this is to create a file of the specified type with the specified name, for example:
+``
 php mrst make model Test
 ```
-Чтобы увидеть больше справки выполните `php mrst make`
+To see more help, run `php mrst make`
 
 ### tests
 ```
 php mrst tests
 ```
-Проводит unit тесты из папки `tests` с помощью `phpUnit`
+Performs unit tests from the `tests` folder using `PHPUnit`
 
 ### make.chain
-Создаёт цепочку жизненного цикла запроса. В моём понимании цепочка жизненного цикла запроса это: route->controller<-model->view
-Т.е. сначала роут реагирует на запрос, после отдаёт его в контроллер, он обрабатывает этот запрос берёт или устанавливает какие-либо данные через модель. А после рендерит всё это через view. И вот команда `make.chain` одним вызовом способна создать такую цепочку жизненного цикла.
-Пример:
-```
-php mrst make.chain rcmv product --table=products -rest '{"title" : "string", "price" : "float", "count" : "integer"}';
+Creates a request lifecycle chain. In my understanding, the request lifecycle chain is: route->controller<-model->view
+That is, first the router responds to the request, then it sends it to the controller, it processes this request, takes or sets any data through the model. And then renders it all through the view. And so the `make.chain` command is able to create such a lifecycle chain with one call.
+Example:
+``
+php mrst make.chain rcmv product --table=products -rest'{"title" : "string", "price" : "float", "count" : "integer"}';
 php mrst migrate;
-```
-Итог:
+``
+Result:
 `app/migration/products.php`:
 ```
 <?php
@@ -658,20 +662,19 @@ Route::put('/product/{id}', [ProductController::class, 'update']);
 Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 ```
 
-Вы получили, модель, миграцию, контроллер и роуты для круд операций. Со структорой указанной в json
-Буквы `rcmv`:
+You have received a model, migration, controller and routes for multiple operations. With the structure specified in json
+Letters `rcmv':
 - r - route
 - c - controller
 - m - model and migration
 - v - view
 
-Указывайте только те компоненты которые вам нужны. Параметр `--table=products` необязательный, указывает имя таблицы если оно отличается от основного имени. `-rest` Необязательный параметр, создающий не один роут, а несколько для круд операций в формате RESTApi Так же соответствующие методы в контроллере. Ну и структура таблицы в формате json необязательный параметр, который определяет структуру таблицы.(powershell игнорирует)
+Specify only the components that you need. The `--table=products` parameter is optional. It specifies the table name if it differs from the main name. `-rest` An optional parameter that creates not one route, but several for multiple operations in the RestAPI format, as well as the corresponding methods in the controller. Well, the structure of the table in json format is an optional parameter that defines the structure of the table.(powershell ignores)
 
+#Morph
+morph is a client framework integrated into the meract ecosystem.
 
-# Morph
-morph - это клиентский фреймворк интегрированный в экосистему meract.
-
-Для его использования внутри ваших view вам необходимо его подключить, например в теге head, делается это вот так: `@includeMorph`. После в body создайте один или несколько морф компонентов. Пример:
+To use it inside your views, you need to connect it, for example, in the head tag, it's done like this: `@includeMorph'. Then create one or more morph components in the body. Example:
 
 ```
     <morph name="main">
@@ -683,71 +686,71 @@ morph - это клиентский фреймворк интегрирован�
     </morph>
 ```
 
-morph компонент занимает собой всю страницу. Так что данная разметка создаст две страницы, переключаться между которыми можно по нажатию соответствующей кнопки. 
+The morph component takes up the entire page. So this markup will create two pages that you can switch between by clicking the appropriate button. 
 
-morph уже имеет встроенные стили, если вы хотите создать свою тему, создайте файл, например: `app/views/themes/main.css` с содержимым на подобии:
-```
+morph already has built-in styles, if you want to create your own theme, create a file, for example: `app/views/themes/main.css` with content similar to:
+``
 morph[theme="main"] * {
     background:red;
 }
 ```
-После используйте тему внутри морфа:
-```
-    <morph theme="main" name="test">
-      <button id="open" onclick="Morph.goTo('main')">back</button>
+Then use the theme inside the morph:
+``
+<morph theme="main" name="test">
+<button id="open" onclick="Morph.goTo('main')">back</button>
     </morph>
 ```
 
-Morph сам позаботится о подгрузке соответствующего файла, и проследит чтобы он был загружен в одном экземпляре.
+Morph will take care of uploading the corresponding file itself, and make sure that it is uploaded in a single instance.
 
-цветовые схемы работают аналогично, `app/views/colorschemes/main.css`:
+color schemes work similarly, `app/views/colorschemes/main.css`:
 ```
 morph[colorscheme="main"] * {
     --main-fg-color: white;
 }
 ```
 
-После используйте данную переменную в вашей теме.
+Then use this variable in your theme.
 
 ## backloads
-backload'ы - это система которая позволяет загружать дополнительные страницы, асинхронно после загрузки основного html для того чтобы сделать это вам необходимо правильно оформить ваш морф:
-```
+backloads are a system that allows you to load additional pages asynchronously after loading the main html. In order to do this, you need to properly format your morph:
+``
 <morph backload='test' backloadType="once" name='test' theme='main'></morph>
 ```
-После чего создайте файл `app/views/components/test.morph.php`, например с таким содержимым:
+Then create the file `app/views/components/test.morph.php `, for example, with the following content:
 ```
 <form action="form" type="morph">
 <input name="login">
 <input name="password">
 </form>
-```
-Дальше morph вставит содержимое данного файла внутрь. 
-### типы backload'ов
-| Тип | Поведение |
+``
+Morph will then paste the contents of this file inside. 
+### types of backloads
+| Type | Behavior |
 | ------------- | ------------- |
-| once | Загружается один раз после загрузки DOM |
-| goto | Загружается один раз при переходе к компоненту с помощью Morph.goTo |
-| every | Загружается каждый раз при переходе к компоненту с помощью Morph.goTo |
-| wait | Необходимо загружать руками через Morph.render("name", data?), При goTo Не обновляется |
+| once | Loaded once after loading the DOM |
+| goto | Loaded once when navigating to a component using Morph.goTo |
+| every | Is loaded every time you navigate to a component using Morph.goTo |
+| wait | It must be uploaded manually via Morph.render("name", data?), It is not updated with goTo |
 
-## Параметры загрузки компонентов
-При использовании `Morph.goTo` вы можете указать параметры для компонента:
-```
+## Component Loading options
+When using `Morph.goTo`, you can specify the parameters for the component:
+``
 Model.goTo('test', {a: 1, b: "2"});
 ```
 
-Тогда внутри компонента вы сможете получить эти параметры:
+Then you can get these parameters inside the component.:
 ```
 a: {{a}}<br>
 b: {{b}}
 ```
 
 ## customBackload
-Если вам мало стандартной логики backload или вы хотите добавить использование моделей, для получения инфы из субд, вы можете использовать кастомные бэклоады. Для этого вам необходимо заменить аттрибут `backload='<componentName>'` на `customBackload=<url>`
+If the standard backlog logic is not enough for you or you want to add the use of models to get information from the database, you can use custom backloads. To do this, you need to replace the attribute `payload='<ComponentName>" to `customBackload=<url>`
 
-Создайте route, привяжите метод контроллера, используйте модель, отрисуйте произвольный view. Всё в ваших руках!
+Create a route, bind a controller method, use a model, and draw a custom view. Everything is in your hands!
 
-Учитывайте что Morph.goTo без параметров отправляет get, а с параметрами - post запрос. Получить и использовать которые вы кстати можете так:
+Keep in mind that Morph.goTo sends a get without parameters, and a post request with parameters. Which, by the way, you can get and use like this:
 ```
 <morph customBackload="{{{route('component.test'}}}" name='test' backloadType='every'></morph>
 ```
@@ -759,28 +762,28 @@ Route::post('/test', function($rq) {
 }, [], "component.test");
 ```
 ```
-Morph.goTo({a : "Произвольное значение"});
-```
-(Данный пример реализует логику внутри route вам рекомендуется реализовывать логику внутри контроллеров)
+Morph.goTo({a : "Arbitrary value"});
+``
+(This example implements logic inside a route. You are recommended to implement logic inside controllers)
 
-## Примеры методов
-```
-Morph.goTo(name, ?data) // Открывает морф.
-Morph.reload(?data) // Перезагружает морф, может так же принимать параметры с которыми морф будет снова загружен, работает только с backloadType "every" и "wait"
+## Examples of methods
+``
+Morph.goTo(name, ?data) // Opens the morph.
+Morph.reload(?data) // Reloads the morph, can also accept parameters with which the morph will be loaded again, works only with the backloadType "every" and "wait"
 
-Morph.morphs.main // dom елемент морфа с именем "main"
-morph('main') // dom морфа аналогично
+Morph.morphs.main // dom element of a morph named "main"
+morph('main') // dom morph similarly
 
-Morph.morphs.main.virtual() // Возвращает виртуальное дeрево морфа
-Morph.morphs.main.renderVirtual(virtual) // Рендерит виртуальное дерево (Изменения самого элемента morph не применятся)
+Morph.morphs.main.virtual() // Returns a virtual morph tree
+Morph.morphs.main.renderVirtual(virtual) // Renders the virtual tree (Changes to the morph element itself will not apply)
 
-Morph.ajaxForm(formElement) // Делает форму типа morph
-```
+Morph.ajaxForm(FormElement) // Makes a morph type form
+``
 
-### Формы
-Вы можете либо дать форме аттрибут type="morph" либо использовать Morph.ajaxForm(formElement).
+### Forms
+You can either give the type="morph" attribute to the form, or use Morph.ajaxForm(FormElement).
 
-Тогда при отправке откроется морф с названием указанным в action с параметрами заполненными пользователем
+Then, when sending, a morph will open with the name specified in the action with the parameters filled in by the user.
 
 ## http
 ```
@@ -794,34 +797,34 @@ Morph.http.async.post('url', {param: "value"}, (object) => console.log(object));
 ```
 
 ## morph live 
-Morph live позволяет вам использовать методы контроллера и middleware для customBackload не регестрируя маршруты. Выглядит это вот так:
+Morph live allows you to use controller and middleware methods for customackload without having to register routes. It looks like this:
 ```
 <morph customBackload='{{{morphLive([\App\Controllers\test::class, "index"])}}}' backloadType="every">without middleware</morph>
 
 <morph customBackload='{{{morphLive([\App\Controllers\test::class, "index"], (new \App\Middlewares\User::class)->handle())}}}' backloadType="every">without middleware</morph>
 ```
 
-Пожалуйста укажите ключ шифрования в конфиге:
-```
+Please specify the encryption key in the config:
+``
 "morph" => [
-    "live" => "super secret key"
+"live" => "super secret key"
 ]
-```
+``
 
-## Модули
-Находятся в `app/views/modules/module.js` подключаем в конфиге:
-```
+## Modules
+They are located in `app/views/modules/module.js` is connected in the config:
+``
 "morph" => [
-    "modules" => [ "module" ]
+"modules" => [ "module" ]
 ]
-```
-Код модуля будет подключен при использовании "@includeMorph"
+``
+The module code will be enabled when using "@includeMorph"
 
 
 ## triggers
-Позполяют асинхронно работать с сервером. Пример:
-main.morph.php:
-```
+They allow you to work asynchronously with the server. Example:
+main.morph.php :
+``
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -833,7 +836,7 @@ main.morph.php:
 <body>
     <morph name="main">
         <morph-trigger action="test">
-            <button onclick="@morph-triggerSubmit">Выполнить</button>
+            <button onclick="@morph-triggerSubmit">Execute</button>
             <input name='data'>
             <p>@MTrigger("data", "default")</p>
         </morph-trigger>
@@ -841,7 +844,7 @@ main.morph.php:
 </body>
 </html>
 ```
-Аттрибут action в элементе <morph-trigger> указывает имя триггера для выполнения. Соответственно:
+The action attribute in the <morph-trigger> element specifies the name of the trigger to execute. Accordingly:
 app/morph-triggers/*test*.php:
 ```
 <?php
@@ -849,39 +852,39 @@ return function($data) {
     return $data;
 };
 ```
-Сообственно в данном примере при срабатывании события `click` на кнопке выполнится триггер `test` и она получит ассоциативный массив со всеми параметрами(data => input.value) в данном случае. 
+Accordingly, in this example, when the `click` event is triggered, the `test` trigger is executed on the button and it receives an associative array with all parameters(data => input.value) in this case. 
 
 
-Ещё пример:
- 
-```
-    <morph name="main">
+Another example:
+
+``
+<morph name="main">
         <morph-trigger action="test">
             <input name='login'>
             <input name='password'>
-            <button onclick="@morph-triggerSubmit">Выполнить</button>
+            <button onclick="@morph-triggerSubmit">Execute</button>
             <p>@MTrigger("data", "")</p>
         </morph-trigger>
     </morph>
 ```
 
-триггер:
-```
+trigger:
+``
 <?php
 return function($data) {
     if ($data['login'] == "admin" && $data['password'] == "123") {
-        return ["data" => "Вы успешно авторизованы!"];
+return ["data" => "You have successfully logged in!"];
     } else {
-        return ["data" => "Неверные данные :("];
+        return ["data" => "Invalid data :("];
     }
     
 };
 ```
 
 
-## хуки
-На данный момент есть только один хук инициализации.
-Использовать можете например так:
+## hooks
+At the moment, there is only one initialization hook.
+You can use it like this:
 ```
 Morph.registerInitHook(function () {
     document.querySelectorAll('morph-trigger').forEach(el => {
@@ -895,43 +898,43 @@ Morph.registerInitHook(function () {
 
 
 # Auth
-## Конфигурация
-В файле конфигурации config.php укажите параметры аутентификации:
-```
+## Configuration
+In the configuration file config.php specify the authentication parameters:
+``
 'auth' => [
-    'table' => 'meract_users',               // Таблица пользователей
-    'login_fields' => ['email', 'password'], // Поля для входа
-    'registration_fields' => ['email', 'password'], // Поля для регистрации
-    'jwt_secret' => 'your-strong-secret',    // Секретный ключ для JWT
-    'tokens_table' => 'meract_tokens',       // Таблица недействительных токенов
-    'cookie_name' => "AUTHTOKEN"            // Название cookie
+'table' => 'meract_users', // User table
+    'login_fields' => ['email', 'password'], // Login fields
+'registration_fields' => ['email', 'password'], // Registration fields
+'jwt_secret' => 'your-strong-secret', // Secret key for JWT
+    'tokens_table' => 'meract_tokens', // Table of invalid tokens
+'cookie_name' => "AUTHTOKEN" // Cookie name
 ]
-```
-## Базовое использование на сервере
+``
+## Basic usage on the server
 
-### Инициализация
+### Initialization
 ```
 use Meract\Core\Auth;
 use Meract\Core\Request;
 
-// В middleware или обработчике маршрута
+// In middleware or the route handler
 $auth = Auth::start($request);
-Регистрация пользователя
+
 php
-try {
+try user registration {
     $user = Auth::register([
         'email' => 'user@example.com',
         'password' => 'securepassword',
-        'name' => 'John Doe' // дополнительные поля
+        'name' => 'John Doe' // additional fields
     ], $request);
     
     $response = $user->set(new Response());
 } catch (Exception $e) {
-    // Обработка ошибки
+    // Error handling
 }
-```
-### Авторизация пользователя
-```
+``
+### User authorization
+``
 try {
     $user = Auth::login([
         'email' => 'user@example.com',
@@ -940,45 +943,45 @@ try {
     
     $response = $user->set(new Response());
 } catch (Exception $e) {
-    // Обработка ошибки
+    // Error handling
 }
-```
-### Выход из системы
+``
+### Logout
 ```
 $user = Auth::start($request);
 $response = $user->logout(new Response());
-Получение данных пользователя
-php
+Getting
+php user data
 $user = Auth::start($request);
 if ($user->id) {
-    // Пользователь авторизован
+    // The user is logged in
     $name = $user->name;
     $email = $user->email;
 } else {
-    // Пользователь не авторизован
+    // The user is not authorized
 }
-```
-## Использование на клиенте
-### Авторизация
-```
+``
+## Use on the client
+### Authorization
+``
 Morph.http.async.post('/auth', {
     type: 'log',
     login: 'user@example.com',
     password: 'securepassword'
 }, (response) => {
     if (response.success) {
-        // Успешная авторизация
-        // Cookie установится автоматически
+        // Successful authorization
+        // The cookie will be set automatically
         window.location.href = '/show';
     } else {
-        // Ошибка авторизации
+        // Authorization error
         console.error(response.error);
     }
 });
-```
-### Обновление токенов (если access истек)
-```
-// При получении 401 ошибки
+``
+### Updating tokens (if access has expired)
+``
+// When receiving a 401 error
 function refreshTokens() {
     const refreshToken = localStorage.getItem('refresh_token');
     
@@ -988,25 +991,25 @@ function refreshTokens() {
         if (response.success) {
             const data = JSON.parse(response.body);
             localStorage.setItem('refresh_token', data.refresh);
-            // Повторяем оригинальный запрос с новым access токеном
+            // Repeating the original request with a new access token
         } else {
-            // Перенаправляем на страницу входа
+            // Redirecting to the login page
             window.location.href = '/login';
         }
     });
 }
-```
-### Защищенные запросы
-```
-// Для API запросов передаем токен в заголовке
+``
+### Protected requests
+``
+// For API requests, we pass the token in the header
 Morph.http.async.get('/api/data', (response) => {
-    // Обработка ответа
+// Response processing
 }, {
     'Authorization': `Bearer ${localStorage.getItem('access_token')}`
 });
-Примеры маршрутов
-Простой роут с проверкой авторизации
-php
+Examples of routes
+A simple router with
+php authorization verification
 Route::get('/profile', function ($request) {
     $user = Auth::start($request);
     
@@ -1017,8 +1020,8 @@ Route::get('/profile', function ($request) {
     return new View('profile', ['user' => $user]);
 });
 ```
-## API endpoint с токеном
-```
+## API endpoint with the token
+``
 Route::get('/api/user', function ($request) {
     $user = Auth::apiLogin($request->header('Authorization'));
     
@@ -1033,20 +1036,20 @@ Route::get('/api/user', function ($request) {
     ]), 200, ['Content-Type' => 'application/json']);
 });
 ```
-## Особенности работы
-1. Cookie-based аутентификация:
-    - После успешного login/register устанавливается HTTP-only cookie
-    - При каждом запросе токен автоматически проверяется
+## Work features
+1. Cookie-based authentication:
+    - After a successful login/register, an HTTP-only cookie is set.
+    - The token is automatically verified with each request.
 
-2. API аутентификация:
-    - Используйте Authorization: Bearer <token> заголовок
-    - Для проверки используйте Auth::apiLogin()
+2. API authentication:
+    - Use the Authorization:Bearer <token> header
+    - Use Auth::apiLogin() for verification
 
-3. Обновление токенов:
-    - Refresh токены должны храниться на клиенте (localStorage)
-    - При истечении access токена клиент должен запросить новый
+3. Token renewal:
+    - Refresh tokens must be stored on the client (localStorage)
+    - When the access token expires, the client must request a new one
 
-4. Безопасность:
-    - Все токены подписываются с использованием HMAC-SHA256
-    - Refresh токены можно отзывать
-    - HTTP-only cookie защищает от XSS
+4. Security:
+    - All tokens are signed using HMAC-SHA256   
+    - Refresh tokens can be revoked
+    - HTTP-only cookie protects against XSS
