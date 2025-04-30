@@ -1,7 +1,4 @@
-| Русский / Russian | English / Английский |
-|-----------------|---------------|
-| [README.md](README-rus.md) | [README-rus.md](README.md) |
-
+| [Русский / Russian](README-rus.md) | [English / Английский](README.md) |
 
 ## Описание
 Meract - MVC фреймворк для PHP.
