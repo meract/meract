@@ -1,6 +1,7 @@
-| Русский / Russian | English / Английский |
+| Язык | language |
 |-----------------|---------------|
-| [README.md](README-rus.md) | [README-rus.md](README.md) |
+| [Русский / Russian](README-rus.md) | [English / Английский](README.md) |
+
 
 ## Description
 Meract is an MVC framework for PHP.
@@ -17,42 +18,40 @@ Specific technical documentation on the methods [available here](https://lumetas
 
 
 ## Structure
-``
+```
 .
-───The app code of your app
-───controllers - Controllers
-│   ├───core            - Scripts executed before starting the server. Common utilities, additional settings, etc.
-───middleware - middleware Routes
-───migrations - Database migrations
-───models - Your models
-───routes - Your routes
-│ ├───static - Binary files(html, css, js)
-│ ├───views - Directory with view
-│   │   ───colorschemes- Color schemes of morph components
-│   │   ───components - Morph components
-│   │   ├───layouts     - layouts view
-│   │   ───modules - morph modules
-│   │   ───themes - themes for morph
-components
-───workers - Your workers
-───meract - The code of the framework
-───commands - Commands for mrst
-│   ├───core            - Basic classes and framework code
-───drivers - Drivers for various components of the framework , such
-as Storagedriver's
-
-,───config.php - Configuration of the framework, as well as your application.
-├───index.The php index file starts the server and your entire application.
-,───worker.php - A file that starts a worker that will perform tasks from the queue
-├───mrst - The framework's command-line utility
+├───app                 - Your application code
+│   ├───controllers     - Controllers
+│   ├───core            - Scripts executed before server startup (shared utilities, additional settings, etc.)
+│   ├───middleware      - Route middleware
+│   ├───migrations      - Database migrations
+│   ├───models          - Your models
+│   ├───routes          - Your routes
+│   ├───static          - Static files (HTML, CSS, JS)
+│   ├───views           - Views directory
+│   │   ├───colorschemes- Morph component color schemes
+│   │   ├───components  - Morph components
+│   │   ├───layouts     - View layouts
+│   │   ├───modules     - Morph modules
+│   │   └───themes      - Morph component themes
+│   │
+│   └───workers         - Your workers (background tasks/queue processors)
 │
+├───meract              - Framework code
+│   ├───commands        - Commands for `mrst` CLI tool
+│   ├───core            - Core framework classes and code
+│   └───drivers         - Drivers for framework components (e.g., StorageDrivers)
 │
-├───vendor - composer vendor
-├───composer.json       - composer.json
-├───composer.lock       - composer.lock
-───tests - The PHPUnit test directory
-``
-
+├───config.php          - Framework and application configuration
+├───index.php           - Entry point (launches server and your application)
+├───worker.php          - Worker entry point (processes queue tasks)
+├───mrst                - Framework CLI utility
+│
+├───vendor              - Composer dependencies
+├───composer.json       - Composer configuration
+├───composer.lock       - Composer lock file
+└───tests               - PHPUnit tests directory
+```
 
 ## Configuration
 The configuration is stored in a file `config.php `, by default it looks something like this:
@@ -75,7 +74,7 @@ return [
 ];
 ```
 The server's host and port are set here. You can specify your function when raising the server, as well as your query logger:
-``
+```
 <?php
 return [
 "server" => [
@@ -94,12 +93,12 @@ return [
 
 
 ## Installation
-``
+```
 composer create-project lumetas/meract project-name
 cd project-name;
 php mrst init;
 php mrst migrate;
-``
+```
 
 ## Launch
 Depending on the server you choose, you can use either `php index.php ` or `php -S interface:port index.php ` or the universal version of `php mrst serve`
@@ -114,7 +113,7 @@ The server will start listening and accepting requests by outputting information
 I am very much inspired by laravel. So a lot of things will seem familiar to you.
 
 And so, here are all the examples of router syntax:
-``
+```
 Route::get('/', function(Request $rq) {
 $content = View::render("main", [
 		"title" => "example lumframework project",
@@ -152,7 +151,7 @@ Route::middleware(new FiftyFiftyMiddleware); //Global middleware
 Route::get('/', function (){}, [], "route.name "); // Route name
 
 route("route.name "); // Returns the route URL: /
-``
+```
 
 HTTP request methods:
 - get()
@@ -181,7 +180,7 @@ class IterateController extends Controller{
 	}
 }
 
-``
+```
 As well as middleware:
 ```
 use Meract\Core\Request;
@@ -352,7 +351,7 @@ Storage::handleDeletion(); // Deletes all expired records.
 ```
 
 ### Setup->config.php :
-``
+```
 "storage" => [
 	"driver" => null,
 	"time" => 20
@@ -377,7 +376,7 @@ Installing an arbitrary driver is necessary because when using a standard server
 Workers are a queue system.
 
 Let's start with the configuration:
-``
+```
 "worker" => [
 "enabled" => true,
 "endpoint" => "endpoint",
@@ -386,7 +385,7 @@ Let's start with the configuration:
 		return "Understood";
 }
 ]
-``
+```
 Next, let's create a small `sleep` worker.
 
 In the file `app/workers/sleep.php `:
@@ -403,9 +402,9 @@ echo "I was heard!\n";
         }
     }
 };
-``
+```
 And anywhere in the code of our master process we can use:
-``
+```
 Worker::register("sleep", "3");
 ```
 This will create an entry in the table. After the worker process, when it comes to executing this record, it will take the name "sleep" and run the run method by passing a message there.
@@ -441,7 +440,7 @@ This way you can set any type of parameters. They will be saved using `Storage` 
 ## SDR
 An easy way to manage dependencies in Meract.
 Service registration:
-``
+```
 // Singleton (single instance)
 SDR::singleton(Database::class);  
 
@@ -453,7 +452,7 @@ SDR::set('db.host', 'localhost');
 ```
 
 Getting services:
-``
+```
 // Automatic object creation  
 $db = SDR::make(Database::class);  
 
@@ -500,23 +499,23 @@ return new class extends Migration {
         $this->schema->drop('first_migration');
     }
 };
-``
+```
 Next, you can use `mrst` to apply migration:
-``
+```
 php mrst migrate # All migrations
 php mrst migrate fist_migration # Migration "first_migration"
-``
+```
 Also, to roll back migrations, you can do:
-``
+```
 php mrst migrate.rollback # All migrations
 php mrst migrate.rollback fist_migration # Migration "first_migration"
-``
+```
 
 ## mrst
 The `mrst` or `meract support tool' is an aid tool.
 To create a command, you need to create a file in 'meract/commands/file.php '
 With something like this syntax:
-``
+```
 <?php
 return new class {
 public function run() {
@@ -530,7 +529,7 @@ Then you can call the command like this:
 php mrst file arg0 arg1 arg2 arg3
 ```
 You will see something like this:
-``
+```
 array(4) {
 [0]=>
 string(4) "arg0"
@@ -541,7 +540,7 @@ string(4) "arg2"
 [3]=>
 string(4) "arg3"
 }
-``
+```
 
 ### make
 ```
@@ -563,10 +562,10 @@ Performs unit tests from the `tests` folder using `PHPUnit`
 Creates a request lifecycle chain. In my understanding, the request lifecycle chain is: route->controller<-model->view
 That is, first the router responds to the request, then it sends it to the controller, it processes this request, takes or sets any data through the model. And then renders it all through the view. And so the `make.chain` command is able to create such a lifecycle chain with one call.
 Example:
-``
+```
 php mrst make.chain rcmv product --table=products -rest'{"title" : "string", "price" : "float", "count" : "integer"}';
 php mrst migrate;
-``
+```
 Result:
 `app/migration/products.php`:
 ```
@@ -689,7 +688,7 @@ To use it inside your views, you need to connect it, for example, in the head ta
 The morph component takes up the entire page. So this markup will create two pages that you can switch between by clicking the appropriate button. 
 
 morph already has built-in styles, if you want to create your own theme, create a file, for example: `app/views/themes/main.css` with content similar to:
-``
+```
 morph[theme="main"] * {
     background:red;
 }
@@ -714,7 +713,7 @@ Then use this variable in your theme.
 
 ## backloads
 backloads are a system that allows you to load additional pages asynchronously after loading the main html. In order to do this, you need to properly format your morph:
-``
+```
 <morph backload='test' backloadType="once" name='test' theme='main'></morph>
 ```
 Then create the file `app/views/components/test.morph.php `, for example, with the following content:
@@ -723,7 +722,7 @@ Then create the file `app/views/components/test.morph.php `, for example, with t
 <input name="login">
 <input name="password">
 </form>
-``
+```
 Morph will then paste the contents of this file inside. 
 ### types of backloads
 | Type | Behavior |
@@ -735,7 +734,7 @@ Morph will then paste the contents of this file inside.
 
 ## Component Loading options
 When using `Morph.goTo`, you can specify the parameters for the component:
-``
+```
 Model.goTo('test', {a: 1, b: "2"});
 ```
 
@@ -763,11 +762,11 @@ Route::post('/test', function($rq) {
 ```
 ```
 Morph.goTo({a : "Arbitrary value"});
-``
+```
 (This example implements logic inside a route. You are recommended to implement logic inside controllers)
 
 ## Examples of methods
-``
+```
 Morph.goTo(name, ?data) // Opens the morph.
 Morph.reload(?data) // Reloads the morph, can also accept parameters with which the morph will be loaded again, works only with the backloadType "every" and "wait"
 
@@ -778,7 +777,7 @@ Morph.morphs.main.virtual() // Returns a virtual morph tree
 Morph.morphs.main.renderVirtual(virtual) // Renders the virtual tree (Changes to the morph element itself will not apply)
 
 Morph.ajaxForm(FormElement) // Makes a morph type form
-``
+```
 
 ### Forms
 You can either give the type="morph" attribute to the form, or use Morph.ajaxForm(FormElement).
@@ -805,26 +804,26 @@ Morph live allows you to use controller and middleware methods for customackload
 ```
 
 Please specify the encryption key in the config:
-``
+```
 "morph" => [
 "live" => "super secret key"
 ]
-``
+```
 
 ## Modules
 They are located in `app/views/modules/module.js` is connected in the config:
-``
+```
 "morph" => [
 "modules" => [ "module" ]
 ]
-``
+```
 The module code will be enabled when using "@includeMorph"
 
 
 ## triggers
 They allow you to work asynchronously with the server. Example:
 main.morph.php :
-``
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -857,7 +856,7 @@ Accordingly, in this example, when the `click` event is triggered, the `test` tr
 
 Another example:
 
-``
+```
 <morph name="main">
         <morph-trigger action="test">
             <input name='login'>
@@ -869,7 +868,7 @@ Another example:
 ```
 
 trigger:
-``
+```
 <?php
 return function($data) {
     if ($data['login'] == "admin" && $data['password'] == "123") {
@@ -900,7 +899,7 @@ Morph.registerInitHook(function () {
 # Auth
 ## Configuration
 In the configuration file config.php specify the authentication parameters:
-``
+```
 'auth' => [
 'table' => 'meract_users', // User table
     'login_fields' => ['email', 'password'], // Login fields
@@ -909,7 +908,7 @@ In the configuration file config.php specify the authentication parameters:
     'tokens_table' => 'meract_tokens', // Table of invalid tokens
 'cookie_name' => "AUTHTOKEN" // Cookie name
 ]
-``
+```
 ## Basic usage on the server
 
 ### Initialization
@@ -932,9 +931,9 @@ try user registration {
 } catch (Exception $e) {
     // Error handling
 }
-``
+```
 ### User authorization
-``
+```
 try {
     $user = Auth::login([
         'email' => 'user@example.com',
@@ -945,7 +944,7 @@ try {
 } catch (Exception $e) {
     // Error handling
 }
-``
+```
 ### Logout
 ```
 $user = Auth::start($request);
@@ -960,10 +959,10 @@ if ($user->id) {
 } else {
     // The user is not authorized
 }
-``
+```
 ## Use on the client
 ### Authorization
-``
+```
 Morph.http.async.post('/auth', {
     type: 'log',
     login: 'user@example.com',
@@ -978,9 +977,9 @@ Morph.http.async.post('/auth', {
         console.error(response.error);
     }
 });
-``
+```
 ### Updating tokens (if access has expired)
-``
+```
 // When receiving a 401 error
 function refreshTokens() {
     const refreshToken = localStorage.getItem('refresh_token');
@@ -998,9 +997,9 @@ function refreshTokens() {
         }
     });
 }
-``
+```
 ### Protected requests
-``
+```
 // For API requests, we pass the token in the header
 Morph.http.async.get('/api/data', (response) => {
 // Response processing
@@ -1021,7 +1020,7 @@ Route::get('/profile', function ($request) {
 });
 ```
 ## API endpoint with the token
-``
+```
 Route::get('/api/user', function ($request) {
     $user = Auth::apiLogin($request->header('Authorization'));
     
