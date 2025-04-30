@@ -37,6 +37,7 @@ class BaseViewCompiler implements ViewCompilerInterface
 		$morph = "
             <script>".file_get_contents(__DIR__.'/../../client/morph.js')."</script>
             <script>".file_get_contents(__DIR__.'/../../client/morph-http.js')."</script>
+            <script>".file_get_contents(__DIR__.'/../../client/morph-triggers.js')."</script>
 			<style>".file_get_contents(__DIR__.'/../../client/morph.css')."</style>
 			<meta name='viewport' content='width=device-width, initial-scale=1' />
 ";

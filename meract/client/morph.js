@@ -53,6 +53,8 @@ class MorphInstance {
 			await this.activatePage(firstPage);
 		}
 
+
+
 		this.initMorphForms();
 	}
 
@@ -87,6 +89,11 @@ class MorphInstance {
 				}
 			}
 		});
+	}
+
+	_initHooks = [];
+	registerInitHook(hook) {
+		this._initHooks.push(hook);
 	}
 
 	// Обработка изменения хэша
@@ -296,6 +303,12 @@ class MorphInstance {
 		const colorscheme = el.getAttribute('colorscheme');
 		if (colorscheme) {
 			this.loadColorscheme(colorscheme);
+		}
+
+		if (this._initHooks.length > 0) {
+			this._initHooks.forEach(hook => {
+				hook(el);
+			});
 		}
 	}
 

@@ -203,6 +203,13 @@ class Route
 		self::get("/morph-live/{hash}", $handler);
 		self::post("/morph-live/{hash}", $handler);
 
+		self::post("/morph-trigger/{trigger}", function ($request, $data) {
+			if (file_exists(base_path("app/morph-triggers/". $data['trigger'] . '.php'))) {
+				return (new Response())->body(json_encode((require base_path("app/morph-triggers/". $data['trigger'] . '.php'))($request->parameters)))->header("Content-Type", "application/json");
+			} else {return (new Response('{"error" : "not found"', 404));}
+			
+		});
+
 		// Регистрация маршрута для тем
 		self::get("/morph-themes/{theme}", function($rq, $data) {
 			try {

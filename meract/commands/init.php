@@ -26,6 +26,7 @@ return new class {
 			PROJECT_DIR . '/app/models',
 			PROJECT_DIR . '/app/routes',
 			PROJECT_DIR . '/app/views',
+			PROJECT_DIR . '/app/morph-triggers',
 			PROJECT_DIR . '/app/views/layouts',
 			PROJECT_DIR . '/app/views/components',
 			PROJECT_DIR . '/app/views/colorschemes',

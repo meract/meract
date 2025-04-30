@@ -818,7 +818,38 @@ Morph live позволяет вам использовать методы ко�
 Код модуля будет подключен при использовании "@includeMorph"
 
 
-
+## triggers
+Позполяют асинхронно работать с сервером. Пример:
+main.morph.php:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    @includeMorph
+</head>
+<body>
+    <morph name="main">
+        <morph-trigger action="test">
+            <button onclick="@morph-triggerSubmit">Выполнить</button>
+            <input name='data'>
+            <p>@MTrigger("data", "default")</p>
+        </morph-trigger>
+    </morph>
+</body>
+</html>
+```
+Аттрибут action в элементе <morph-trigger> указывает имя триггера для выполнения. Соответственно:
+app/morph-triggers/*test*.php:
+```
+<?php
+return function($data) {
+    return $data;
+};
+```
+Сообственно в данном примере при срабатывании события `click` на кнопке выполнится триггер `test` и она получит ассоциативный массив со всеми параметрами(data => input.value) в данном случае. 
 
 
 
