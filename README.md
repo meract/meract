@@ -852,6 +852,45 @@ return function($data) {
 Сообственно в данном примере при срабатывании события `click` на кнопке выполнится триггер `test` и она получит ассоциативный массив со всеми параметрами(data => input.value) в данном случае. 
 
 
+Ещё пример:
+ 
+```
+    <morph name="main">
+        <morph-trigger action="test">
+            <input name='login'>
+            <input name='password'>
+            <button onclick="@morph-triggerSubmit">Выполнить</button>
+            <p>@MTrigger("data", "")</p>
+        </morph-trigger>
+    </morph>
+```
+
+триггер:
+```
+<?php
+return function($data) {
+    if ($data['login'] == "admin" && $data['password'] == "123") {
+        return ["data" => "Вы успешно авторизованы!"];
+    } else {
+        return ["data" => "Неверные данные :("];
+    }
+    
+};
+```
+
+
+## хуки
+На данный момент есть только один хук инициализации.
+Использовать можете например так:
+```
+Morph.registerInitHook(function () {
+    document.querySelectorAll('morph-trigger').forEach(el => {
+        console.log(el);
+        Morph._registerTrigger_(el);
+    })
+})
+```
+
 
 
 
