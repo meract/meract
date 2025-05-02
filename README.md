@@ -12,7 +12,7 @@ It has many features that set it apart from other frameworks, from its server to
 The main namespace for most of the classes that you will use is, `Meract\Core`
 
 ## Documentation
-Specific technical documentation on the methods [available here](https://lumetas .github.io/meract/)
+Specific technical documentation on the methods [available here](https://lumetas.github.io/meract/)
 
 [Step By Step Guide](docs/stepByStep/install.md)
 
@@ -54,7 +54,7 @@ Specific technical documentation on the methods [available here](https://lumetas
 ```
 
 ## Configuration
-The configuration is stored in a file `config.php `, by default it looks something like this:
+The configuration is stored in a file `config.php`, by default it looks something like this:
 ```
 <?php
 return [
@@ -101,7 +101,7 @@ php mrst migrate;
 ```
 
 ## Launch
-Depending on the server you choose, you can use either `php index.php ` or `php -S interface:port index.php ` or the universal version of `php mrst serve`
+Depending on the server you choose, you can use either `php index.php` or `php -S interface:port index.php` or the universal command: `php mrst serve`
 
 If the embedded server is used, the server initialization function can be performed. In the case of using a standard server or apache/nginx. It will not be executed. So there are various settings that need to be infused from the code. It must be done somewhere else. Also, in the case of running a test server using a standard php server. You will not be able to configure your request handler. At least for now.
 
@@ -109,10 +109,10 @@ The server will start listening and accepting requests by outputting information
 
 
 
-## Routers and controllers
+## Routes and controllers
 I am very much inspired by laravel. So a lot of things will seem familiar to you.
 
-And so, here are all the examples of router syntax:
+And so, here are all the examples of route syntax:
 ```
 Route::get('/', function(Request $rq) {
 $content = View::render("main", [
@@ -200,7 +200,7 @@ return new Response("Sorry, you lost the 50/50 chance", 403);
     }
 }
 ```
-We can pass the path and the callback function to the router, as well as the controller method. We can also set a route for the 404 error.
+We can pass the path and the callback function to the route, as well as the controller method. We can also set a route for the 404 error.
 
 The static html method that provides the Controller class accepts html and returns an object of the Response class with the set header `Content-Type : text/html`, simply reduces unnecessary code in controllers.
 
@@ -249,7 +249,7 @@ views/layots/main.morph.php:
 ```
 
 In the config, you can add your own additional preprocessors, for example:
-``
+```
 "viewCompilers" => [
 		new \Meract\Core\Compilers\MinifyHtmlViewCompiler
 ]
@@ -258,7 +258,7 @@ In this example, you can see how to insert some parameters, as well as the use o
 ## Models
 To work, you will need to set up a database. In your file config.php
 Examples:
-``
+```
 "database" => [
 "driver" => "mysql",
 "host" => "localhost",
@@ -300,7 +300,7 @@ Route::get('/', function (Request $rq) {
 	$m = new TestModel(["name" => (string) random_int(0, 10000)]); // Creating a model with a random name.
 	$m->save(); //Save.
 	$r = new Response("Record created", 200); //Creating a response. With text and status 200.
-$r->header("Content-Type", "text/html");// Setting the html type
+    $r->header("Content-Type", "text/html");// Setting the html type
 to return $r;// returning the response.
 });
 
@@ -358,7 +358,7 @@ Storage::handleDeletion(); // Deletes all expired records.
 ]
 ```
 
-- driver - An object of the StorageDriver or null class (Standard driver)
+- driver - An object of the StorageDriver or null(Standard driver)
 - time - Lifetime of records in seconds or 0 forever
 
 There is a driver for working in the sql database to enable it like this:
@@ -370,7 +370,7 @@ There is a driver for working in the sql database to enable it like this:
 ```
 Don't forget to migrate the table
 
-Installing an arbitrary driver is necessary because when using a standard server (fpm), it is impossible to save data between requests in RAM. This way you can use, for example, redis or even an sql database.
+Installing an arbitrary driver is necessary because when using a standard server (fpm), it is impossible to save data between requests in RAM. This way you can use, a redis or sql database drivers.
 
 ## Workers
 Workers are a queue system.
@@ -378,12 +378,12 @@ Workers are a queue system.
 Let's start with the configuration:
 ```
 "worker" => [
-"enabled" => true,
-"endpoint" => "endpoint",
+    "enabled" => true,
+    "endpoint" => "endpoint",
 	"server-callback" => function (string $data): string {
 		echo $data."\n";
 		return "Understood";
-}
+    }
 ]
 ```
 Next, let's create a small `sleep` worker.
@@ -398,7 +398,7 @@ return new class extends Worker {
         sleep((int) $message);
         $result =self::sendToServer("I waited for $message seconds");
         if ($result == "Understood") {
-echo "I was heard!\n";
+            echo "I was heard!\n";
         }
     }
 };
@@ -512,8 +512,8 @@ php mrst migrate.rollback fist_migration # Migration "first_migration"
 ```
 
 ## mrst
-The `mrst` or `meract support tool' is an aid tool.
-To create a command, you need to create a file in 'meract/commands/file.php '
+The `mrst` or meract support tool is an aid tool.
+To create a command, you need to create a file in 'meract/commands/file.php'
 With something like this syntax:
 ```
 <?php
@@ -547,7 +547,7 @@ string(4) "arg3"
 php mrst make <type> <name>
 ```
 So this is to create a file of the specified type with the specified name, for example:
-``
+```
 php mrst make model Test
 ```
 To see more help, run `php mrst make`
@@ -662,7 +662,7 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 ```
 
 You have received a model, migration, controller and routes for multiple operations. With the structure specified in json
-Letters `rcmv':
+Letters `rcmv`:
 - r - route
 - c - controller
 - m - model and migration
@@ -670,10 +670,10 @@ Letters `rcmv':
 
 Specify only the components that you need. The `--table=products` parameter is optional. It specifies the table name if it differs from the main name. `-rest` An optional parameter that creates not one route, but several for multiple operations in the RestAPI format, as well as the corresponding methods in the controller. Well, the structure of the table in json format is an optional parameter that defines the structure of the table.(powershell ignores)
 
-#Morph
-morph is a client framework integrated into the meract ecosystem.
+# Morph
+morph is a client-side framework integrated into the meract ecosystem.
 
-To use it inside your views, you need to connect it, for example, in the head tag, it's done like this: `@includeMorph'. Then create one or more morph components in the body. Example:
+To use it inside your views, you need to connect it, for example, in the head tag, it's done like this: `@includeMorph`. Then create one or more morph components in the body. Example:
 
 ```
     <morph name="main">
@@ -694,7 +694,7 @@ morph[theme="main"] * {
 }
 ```
 Then use the theme inside the morph:
-``
+```
 <morph theme="main" name="test">
 <button id="open" onclick="Morph.goTo('main')">back</button>
     </morph>
@@ -745,7 +745,7 @@ b: {{b}}
 ```
 
 ## customBackload
-If the standard backlog logic is not enough for you or you want to add the use of models to get information from the database, you can use custom backloads. To do this, you need to replace the attribute `payload='<ComponentName>" to `customBackload=<url>`
+If the standard backlog logic is not enough for you or you want to add the use of models to get information from the database, you can use custom backloads. To do this, you need to replace the attribute `backload='<ComponentName>'` to `customBackload=<url>`
 
 Create a route, bind a controller method, use a model, and draw a custom view. Everything is in your hands!
 
@@ -844,7 +844,7 @@ main.morph.php :
 </html>
 ```
 The action attribute in the <morph-trigger> element specifies the name of the trigger to execute. Accordingly:
-app/morph-triggers/*test*.php:
+app/morph-triggers/**test**.php:
 ```
 <?php
 return function($data) {
@@ -901,12 +901,12 @@ Morph.registerInitHook(function () {
 In the configuration file config.php specify the authentication parameters:
 ```
 'auth' => [
-'table' => 'meract_users', // User table
+    'table' => 'meract_users', // User table
     'login_fields' => ['email', 'password'], // Login fields
-'registration_fields' => ['email', 'password'], // Registration fields
-'jwt_secret' => 'your-strong-secret', // Secret key for JWT
+    'registration_fields' => ['email', 'password'], // Registration fields
+    'jwt_secret' => 'your-strong-secret', // Secret key for JWT
     'tokens_table' => 'meract_tokens', // Table of invalid tokens
-'cookie_name' => "AUTHTOKEN" // Cookie name
+    'cookie_name' => "AUTHTOKEN" // Cookie name
 ]
 ```
 ## Basic usage on the server
@@ -949,8 +949,10 @@ try {
 ```
 $user = Auth::start($request);
 $response = $user->logout(new Response());
-Getting
-php user data
+```
+
+Getting user data
+```
 $user = Auth::start($request);
 if ($user->id) {
     // The user is logged in
