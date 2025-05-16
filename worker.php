@@ -1,10 +1,7 @@
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/meract/core/RecursiveLoad.php';
-
-// Подключаем файлы core
-requireFilesRecursively(__DIR__ . '/meract/core');
+require_once __DIR__ . '/vendor/meract/core/src/RecursiveLoad.php';
 
 use Meract\Core\WorkerInstance;
 use Meract\Core\Database;

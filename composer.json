@@ -12,6 +12,7 @@
 	"require": {
 		"php": "^8.0",
 		"ext-pdo": "*",
+		"meract/core": "^1.0",
 		"tedivm/jshrink": "^1.7"
 	},
 	"require-dev": {
@@ -22,7 +23,6 @@
 	"autoload": {
 		"psr-4": {
 			"Meract\\Drivers\\": "meract/drivers",
-			"Meract\\Core\\": "meract/core/",
 			"Meract\\Commands\\": "meract/commands/",
 			"App\\": "app/"
 		}

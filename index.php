@@ -1,15 +1,13 @@
 <?php
-
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/meract/core/RecursiveLoad.php';
-
+require_once __DIR__ . '/vendor/meract/core/src/RecursiveLoad.php';
 use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage, Morph};
 
 
-define("PROJECT_DIR", __DIR__);
 
 // Инициализация контейнера
 if (!SDR::isInitialized()) {
+	define("PROJECT_DIR", __DIR__);
     $injector = new Injector();
     SDR::setInjector($injector);
 
@@ -36,7 +34,7 @@ Storage::init($config['storage']['driver']);
 Storage::setTime($config['storage']['time']);
 Auth::configure($config['auth']);
 
-requireFilesRecursively(__DIR__. '/meract/core/Helpers');
+requireFilesRecursively(__DIR__. '/vendor/meract/core/src/Helpers');
 
 // Загрузка модулей приложения
 requireFilesRecursively(__DIR__ . '/app/core');
