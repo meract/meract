@@ -95,10 +95,7 @@ return [
 
 ## Установка
 ```
-composer create-project lumetas/meract project-name
-cd project-name;
-php mrst init;
-php mrst migrate;
+composer create-project meract/meract project-name
 ```
 
 ## Запуск
