@@ -1,5 +1,5 @@
 {
-	"name": "lumetas/meract",
+	"name": "meract/meract",
 	"description": "Lightweight PHP framework",
 	"type": "project",
 	"license": "MIT",
@@ -34,7 +34,11 @@
 	},
 	"scripts": {
 		"test": "phpunit",
-		"test-coverage": "phpunit --coverage-html coverage"
+		"test-coverage": "phpunit --coverage-html coverage",
+        "post-create-project-cmd": [
+            "@php mrst init",
+            "@php mrst migrate"
+        ]
 	},
 	"config": {
 		"sort-packages": true,
