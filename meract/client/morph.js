@@ -56,6 +56,9 @@ class MorphInstance {
 
 
 		this.initMorphForms();
+		const script = document.createElement('script');
+		script.src = `/morph-scripts?path=${encodeURIComponent(window.location.pathname)}`;
+		document.head.appendChild(script);
 	}
 
 	// Настройка обработчиков событий навигации

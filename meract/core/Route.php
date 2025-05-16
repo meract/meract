@@ -233,6 +233,10 @@ class Route
 			$resp->header('Content-Type', 'text/css');
 			return $resp;
 		});
+
+		self::get('/morph-scripts', function ($rq) {
+			return (new Response(\Meract\Core\ScriptBuilder::getScriptsForPath($rq->parameters['path'])))->header("Content-Type", "application/javascript");
+		});
 	}
 
 	/**

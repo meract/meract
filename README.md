@@ -18,6 +18,7 @@ Specific technical documentation on the methods [available here](https://lumetas
 
 
 ## Structure
+
 ```
 .
 ├───app                 - Your application code
@@ -893,7 +894,32 @@ Morph.registerInitHook(function () {
 })
 ```
 
+## Scripts
 
+Scripts will be loaded automatically. To use this feature, place your scripts in the app/scripts folder. Example script:
+
+`app/scripts/main.js:`
+```
+//: /
+alert('You are on /!');
+```
+
+This script will be automatically loaded when the user accesses the root path (/) and Morph is included on the page. The target path is specified in the first line of the script. You can also use wildcards like //: /users/* to match path patterns.
+
+To analyze and process route paths, run the following command:
+```
+php mrst scripts.build
+```
+To clear the script cache:
+```
+php mrst scripts.clear
+```
+For development convenience, you can create a file like app/core/scripts.php with the following content to avoid manual rebuilding:
+```
+<?php
+\Meract\Core\ScriptBuilder::build();
+```
+This will automatically rebuild scripts when a request is received.
 
 
 # Auth
