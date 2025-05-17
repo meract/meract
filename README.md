@@ -12,7 +12,7 @@ It has many features that set it apart from other frameworks, from its server to
 The main namespace for most of the classes that you will use is, `Meract\Core`
 
 ## Documentation
-Specific technical documentation on the methods [available here](https://lumetas.github.io/meract/)
+Specific technical documentation on the methods [available here](https://meract.github.io/core/)
 
 [Step By Step Guide](docs/stepByStep/install.md)
 
