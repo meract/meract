@@ -2,3 +2,5 @@
 .vscode
 db.sqlite
 storage/scripts/*
+phpdoc.xml
+
