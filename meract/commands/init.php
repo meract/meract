@@ -20,7 +20,6 @@ return new class {
 		// Папки, которые должны быть созданы
 		$requiredDirectories = [
 			PROJECT_DIR . '/meract/commands',
-			PROJECT_DIR . '/meract/core',
 			PROJECT_DIR . '/app/core',
 			PROJECT_DIR . '/app/controllers',
 			PROJECT_DIR . '/app/models',
