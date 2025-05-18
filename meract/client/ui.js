@@ -1,13 +1,30 @@
 Morph.ui = {
-    toggleClass(element, className) {
-      return (force) => {
-        if (force === undefined) {
-          element.classList.toggle(className);
-        } else {
-          element.classList[force ? 'add' : 'remove'](className);
-        }
-      };
-    },
+	component : class MorphUiComponent{
+		constructor(html = '', obj = {}, onmount = undefined) {
+			this._code = html;
+			this._object = obj;
+			this._onmount = onmount;
+		}
+
+		mount(element) {
+			element.innerHTML = this._code;
+			let reactive = Morph.ui.reactive(this._object, element);
+			if (this._onmount !== undefined) {this._onmount(reactive, element);}
+			return reactive;
+		}
+
+	},
+
+
+	toggleClass(element, className) {
+		return (force) => {
+			if (force === undefined) {
+				element.classList.toggle(className);
+			} else {
+				element.classList[force ? 'add' : 'remove'](className);
+			}
+		};
+	},
 
 
 	inputMask(element, mask, options = {}) {
@@ -41,24 +58,24 @@ Morph.ui = {
 			lastValue = newValue;
 		});
 
-					element.addEventListener('keydown', (e) => {
-						if (e.key.length === 1 && !(options.allowedChars || /\d/).test(e.key)) {
-							e.preventDefault();
-						}
-					});
+		element.addEventListener('keydown', (e) => {
+			if (e.key.length === 1 && !(options.allowedChars || /\d/).test(e.key)) {
+				e.preventDefault();
+			}
+		});
 	},
 
 
 	lazyLoad: function(selector = '[data-src]') {
-      document.querySelectorAll(selector).forEach(el => {
-        this.onview(el, () => {
-          if (el.dataset.src) {
-            el.src = el.dataset.src;
-            el.removeAttribute('data-src');
-          }
-        }, { threshold: 0.01 });
-      });
-    },
+		document.querySelectorAll(selector).forEach(el => {
+			this.onview(el, () => {
+				if (el.dataset.src) {
+					el.src = el.dataset.src;
+					el.removeAttribute('data-src');
+				}
+			}, { threshold: 0.01 });
+		});
+	},
 
 	onview : function(element, callback, {
 		repeat = false,
@@ -92,35 +109,60 @@ Morph.ui = {
 
 		return () => observer.disconnect();
 	},
-
-	reactive : function (object, element) {
-		// Сохраняем оригинальный HTML для повторного рендеринга
-		const originalHTML = element.innerHTML;
-
-		// Создаем Proxy для отслеживания изменений
-		const proxy = new Proxy(object, {
-			set(target, key, value) {
-				target[key] = value;
-				updateDOM(); // Обновляем DOM при изменениях
-				return true;
-			}
-		});
-
-		// Функция для обновления DOM
-		function updateDOM() {
-			let html = originalHTML;
-
-			// Заменяем все вхождения {<property>} на значения из объекта
-			html = html.replace(/\{\<(\w+)\>\}/g, (match, property) => {
-				return proxy[property] !== undefined ? proxy[property] : match;
-			});
-
-			element.innerHTML = html;
-		}
-
-		// Первоначальное обновление DOM
-		updateDOM();
-
-		return proxy;
-	}
+reactive(object, element) {
+    // 1. Сохраняем оригинальный HTML
+    const originalHTML = element.innerHTML;
+    
+    // 2. Заменяем шаблоны на data-атрибуты
+    const markers = [];
+    let updatedHTML = originalHTML.replace(
+        /\{\<(\w+)\>\}/g, 
+        (match, prop) => {
+            const markerId = `data-r-${prop}-${Math.random().toString(36).substr(2, 8)}`;
+            markers.push({ markerId, prop });
+            return `<span ${markerId}></span>`;
+        }
+    );
+    
+    // 3. Вставляем обновленный HTML
+    element.innerHTML = updatedHTML;
+    
+    // 4. Находим все маркеры в DOM
+    const markerElements = {};
+    markers.forEach(({ markerId, prop }) => {
+        const el = element.querySelector(`[${markerId}]`);
+        if (el) {
+            if (!markerElements[prop]) markerElements[prop] = [];
+            markerElements[prop].push(el);
+            el.removeAttribute(markerId); // Чистим временный атрибут
+        }
+    });
+    
+    // 5. Функция обновления DOM
+    function updateDOM(prop, value) {
+        if (markerElements[prop]) {
+            markerElements[prop].forEach(el => {
+                el.textContent = value;
+            });
+        }
+    }
+    
+    // 6. Создаем Proxy с реактивными обновлениями
+    const proxy = new Proxy(object, {
+        set(target, prop, value) {
+            if (target[prop] !== value) {
+                target[prop] = value;
+                updateDOM(prop, value);
+            }
+            return true;
+        }
+    });
+    
+    // 7. Первичная инициализация значений
+    Object.keys(markerElements).forEach(prop => {
+        updateDOM(prop, object[prop]);
+    });
+    
+    return proxy;
+}
 };

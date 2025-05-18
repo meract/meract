@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor/meract/core/src/RecursiveLoad.php';
-use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage, Morph};
+use Meract\Core\{Auth, View, SDR, Database, Route, Server, Request, Response, Injector, Storage, Morph, ScriptBuilder};
 
 
 
@@ -35,6 +35,10 @@ Storage::setTime($config['storage']['time']);
 Auth::configure($config['auth']);
 
 requireFilesRecursively(__DIR__. '/vendor/meract/core/src/Helpers');
+ScriptBuilder::config($config['morph']['scripts'] ?? [
+	"source" => base_path('app/scripts'),
+	"output" => base_path('storage/scripts')
+]);
 
 // Загрузка модулей приложения
 requireFilesRecursively(__DIR__ . '/app/core');

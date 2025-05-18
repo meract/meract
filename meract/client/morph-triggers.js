@@ -1,83 +1,126 @@
-
-
 class MorphTriggers {
-    constructor() {
-        this.placeholders = new Map();
-        this.originalTemplate = '';
-        this.processedTemplate = '';
+    constructor(element) {
+        this.element = element;
+        this.bindings = new Map(); // Хранит привязки dataKey → элементы
+        this.originalHTML = element.innerHTML;
+        this.placeholders = new Map(); // Хранит плейсхолдеры → {dataKey, defaultValue}
+        this.defaultValues = new Map(); // Хранит dataKey → defaultValue
     }
 
-    generatePlaceholder() {
-        return 'ph_' + Math.random().toString(36).substr(2, 9);
-    }
+    /**
+     * Препроцессинг шаблона и создание привязок
+     */
+    preprocessTemplate() {
+        // 1. Обработка триггеров submit
+        let processedHTML = this.originalHTML.replace(
+            /@morph-triggerSubmit/g, 
+            'Morph._trigger_submit_(this)'
+        );
 
-    preprocessTemplate(template) {
-        this.originalTemplate = template;
-        this.processedTemplate = template;
-
-        // Заменяем @morph-triggerSubmit
-        this.processedTemplate = this.processedTemplate.replaceAll('@morph-triggerSubmit', 'Morph._trigger_submit_(this)');
-
-        // Заменяем @MTrigger на плейсхолдеры и сохраняем информацию о них
-        this.processedTemplate = this.processedTemplate.replace(/@MTrigger\((["'])([^"']+)\1,\s*(["'])([^"']*)\3\)/g,
+        // 2. Замена MTrigger на плейсхолдеры
+        processedHTML = processedHTML.replace(
+            /@MTrigger\((["'])([^"']+)\1,\s*(["'])([^"']*)\3\)/g,
             (match, quote1, dataKey, quote2, defaultValue) => {
-                const placeholder = this.generatePlaceholder();
+                const placeholder = this._createPlaceholder();
                 this.placeholders.set(placeholder, { dataKey, defaultValue });
-                return placeholder;
-            });
+                this.defaultValues.set(dataKey, defaultValue);
+                return `<span data-morph-placeholder="${placeholder}"></span>`;
+            }
+        );
 
-        // Сохраняем копию с плейсхолдерами для последующих замен
-        this.templateWithPlaceholders = this.processedTemplate;
+        // 3. Устанавливаем обработанный HTML
+        this.element.innerHTML = processedHTML;
 
-        // Создаём версию с значениями по умолчанию
-        let defaultTemplate = this.processedTemplate;
-        for (const [placeholder, { defaultValue }] of this.placeholders) {
-            defaultTemplate = defaultTemplate.replace(new RegExp(placeholder, 'g'), defaultValue);
-        }
+        // 4. Создаем привязки элементов
+        this.element.querySelectorAll('[data-morph-placeholder]').forEach(el => {
+            const placeholder = el.getAttribute('data-morph-placeholder');
+            const { dataKey } = this.placeholders.get(placeholder);
+            
+            el.removeAttribute('data-morph-placeholder');
+            
+            if (!this.bindings.has(dataKey)) {
+                this.bindings.set(dataKey, []);
+            }
+            this.bindings.get(dataKey).push(el);
+        });
 
-        return defaultTemplate;
+        // 5. Устанавливаем значения по умолчанию
+        this._applyDefaultValues();
+
+        return this.element.innerHTML;
     }
 
-    updateData(data) {
-        let result = this.templateWithPlaceholders;
-
-        for (const [placeholder, { dataKey, defaultValue }] of this.placeholders) {
-            const value = data.hasOwnProperty(dataKey) ? data[dataKey] : defaultValue;
-            result = result.replace(new RegExp(placeholder, 'g'), value);
+    /**
+     * Применяет значения по умолчанию ко всем привязанным элементам
+     */
+    _applyDefaultValues() {
+        for (const [dataKey, elements] of this.bindings) {
+            const defaultValue = this.defaultValues.get(dataKey);
+            if (defaultValue !== undefined) {
+                elements.forEach(el => {
+                    el.textContent = defaultValue;
+                });
+            }
         }
+    }
 
-        return result;
+    /**
+     * Обновление данных с точечным обновлением DOM
+     */
+    updateData(data) {
+        for (const [dataKey, elements] of this.bindings) {
+            const value = data.hasOwnProperty(dataKey) 
+                ? data[dataKey] 
+                : this.defaultValues.get(dataKey) || '';
+            
+            elements.forEach(el => {
+                if (el.textContent !== value) {
+                    el.textContent = value;
+                }
+            });
+        }
+    }
+
+    _createPlaceholder() {
+        return 'ph_' + Math.random().toString(36).substr(2, 12);
     }
 }
 
-Morph._registerTrigger_ = function (elem) {
-    if ((typeof elem.trigger) === 'object') {return;}
-    elem.trigger = new MorphTriggers;
-    elem.innerHTML = elem.trigger.preprocessTemplate(elem.innerHTML);
-    return elem.trigger;
+// Глобальные методы Morph (остаются без изменений)
+Morph._registerTrigger_ = function(element) {
+    if (element.trigger) return element.trigger;
+    
+    element.trigger = new MorphTriggers(element);
+    element.trigger.preprocessTemplate();
+    return element.trigger;
 };
 
-Morph._updateTriggerInfo_ = function(elem, data) {
-    elem.innerHTML = elem.trigger.updateData(data);
-}
+Morph._updateTriggerInfo_ = function(element, data) {
+    if (!element.trigger) {
+        element.trigger = new MorphTriggers(element);
+    }
+    element.trigger.updateData(data);
+};
 
-Morph._trigger_submit_ = function(el) {
-    trig = el.closest('morph-trigger');
-    const namedElems = trig.querySelectorAll('*[name]');
-    let data = {};
-    namedElems.forEach(el => {
-        data[el.name] = el.value;
-    })
-
-
-    Morph.http.async.post('/morph-trigger/' + trig.getAttribute('action'), data, function (response) {
-        Morph._updateTriggerInfo_(trig, JSON.parse(response.body));
+Morph._trigger_submit_ = function(button) {
+    const triggerElement = button.closest('morph-trigger');
+    const formData = {};
+    
+    triggerElement.querySelectorAll('[name]').forEach(el => {
+        formData[el.name] = el.value;
     });
-}
 
-Morph.registerInitHook(function () {
+    Morph.http.async.post(
+        '/morph-trigger/' + triggerElement.getAttribute('action'),
+        formData,
+        response => {
+            Morph._updateTriggerInfo_(triggerElement, JSON.parse(response.body));
+        }
+    );
+};
+
+Morph.registerInitHook(() => {
     document.querySelectorAll('morph-trigger').forEach(el => {
-        console.log(el);
         Morph._registerTrigger_(el);
-    })
-})
+    });
+});

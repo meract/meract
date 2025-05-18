@@ -3,7 +3,7 @@
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor/meract/core/src/RecursiveLoad.php';
 
-use Meract\Core\{Database, SDR, Injector};
+use Meract\Core\{Database, SDR, Injector, ScriptBuilder};
 
 // Инициализация контейнера
 $injector = new Injector();
@@ -15,7 +15,11 @@ SDR::setValue('project_dir', PROJECT_DIR);
 // Загрузка конфигурации
 $config = require __DIR__ . '/config.php';
 SDR::setValue('config', $config);
-
+requireFilesRecursively(__DIR__. '/vendor/meract/core/src/Helpers');
+ScriptBuilder::config($config['morph']['scripts'] ?? [
+	"source" => base_path('app/scripts'),
+	"output" => base_path('storage/scripts')
+]);
 
 // Инициализация базы данных
 try {

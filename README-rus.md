@@ -1002,6 +1002,26 @@ const reactiveData = Morph.ui.reactive(data, element);
 reactiveData.name = 'Jane'; // Обновляет элемент с новым именем
 ```
 
+### component
+new Morph.ui.component(html, object, onmount);
+
+Описание: Создаёт ui компонент
+
+Параметры:
+- html (string): Разметка компонента
+- object (object): Объект с параметрами компонента по умолчанию
+- onmount (calable): Функция выполняемая при монтировании компонента
+
+Пример:
+```
+let component = new Morph.ui.component(`
+<input oninput="component.value = this.value">
+<p>{<value>}</p>
+`, {value:"default"}, (e, r) => {console.log(e, r)});
+
+component = component.mount(document.querySelector('morph[name=main]'));
+```
+
 # Auth
 ## Конфигурация
 В файле конфигурации config.php укажите параметры аутентификации:

@@ -9,6 +9,10 @@ class MorphInstance {
 		this.ignoreNextHashChange = false;
 	}
 
+	async onScriptStart(callback){
+		document.currentScript.addEventListener("load", callback);
+	}
+
 	// Инициализация морфов
 	async init() {
 		if (this.initialized) return;
