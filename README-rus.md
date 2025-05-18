@@ -336,6 +336,7 @@ Route::get('/del/{id}', function (Request $rq, array $data) {
 ```
 Данные примеры кода охватывают стандартные CRUD операции выполненные через модели.
 
+Если вам по каким-то причинам необходимо, вы можете [использовать](https://github.com/meract/eloquent-adapter) `Eloquent` ORM 
 
 ## Storage
 Синтаксис:
