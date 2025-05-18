@@ -917,7 +917,90 @@ php mrst scripts.clear
 ```
 Тогда скрипты будут автоматически собираться при поступлении запроса
 
+## ui
+### toggleClass
+toggleClass(element, className)
 
+Описание: Метод включает или выключает указанный класс на элементе. Если указан аргумент force, класс будет добавлен или удален в зависимости от его значения (true для добавления и false для удаления).
+
+Параметры:
+- element (HTMLElement): Элемент, к которому применяется класс.
+- className (string): Название класса, который нужно включить или выключить.
+- force (boolean, optional): Если определено, явно добавляет или удаляет класс.
+
+Пример:
+```
+const button = document.querySelector('button');
+const toggle = Morph.ui.toggleClass(button, 'active');
+toggle(); // Переключает класс 'active'
+toggle(true); // Добавляет класс 'active'
+toggle(false); // Удаляет класс 'active'
+```
+### inputMask
+inputMask(element, mask, options = {})
+
+Описание: Метод добавляет маску ввода к указанному элементу. Маска может содержать символы, которые будут автоматически заменены пользователем.
+
+Параметры:
+- element (HTMLElement): Элемент ввода, к которому применяется маска.
+- mask (string): Строка маски, где # обозначает вводимые символы.
+- options (object, optional): Дополнительные параметры, включая:
+  - placeholder (string): Заменяет пустые позиции в маске с использованием указанного символа. По умолчанию используется '_'.
+  - allowedChars (RegExp): Регулярное выражение, определяющее допустимые символы при вводе.
+
+Пример:
+```
+const input = document.querySelector('input');
+Morph.ui.inputMask(input, '###-##-####', { placeholder: '_' });
+```
+
+### lazyLoad
+lazyLoad(selector = '[data-src]')
+
+Описание: Метод осуществляет ленивую загрузку изображений и других медиа-ресурсов, отслеживая их видимость в окне просмотра.
+
+Параметры:
+- selector (string, optional): CSS-селектор для поиска элементов, которые должны быть подвержены ленивой загрузке. По умолчанию - '[data-src]'.
+
+Пример:
+```
+Morph.ui.lazyLoad('img[data-src]');
+```
+### onview
+onview(element, callback, options = {})
+
+Описание: Метод отслеживает, когда элемент становится видимым в окне просмотра, и выполняет указанный коллбэк.
+
+Параметры:
+- element (HTMLElement): Элемент, для которого нужно отслеживать видимость.
+- callback (function): Функция обратного вызова, которая будет вызвана при появлении элемента в области видимости.
+- options (object, optional): Параметры взаимодействия, включая:
+  - repeat (boolean): Если true, коллбэк будет вызываться при повторном появлении элемента.
+  - onHide (function, optional): Функция, вызываемая, когда элемент выходит из области видимости.
+  - threshold (number): Процент видимости элемента для активации коллбека.
+
+Пример:
+```
+Morph.ui.onview(document.querySelector('#myElement'), () => {
+  console.log('Element is visible!');
+});
+```
+### reactive
+reactive(object, element)
+
+Описание: Метод создает реактивный объект, который обновляет указанный HTML-элемент при изменении свойств объекта.
+
+Параметры:
+- object (object): Исходный объект, свойства которого будут отслеживаться.
+- element (HTMLElement): HTML-элемент, содержимое которого будет обновляться.
+
+Пример:
+```
+const data = { name: 'John', age: 30 };
+const element = document.querySelector('#info');
+const reactiveData = Morph.ui.reactive(data, element);
+reactiveData.name = 'Jane'; // Обновляет элемент с новым именем
+```
 
 # Auth
 ## Конфигурация

@@ -919,6 +919,90 @@ For development convenience, you can create a file like app/core/scripts.php wit
 ```
 This will automatically rebuild scripts when a request is received.
 
+## ui
+### toggleClass
+toggleClass(element, className)
+
+Description: This method toggles the specified class on the element. If the force argument is provided, the class will be added or removed based on its value (true for adding and false for removing).
+
+Parameters:
+- element (HTMLElement): The element to which the class will be applied.
+- className (string): The name of the class to be toggled.
+- force (boolean, optional): If defined, explicitly adds or removes the class.
+
+Example:
+```
+const button = document.querySelector('button');
+const toggle = Morph.ui.toggleClass(button, 'active');
+toggle(); // Toggles the 'active' class
+toggle(true); // Adds the 'active' class
+toggle(false); // Removes the 'active' class
+```
+
+### inputMask
+inputMask(element, mask, options = {})
+
+Description: This method applies an input mask to the specified element. The mask can contain characters that will be automatically entered by the user.
+
+Parameters:
+- element (HTMLElement): The input element to which the mask is applied.
+- mask (string): The mask string, where # denotes input characters.
+- options (object, optional): Additional parameters, including:
+  - placeholder (string): Replaces empty positions in the mask using the specified character. Defaults to '_'.
+  - allowedChars (RegExp): A regular expression defining allowed characters during input.
+
+Example:
+```
+const input = document.querySelector('input');
+Morph.ui.inputMask(input, '###-##-####', { placeholder: '_' });
+```
+### lazyLoad
+lazyLoad(selector = '[data-src]')
+
+Description: This method performs lazy loading for images and other media resources, tracking their visibility in the viewport.
+
+Parameters:
+- selector (string, optional): CSS selector for finding elements that should be lazily loaded. Defaults to '[data-src]'.
+
+Example:
+```
+Morph.ui.lazyLoad('img[data-src]');
+```
+### onview
+onview(element, callback, options = {})
+
+Description: This method tracks when an element becomes visible in the viewport and executes the specified callback.
+
+Parameters:
+- element (HTMLElement): The element for which visibility should be tracked.
+- callback (function): A callback function that will be executed when the element enters the viewport.
+- options (object, optional): Interaction options, including:
+  - repeat (boolean): If true, the callback will be invoked upon the element's reappearance.
+  - onHide (function, optional): A function called when the element exits the viewport.
+  - threshold (number): The percentage of visibility needed to trigger the callback.
+
+Example:
+```
+Morph.ui.onview(document.querySelector('#myElement'), () => {
+  console.log('Element is visible!');
+});
+```
+### reactive
+reactive(object, element)
+
+Description: This method creates a reactive object that updates the specified HTML element when properties of the object change.
+
+Parameters:
+- object (object): The original object whose properties will be tracked.
+- element (HTMLElement): The HTML element whose content will be updated.
+
+Example:
+```
+const data = { name: 'John', age: 30 };
+const element = document.querySelector('#info');
+const reactiveData = Morph.ui.reactive(data, element);
+reactiveData.name = 'Jane'; // Updates the element with the new name
+```
 
 # Auth
 ## Configuration
