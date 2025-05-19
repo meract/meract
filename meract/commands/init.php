@@ -41,7 +41,7 @@ return new class {
 
 		// Файлы, которые должны быть созданы (если их нет)
 		$requiredFiles = [
-			PROJECT_DIR . '/app/routes/web.php' => "<?php\nuse Meract\Core\Session;\nuse Meract\Core\Route;\nuse Meract\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\t\return new Response(new View('welcome', ['year' => date('Y')])));\n});"
+			PROJECT_DIR . '/app/routes/web.php' => "<?php\nuse Meract\Core\View;\nuse Meract\Core\Route;\nuse Meract\Core\Response;\n\nRoute::get('/', function (\$rq) {\n\treturn new Response(new View('welcome', ['year' => date('Y')]));\n});"
 			/* 
 					 'index.php' => "<?php\n\n// Your index.php content here\n",
 					 'public/index.php' => "<?php\n\n// Your public/index.php content here\n", 
