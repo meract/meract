@@ -105,7 +105,14 @@ class MorphInstance {
 
 	// Обработка изменения хэша
 	_handleHashChange(isHistoryNavigation = false) {
-		const currentHash = window.location.hash.substring(1);
+		let currentHash = window.location.hash.substring(1);
+
+		let hashArr = currentHash.split('?');
+		currentHash = hashArr[0];
+		let params;
+		if (hashArr.length === 2){
+			params = JSON.parse('{"' + decodeURI(hashArr[1]).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+		}
 
 		// Пропуск если хэш не изменился
 		if (currentHash === this.lastHandledHash) return;
@@ -113,7 +120,11 @@ class MorphInstance {
 		this.lastHandledHash = currentHash;
 
 		if (currentHash && this.morphs[currentHash]) {
-			this._navigateTo(currentHash, null, isHistoryNavigation);
+			if (hashArr.length !== 2){
+				this._navigateTo(currentHash, null, isHistoryNavigation);
+			} else {
+				this._navigateTo(currentHash, params, isHistoryNavigation);
+			}
 		} else if (Object.keys(this.morphs).length > 0) {
 			// Активация первой страницы если нет валидного хэша
 			const firstPage = Object.values(this.morphs)[0];
@@ -160,7 +171,16 @@ class MorphInstance {
 		// Добавление в историю только если хэш изменился
 		if (window.location.hash.substring(1) !== name) {
 			this.ignoreNextHashChange = true;
-			window.history.pushState(state, '', `#${name}`);
+			if (this.morphs[name].getAttribute('showParams') === "true") {
+				let resultArr = [];
+				Object.keys(data).forEach(e => {
+					resultArr.push(`${encodeURI(e)}=${encodeURI(data[e])}`);
+				});
+				let searchParams = resultArr.join('&');
+				window.history.pushState(state, '', `#${name}?${searchParams}`);
+			} else {
+				window.history.pushState(state, '', `#${name}`);
+			}
 		}
 
 		this.lastHandledHash = name;
