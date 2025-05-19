@@ -131,7 +131,7 @@
         <div class="hero">
             <div class="container">
                 <h1>Welcome to Meract</h1>
-                <p>A modern PHP framework with innovative features, including the built-in Morph frontend framework.</p>
+                <p>A modern PHP framework with innovative features, including the built-in "Morph" frontend framework.</p>
                 <a href="https://github.com/meract/meract" class="btn">Github</a>
             </div>
         </div>

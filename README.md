@@ -26,6 +26,8 @@ Specific technical documentation on the methods [available here](https://meract.
 │   ├───core            - Scripts executed before server startup (shared utilities, additional settings, etc.)
 │   ├───middleware      - Route middleware
 │   ├───migrations      - Database migrations
+│   ├───morph-triggers  - Morph triggers 
+│   ├───scripts         - Autoload Frontend Scripts 
 │   ├───models          - Your models
 │   ├───routes          - Your routes
 │   ├───static          - Static files (HTML, CSS, JS)
@@ -40,7 +42,6 @@ Specific technical documentation on the methods [available here](https://meract.
 │
 ├───meract              - Framework code
 │   ├───commands        - Commands for `mrst` CLI tool
-│   ├───core            - Core framework classes and code
 │   └───drivers         - Drivers for framework components (e.g., StorageDrivers)
 │
 ├───config.php          - Framework and application configuration
@@ -736,6 +737,7 @@ When using `Morph.goTo`, you can specify the parameters for the component:
 ```
 Model.goTo('test', {a: 1, b: "2"});
 ```
+If you want to enable the use of loading parameters in the URL, add the attribute showParams="true". Then, the morph's loading parameters will be displayed in the URL and can also be loaded from there.
 
 Then you can get these parameters inside the component.:
 ```
