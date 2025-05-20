@@ -142,7 +142,7 @@ Morph.ui = {
 		function updateDOM(prop, value) {
 			if (markerElements[prop]) {
 				markerElements[prop].forEach(el => {
-					el.textContent = value;
+					el.innerHTML = value;
 				});
 			}
 		}

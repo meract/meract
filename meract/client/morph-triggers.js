@@ -74,8 +74,8 @@ class MorphTriggers {
                 : this.defaultValues.get(dataKey) || '';
             
             elements.forEach(el => {
-                if (el.textContent !== value) {
-                    el.textContent = value;
+                if (el.innerHTML!== value) {
+                    el.innerHTML = value;
                 }
             });
         }
