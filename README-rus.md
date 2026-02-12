@@ -1183,3 +1183,5 @@ Route::get('/api/user', function ($request) {
     - Все токены подписываются с использованием HMAC-SHA256
     - Refresh токены можно отзывать
     - HTTP-only cookie защищает от XSS
+
+   
