@@ -4,7 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/vendor/meract/core/src/RecursiveLoad.php';
 
 use Meract\Core\{Database, SDR, Injector, ScriptBuilder};
-//
+
 // Инициализация контейнера
 $injector = new Injector();
 SDR::setInjector($injector);
